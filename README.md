@@ -41,6 +41,8 @@ Please follow [this guide to the fork+PR workflow](https://gist.github.com/Chase
 
 ## Authors
 
+Maintained by [@dan1elhughes](https://github.com/dan1elhughes).
+
 See the list of [contributors](https://github.com/heathwallace/ethereum-pos/contributors) who participated in this project.
 
 ## License
