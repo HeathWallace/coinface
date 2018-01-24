@@ -2,6 +2,8 @@
 
 A vendor-facing point-of-sale React app to view incoming transactions to an Ethereum wallet.
 
+[![CircleCI](https://circleci.com/gh/HeathWallace/ethereum-pos.svg?style=shield&circle-token=4090d7f93c1bd552f529296e4cf5503cb22e44ed)](https://circleci.com/gh/HeathWallace/ethereum-pos)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
