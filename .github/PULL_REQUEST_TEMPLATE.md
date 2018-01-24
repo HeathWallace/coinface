@@ -8,4 +8,4 @@ Write here.
 
 ### Checklist
 
-- [ ] `npm run lint` returns no warnings or errors.
+- [ ] `npm test` returns no warnings or errors.
