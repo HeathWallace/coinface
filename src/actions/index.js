@@ -1,10 +1,22 @@
 import * as types from '../constants/actionTypes';
 import api from '../api/transactions';
 
-export const addTransaction = transaction => ({
-	type: types.ADD_TRANSACTION,
-	payload: transaction,
-});
+import { Transaction } from './structures';
+
+export const addTransaction = data => {
+	const payload = Transaction(data);
+
+	return {
+		type: types.ADD_TRANSACTION,
+		payload,
+	};
+};
+
+export const receiveTransaction = transactions => dispatch => {
+	transactions.forEach(transaction => {
+		dispatch(addTransaction(transaction));
+	});
+};
 
 export const receiveTransactions = transactions => ({
 	type: types.RECEIVE_TRANSACTIONS,
