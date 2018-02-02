@@ -5,18 +5,16 @@ import Button from './Button';
 
 storiesOf('Button')
 
-	.add('default', withInfo(Button.description)(() => (
-		<Button onClick={action('clicked')}>This is the button</Button>
-	)))
+	.addDecorator((story, context) => withInfo(Button.description)(story)(context))
 
-	.add('with info', withInfo(Button.description)(() => (
-		<Button onClick={action('clicked')}>This is the button</Button>
-	)))
-
-	.add('with no text', withInfo(Button.description)(() => (
+	.add('with no text', () => (
 		<Button onClick={action('clicked')}/>
-	)))
+	))
 
-	.add('with some emoji', withInfo(Button.description)(() => (
+	.add('with children', () => (
+		<Button onClick={action('clicked')}>This is the button</Button>
+	))
+
+	.add('with some emoji', () => (
 		<Button onClick={action('clicked')}>😀 😎 👍 💯</Button>
-	)));
+	));
