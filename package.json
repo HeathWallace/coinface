@@ -15,9 +15,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "eslint --ignore-path .gitignore .",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 3000 -c .storybook"
   },
   "devDependencies": {
+    "@storybook/addon-info": "^3.3.11",
+    "@storybook/react": "^3.3.11",
     "eslint": "^4.16.0",
     "redux-devtools": "^3.4.1",
     "redux-devtools-dock-monitor": "^1.1.3",
