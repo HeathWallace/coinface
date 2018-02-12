@@ -14,7 +14,14 @@ const TransactionsList = ({ transactions }) => (
 	</div>
 );
 
+TransactionsList.description = `
+Iterates through the transactions and hands rendering responsibility to child <Transaction/> components.
+
+Should have an empty state for no transactions.
+`;
+
 TransactionsList.propTypes = {
+	/** Array of Transactions, see the Transaction component for specific propTypes */
 	transactions: PropTypes.array.isRequired,
 };
 
