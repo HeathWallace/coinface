@@ -1,11 +1,16 @@
 import transactions from './data.json';
-
 const TIMEOUT = 250;
 
 export default {
-	getTransactions(cb) {
-		setTimeout(() => {
-			cb(transactions);
-		}, TIMEOUT);
+	getTransactions() {
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				if (transactions.message === 'OK'){
+					resolve(transactions.result);
+				}else{
+					reject(transactions);
+				}
+			}, TIMEOUT);
+		});
 	},
 };
