@@ -4,6 +4,15 @@ import { storiesOf, withInfo } from '../../stories';
 import Transaction from './Transaction';
 
 storiesOf('Transaction')
-	.add('with junk data', withInfo()(() => (
-		<Transaction foo='bar'/>
-	)));
+
+	.addDecorator((story, context) => withInfo(Transaction.description)(story)(context))
+
+	.add('with junk data', () => (
+		<Transaction
+			from={"0x52903256dd18d85c2dc4a6c999907c9793ea61e3"}
+			to={'0x519475b31653e46d20cd09f9fdcf3b12bdacb4f5'}
+			amount={'1.2'}
+			timeStamp={'12/02/2018 11:51'}
+			trust={4}
+		/>
+	));
