@@ -27,8 +27,8 @@ Used as a visualisation of a particular transaction, containing all the required
 
 Transaction.propTypes = {
 	/** unique identification for the transaition */
-	transactionHash: PropTypes.number.isRequired,
-	
+	transactionHash: PropTypes.string.isRequired,
+
 	/** the address from which the transaction was sent */
 	from: PropTypes.string.isRequired,
 
