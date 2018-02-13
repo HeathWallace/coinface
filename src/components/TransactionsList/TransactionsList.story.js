@@ -7,6 +7,10 @@ storiesOf('TransactionsList')
 
 	.addDecorator((story, context) => withInfo(TransactionsList.description)(story)(context))
 
+	.add('with no data', () => (
+		<TransactionsList transactions={[]} />
+	))
+
 	.add('with junk data', () => (
 		<TransactionsList transactions={
 			[

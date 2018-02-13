@@ -1,0 +1,24 @@
+.TransactionsList .no-results {
+    background: #d5d711;
+    text-align: center;
+    padding: 10px;
+    font-size: 3em;
+}
+
+.TransactionsList .no-results .icon {
+    display: inline-block;
+    animation: rotation 2.5s infinite linear;
+    width: 70px;
+    text-align: center;
+    line-height: 70px;
+}
+
+
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
+}
