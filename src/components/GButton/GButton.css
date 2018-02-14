@@ -1,0 +1,14 @@
+.GButton {
+	padding: 3em;
+	color: red;
+}
+
+.GButton.primary {
+	padding: 2em;
+	color: blue;
+}
+
+.GButton.secondary {
+	padding: 1em;
+	color: green;
+}
