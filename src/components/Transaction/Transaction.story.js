@@ -14,6 +14,6 @@ storiesOf('Transaction')
 			amount={1.2}
 			timeStamp={'12/02/2018 11:51'}
 			trust={4}
-			transactionHash={'0x2d9c28aefc4768aa0710391d1723743358ba0f1101d443478826e382edb74612'}
+			hash={'0x2d9c28aefc4768aa0710391d1723743358ba0f1101d443478826e382edb74612'}
 		/>
 	));
