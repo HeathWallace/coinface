@@ -16,7 +16,8 @@ const TransactionsList = ({ transactions }) => (
 			))
 		}
 		{transactions.length <= 0 &&
-			<p className="no-results">No transactions found!
+			<p className="no-results">
+		]		No transactions found!
 				<span className="icon">😖</span>
 			</p>
 		}
