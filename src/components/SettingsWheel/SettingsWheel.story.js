@@ -8,6 +8,5 @@ storiesOf('SettingsWheel')
 	.addDecorator((story, context) => withInfo(SettingsWheel.description)(story)(context))
 
 	.add('Static', () => (
-		<SettingsWheel onClick={action('Clicked')}/>
-
+		<SettingsWheel onClick={action('onClick')}/>
 	));
