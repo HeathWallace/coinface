@@ -24,4 +24,14 @@ storiesOf('GButton')
 		<GButton onClick={action('clicked')}
 			variant='secondary'
 			disabled={true}>I&apos;m a disabled secondary button!</GButton>
+	))
+	.add('Disabled primary button', () => (
+		<GButton onClick={action('clicked')}
+			variant='primary'
+			disabled={true}>I&apos;m a disabled primary button!</GButton>
+	))
+	.add('Disabled secondary button', () => (
+		<GButton onClick={action('clicked')}
+			variant='secondary'
+			disabled={true}>I&apos;m a disabled secondary button!</GButton>
 	));
