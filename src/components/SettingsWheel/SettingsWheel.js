@@ -23,7 +23,7 @@ SettingsWheel.propTypes = {
 	accessibleText: PropTypes.string.isRequired,
 
 	/** A function to be called when the settings wheel is clicked. */
-	onClick: PropTypes.func,
+	onClick: PropTypes.func.isRequired,
 };
 
 export default SettingsWheel;
