@@ -8,6 +8,6 @@
 .Header .SettingsWheel{
 	float: right;
 }
-.Header__content{
+.Header .content{
 	display: inline-block;
 }
