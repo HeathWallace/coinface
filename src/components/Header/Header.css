@@ -1,4 +1,13 @@
+.Header{
+	overflow: auto;
+}
 .Header.dark{
 	background: #333;
 	color: #fff;
+}
+.Header .SettingsWheel{
+	float: right;
+}
+.Header__content{
+	display: inline-block;
 }

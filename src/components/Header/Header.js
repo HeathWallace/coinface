@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import SettingsWheel from '../SettingsWheel/SettingsWheel';
+
 import './Header.css';
 
-const Header = ({ theme, children }) => (
+const Header = ({ theme, children, onOpenSettings }) => (
 	<div className={`Header ${theme}`}>
-		{children}
+		<div className="Header__content">{children}</div>
+		<SettingsWheel onClick={onOpenSettings} />
 	</div>
 );
 
@@ -23,6 +26,9 @@ Header.propTypes = {
 
 	/** background theme of the header. */
 	theme: PropTypes.oneOf(['light', 'dark']).isRequired,
+
+	/** function to parse through to SettingsWheel for onClick event */
+	onOpenSettings: PropTypes.func.isRequired,
 
 };
 
