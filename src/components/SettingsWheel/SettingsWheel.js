@@ -19,7 +19,10 @@ SettingsWheel.defaultProps = {
 
 };
 SettingsWheel.propTypes = {
+	/** The text provided for screen readers */
 	accessibleText: PropTypes.string.isRequired,
+
+	/** A function to be called when the settings wheel is clicked. */
 	onClick: PropTypes.func,
 };
 
