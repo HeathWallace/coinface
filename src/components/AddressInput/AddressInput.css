@@ -1,0 +1,8 @@
+.AddressInput label {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.AddressInput input {
+	padding: 5px;
+}
