@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import inputIdGenerator from '../../utils/inputIdGenerator';
 
 import './AddressInput.css';
 
-const AddressInput = ({ inputId, labelText, value, onChange }) => (
+const AddressInput = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange }) => (
 	<div className="AddressInput">
-		<label htmlFor={inputId}>
+		<label htmlFor={id}>
 			{labelText}
 		</label>
 		<input
-			id={inputId}
+			id={id}
 			type="text"
 			onChange={e => onChange(e.target.value)}
 			value={value}
@@ -24,12 +25,14 @@ Further expansions include multiple address support or QR input.
 `;
 
 AddressInput.defaultProps = {
+	/** Text for input label */
 	labelText: 'Address input',
 };
 
 AddressInput.propTypes = {
-	/** HTML id attribute for the input */
-	inputId: PropTypes.string.isRequired,
+	/** HTML id attribute for the input
+	If not present one is generated automgically */
+	id: PropTypes.string,
 
 	/** Text used for the label */
 	labelText: PropTypes.string.isRequired,
