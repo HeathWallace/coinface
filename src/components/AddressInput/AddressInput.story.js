@@ -8,7 +8,5 @@ storiesOf('AddressInput')
 	.addDecorator((story, context) => withInfo(AddressInput.description)(story)(context))
 
 	.add('base', () => (
-		<div>
-			<AddressInput onChange={action('onChange')} />
-		</div>
+		<AddressInput onChange={action('onChange')} />
 	));

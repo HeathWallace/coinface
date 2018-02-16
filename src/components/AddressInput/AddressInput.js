@@ -31,7 +31,7 @@ AddressInput.defaultProps = {
 
 AddressInput.propTypes = {
 	/** HTML id attribute for the input
-	If not present one is generated automgically */
+	If not present one is generated automagically */
 	id: PropTypes.string,
 
 	/** Text used for the label */
