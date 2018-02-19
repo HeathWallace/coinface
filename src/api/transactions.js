@@ -1,13 +1,5 @@
 /* global process */
 
-/*
-/getAddressHistory
-	/0x5c3216a6d9fbd7cf2afbe9157ff7e7d1db3d7bed
-		?token=0xe3b3651b2987f76a45753b5160504a2ab606716b
-		&type=transfer
-		&apiKey=freekey
-*/
-
 class Transactions {
 	constructor() {
 		this.base = 'https://api.ethplorer.io';
