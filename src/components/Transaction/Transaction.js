@@ -39,7 +39,7 @@ class Transaction extends React.Component {
 	}
 
 	render() {
-		const { from, to, amount, timestamp, trust } = this.props;
+		const { from, to, amount, timestamp, trust, symbol } = this.props;
 
 		return (
 			<div className="Transaction">
@@ -49,7 +49,7 @@ class Transaction extends React.Component {
 					<dt className="to">To:</dt>
 					<dd className="to">{to}</dd>
 					<dt className="amount">Amount:</dt>
-					<dd className="amount">{amount} GRM</dd>
+					<dd className="amount">{amount} {symbol}</dd>
 					<dt className="time">Time:</dt>
 					<dd className="time">{this._toHumanReadableInterval(timestamp)}</dd>
 					<dt className="trust">Trust:</dt>
@@ -76,6 +76,9 @@ Transaction.propTypes = {
 
 	/** the amount of currency moved in the transaction */
 	amount: PropTypes.string.isRequired,
+
+	/** The suffix to show after the transaction amount, such as "BTC" or "ETH" */
+	symbol: PropTypes.string.isRequired,
 
 	/** the timestamp at which the transaction occurred */
 	timestamp: PropTypes.number.isRequired,
