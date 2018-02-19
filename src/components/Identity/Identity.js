@@ -41,7 +41,7 @@ class Identity extends React.Component {
 		return (
 			<div className="Identity">
 				<SkypeProfile
-				username={this.state.username}
+					username={this.state.username}
 				/>
 				<FirstName name={this.state.name}></FirstName>
 			</div>
