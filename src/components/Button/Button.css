@@ -1,3 +1,30 @@
 .Button {
 	padding: 1em;
+	padding-left: 2em;
+	padding-right: 2em;
+	border: none;
+	border-radius: 4px;
+	font-size: 15px;
+	font-weight: bold;
+
+}
+
+.Button.primary {
+	color: white;
+	background-color: #F54EA2;
+}
+
+.Button.secondary {
+	color: white;
+	background-color: #43E695;
+}
+
+.Button.primary.disabled {
+	color: #dddddd;
+	background-color: #733650;
+}
+
+.Button.secondary.disabled {
+	color: #dddddd;
+	background-color: #2B6C52;
 }
