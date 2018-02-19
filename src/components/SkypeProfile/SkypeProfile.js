@@ -5,7 +5,7 @@ import './SkypeProfile.css';
 
 const SkypeProfile = props => (
 	<div className="SkypeProfile">
-		<img src={'http://api.skype.com/users/' + props.username + '/profile/avatar?size=l'} alt='Skype photo' />
+		<img src={'http://api.skype.com/users/' + props.username + '/profile/avatar?size=s'} alt='Skype photo' />
 	</div>
 );
 
