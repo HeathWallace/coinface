@@ -1,32 +1,71 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import human from 'human-time';
 
 import './Transaction.css';
 
+class Transaction extends React.Component {
+	constructor(props) {
+		super(props);
 
-const Transaction = props => (
-	<div className="Transaction">
-		<dl>
-			<dt className="from">From:</dt>
-			<dd className="from">{props.from}</dd>
-			<dt className="to">To:</dt>
-			<dd className="to">{props.to}</dd>
-			<dt className="amount">Amount:</dt>
-			<dd className="amount">{props.amount} GRM</dd>
-			<dt className="time">Time:</dt>
-			<dd className="time">{props.timeStamp}</dd>
-			<dt className="trust">Trust:</dt>
-			<dd className="trust">{props.trust}</dd>
-		</dl>
-	</div>
-);
+		this.state = {
+			secondsElapsed: 0,
+		};
+
+		this.tick = this.tick.bind(this);
+	}
+
+	componentDidMount() {
+		this._interval = setInterval(this.tick, 1000);
+	}
+
+	componentWillUnmount() {
+		clearInterval(this._interval);
+	}
+
+	tick() {
+		this.setState(prevState => {
+			const { secondsElapsed } = prevState;
+
+			return { secondsElapsed: secondsElapsed + 1 };
+		});
+	}
+
+	_toHumanReadableInterval(timestamp) {
+		const now = new Date();
+		const then = new Date(timestamp * 1000);
+		const difference = Math.abs((now.getTime() - then.getTime()) / 1000);
+		return human(difference);
+	}
+
+	render() {
+		const { from, to, amount, timestamp, trust } = this.props;
+
+		return (
+			<div className="Transaction">
+				<dl>
+					<dt className="from">From:</dt>
+					<dd className="from">{from}</dd>
+					<dt className="to">To:</dt>
+					<dd className="to">{to}</dd>
+					<dt className="amount">Amount:</dt>
+					<dd className="amount">{amount} GRM</dd>
+					<dt className="time">Time:</dt>
+					<dd className="time">{this._toHumanReadableInterval(timestamp)}</dd>
+					<dt className="trust">Trust:</dt>
+					<dd className="trust">{trust}</dd>
+				</dl>
+			</div>
+		);
+	}
+}
 
 Transaction.description = `
 Used as a visualisation of a particular transaction, containing all the required information that would be useful to a user of the POS system.
 `;
 
 Transaction.propTypes = {
-	/** unique identification for the transaition */
+	/** unique identification for the transaction */
 	hash: PropTypes.string.isRequired,
 
 	/** the address from which the transaction was sent */
@@ -36,13 +75,13 @@ Transaction.propTypes = {
 	to: PropTypes.string.isRequired,
 
 	/** the amount of currency moved in the transaction */
-	amount: PropTypes.number.isRequired,
+	amount: PropTypes.string.isRequired,
 
 	/** the timestamp at which the transaction occurred */
-	timeStamp: PropTypes.string.isRequired,
+	timestamp: PropTypes.number.isRequired,
 
 	/** the number of confirmations that the transaction has received */
-	trust: PropTypes.number.isRequired,
+	trust: PropTypes.number,
 };
 
 export default Transaction;

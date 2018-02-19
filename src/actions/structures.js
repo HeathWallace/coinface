@@ -1,4 +1,7 @@
-import { struct } from 'superstruct';
+// https://github.com/HeathWallace/ethereum-pos/issues/28
+// import { struct } from 'superstruct';
+
+const struct = () => x => x;
 
 export const Transaction = struct({
 	'address': 'string',
