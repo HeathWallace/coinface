@@ -1,6 +1,8 @@
 /* global process */
 import React from 'react';
 import PropTypes from 'prop-types';
+import SkypeProfile from '../SkypeProfile/SkypeProfile';
+import FirstName from '../FirstName/FirstName';
 
 const envError = `
 process.env.REACT_APP_IDENTITY_RESOLVER is unset.
@@ -38,8 +40,10 @@ class Identity extends React.Component {
 	render() {
 		return (
 			<div className="Identity">
-				<p>Username: {this.state.username}</p>
-				<p>Name: {this.state.name}</p>
+				<SkypeProfile
+					username={this.state.username}
+				/>
+				<FirstName name={this.state.name}></FirstName>
 			</div>
 		);
 	}
