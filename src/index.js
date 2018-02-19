@@ -7,9 +7,10 @@ import { Provider } from 'react-redux';
 import store from './store';
 import DevTools from './containers/DevTools/DevTools';
 
-import { getAllTransactions } from './actions';
+import { getAllTransactions, enableTransactionPolling } from './actions';
 
 store.dispatch(getAllTransactions());
+store.dispatch(enableTransactionPolling());
 
 ReactDOM.render(
 	<Provider store={store}>
