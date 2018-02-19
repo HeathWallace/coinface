@@ -9,11 +9,12 @@ storiesOf('Transaction')
 
 	.add('with junk data', () => (
 		<Transaction
-			from={'0x52903256dd18d85c2dc4a6c999907c9793ea61e3'}
-			to={'0x519475b31653e46d20cd09f9fdcf3b12bdacb4f5'}
-			amount={1.2}
-			timeStamp={'12/02/2018 11:51'}
+			from={'0xb794f5ea0ba39494ce839613fffba74279579268'}
+			to={'0x281055afc982d96fab65b3a49cac8b878184cb16'}
+			amount={'88.00'}
+			timestamp={1519059931}
 			trust={4}
-			hash={'0x2d9c28aefc4768aa0710391d1723743358ba0f1101d443478826e382edb74612'}
+			hash={'0x126f82dcb2f4a283b4ebe20887deb8fdae8b136bf6c732ab444fd8910b442e3b'}
+			symbol={'ABC'}
 		/>
 	));
