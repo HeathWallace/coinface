@@ -46,7 +46,7 @@ class Transactions {
 
 		return fetch(this.buildQuery({ url, params }))
 			.then(response => response.json())
-			.then(result => result.operations);
+			.then(result => result.operations.filter(transfer => transfer.to === wallet));
 	}
 }
 
