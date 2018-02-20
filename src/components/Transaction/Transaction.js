@@ -1,8 +1,12 @@
+/* global process */
 import React from 'react';
 import PropTypes from 'prop-types';
 import human from 'human-time';
 
 import './Transaction.css';
+
+import SkypeProfile from '../SkypeProfile/SkypeProfile';
+import FirstName from '../FirstName/FirstName';
 
 class Transaction extends React.Component {
 	constructor(props) {
@@ -10,6 +14,8 @@ class Transaction extends React.Component {
 
 		this.state = {
 			secondsElapsed: 0,
+			username: 'gary_purbrick',
+			name: 'Gary Purbrick',
 		};
 
 		this.tick = this.tick.bind(this);
@@ -17,6 +23,21 @@ class Transaction extends React.Component {
 
 	componentDidMount() {
 		this._interval = setInterval(this.tick, 1000);
+
+		const { REACT_APP_IDENTITY_RESOLVER: url } = process.env;
+		if (!url) throw new Error('REACT_APP_IDENTITY_RESOLVER unset in .env file');
+
+		const { from } = this.props;
+
+		fetch(`${url}/search/?address=${from}`)
+			.then(response => response.json())
+			.then(([ user ]) => {
+				if (user) {
+					const { username, name } = user;
+
+					this.setState({ username, name });
+				}
+			});
 	}
 
 	componentWillUnmount() {
@@ -40,21 +61,20 @@ class Transaction extends React.Component {
 
 	render() {
 		const { from, to, amount, timestamp, trust, symbol } = this.props;
+		const { username, name } = this.state;
 
 		return (
 			<div className="Transaction">
-				<dl>
-					<dt className="from">From:</dt>
-					<dd className="from">{from}</dd>
-					<dt className="to">To:</dt>
-					<dd className="to">{to}</dd>
-					<dt className="amount">Amount:</dt>
-					<dd className="amount">{amount} {symbol}</dd>
+				<SkypeProfile username={username}/>
+				<dl className="customerDetails">
+					<dt className="name">Name:</dt>
+					<FirstName name={name}></FirstName>
 					<dt className="time">Time:</dt>
 					<dd className="time">{this._toHumanReadableInterval(timestamp)}</dd>
-					<dt className="trust">Trust:</dt>
-					<dd className="trust">{trust}</dd>
+					<dt className="from">From:</dt>
+					<dd className="from">{from}</dd>
 				</dl>
+				<p className="amount">{amount} {symbol}</p>
 			</div>
 		);
 	}
@@ -78,7 +98,7 @@ Transaction.propTypes = {
 	amount: PropTypes.string.isRequired,
 
 	/** The suffix to show after the transaction amount, such as "BTC" or "ETH" */
-	symbol: PropTypes.string.isRequired,
+	symbol: PropTypes.string,
 
 	/** the timestamp at which the transaction occurred */
 	timestamp: PropTypes.number.isRequired,

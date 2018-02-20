@@ -1,53 +1,35 @@
 .Transaction {
+		align-items: center;
     animation: bounceInRight 1s;
-    background: #d5d711;
-    padding: 10px 10px 0;
-    margin-bottom: 10px;
+		background: #313045;;
+		border-radius: 16px;
+		color: #FFFFFF;
+		display: flex;
+		margin-bottom: 8px;
+    padding: 16px 32px;
 }
 
-.Transaction dl {
-    width: 100%;
-    margin: 0;
-    position: relative;
+.Transaction .customerDetails {
+		flex: 1;
+		width: 100%;
 }
 
-.Transaction dl:after {
+.Transaction .customerDetails:after {
     clear: both;
     content: "";
     display: table;
 }
 
-.Transaction dt,
-.Transaction dd {
+.Transaction .customerDetails dt,
+.Transaction .customerDetails dd {
     float: left;
     margin: 0 0 10px;
 }
 
-.Transaction dt {
+.Transaction .customerDetails dt {
     clear: both;
     margin-right: 10px;
     min-width: 60px;
-}
-
-
-.Transaction dt.time,
-.Transaction dt.amount {
-    position: absolute;
-    left: -9999px;
-}
-
-.Transaction dd.amount {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    font-size: 3em;
-    margin: 0;
-}
-
-.Transaction dd.time {
-    position: absolute;
-    right: 0;
-    top: 0;
 }
 
 @keyframes bounceInRight {

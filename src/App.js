@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './reset.css';
+import './base.css';
 import './App.css';
 
 import TransactionList from './containers/TransactionList/TransactionList';
@@ -8,7 +10,6 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<CreateRandomTransaction>Add random transaction</CreateRandomTransaction>
 				<TransactionList/>
 			</div>
 		);
