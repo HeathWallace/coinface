@@ -1,14 +1,10 @@
-/* global process */
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import env from '../../utils/environment';
+
 import SkypeProfile from '../SkypeProfile/SkypeProfile';
 import FirstName from '../FirstName/FirstName';
-
-const envError = `
-process.env.REACT_APP_IDENTITY_RESOLVER is unset.
-Create the .env file to set this variable locally for development.
-This should point the identity resolver URL to an identity API.
-`;
 
 class Identity extends React.Component {
 	constructor(props) {
@@ -21,8 +17,7 @@ class Identity extends React.Component {
 	}
 
 	componentDidMount() {
-		const { REACT_APP_IDENTITY_RESOLVER: url } = process.env;
-		if (!url) throw new Error(envError);
+		const url = env.REACT_APP_IDENTITY_RESOLVER;
 
 		const { address } = this.props;
 

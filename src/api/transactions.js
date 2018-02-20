@@ -1,25 +1,12 @@
-/* global process */
+import env from '../utils/environment';
 
 class Transactions {
 	constructor() {
 		this.base = 'https://api.ethplorer.io';
 
-		this.token = process.env.REACT_APP_CONTRACT_ADDRESS;
-		this.wallet = process.env.REACT_APP_WALLET_ADDRESS;
-		this.apiKey = process.env.REACT_APP_ETHPLORER_API_KEY;
-
-		if (!this.token) {
-			throw new Error('Environment variable REACT_APP_CONTRACT_ADDRESS is required.');
-		}
-
-		if (!this.wallet) {
-			throw new Error('Environment variable REACT_APP_WALLET_ADDRESS is required.');
-		}
-
-		if (!this.apiKey) {
-			console.error('Warning: environment variable REACT_APP_ETHPLORER_API_KEY is unset. Using default free key - watch out for rate limits!'); // eslint-disable-line
-			this.apiKey = 'freekey';
-		}
+		this.token = env.REACT_APP_CONTRACT_ADDRESS;
+		this.wallet = env.REACT_APP_WALLET_ADDRESS;
+		this.apiKey = env.REACT_APP_ETHPLORER_API_KEY;
 	}
 
 	get routes() {

@@ -1,6 +1,8 @@
 import { createReducer } from '../util';
 import * as types from '../../constants/actionTypes';
 
+import env from '../../utils/environment';
+
 const initialTransactions = {};
 
 const addTransaction = (transactionsState, { payload }) => {
@@ -14,8 +16,18 @@ const addTransaction = (transactionsState, { payload }) => {
 
 	const { timestamp, from, to, value, tokenInfo } = payload;
 
-	const decimals = parseInt(tokenInfo.decimals, 10);
-	const amount = (value * Math.pow(10, -decimals)).toFixed(2);
+	let decimals = parseInt(env.REACT_APP_DEFAULT_DECIMALS, 10);
+	let symbol = env.REACT_APP_DEFAULT_SYMBOL;
+
+	if (tokenInfo) {
+		decimals = parseInt(tokenInfo.decimals, 10);
+		symbol = tokenInfo.symbol;
+	}
+
+	// Converts the indivisible base amount with a decimal
+	// to a human-readable amount. I.e., 300 base units
+	// with 2 decimals is represented as 3.00
+	const amount = (value * Math.pow(10, -decimals)).toFixed(decimals);
 
 	// Otherwise, combine the new transaction with the existing ones.
 	return {
@@ -27,6 +39,7 @@ const addTransaction = (transactionsState, { payload }) => {
 			from,
 			to,
 			amount,
+			symbol,
 		},
 	};
 };
