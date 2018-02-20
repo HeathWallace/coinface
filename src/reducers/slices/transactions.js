@@ -12,7 +12,10 @@ const addTransaction = (transactionsState, { payload }) => {
 		return transactionsState;
 	}
 
-	const time = new Date(1000 * parseInt(payload.timeStamp, 16));
+	const { timestamp, from, to, value, tokenInfo } = payload;
+
+	const decimals = parseInt(tokenInfo.decimals, 10);
+	const amount = (value * Math.pow(10, -decimals)).toFixed(2);
 
 	// Otherwise, combine the new transaction with the existing ones.
 	return {
@@ -20,11 +23,10 @@ const addTransaction = (transactionsState, { payload }) => {
 
 		// Stored at a computed key in the object.
 		[payload.transactionHash]: {
-			time,
-			from: '',
-			to: '',
-			amount: '',
-			trust: '',
+			timestamp,
+			from,
+			to,
+			amount,
 		},
 	};
 };
