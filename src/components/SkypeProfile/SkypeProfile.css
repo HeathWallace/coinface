@@ -1,3 +1,7 @@
 .SkypeProfile {
 	margin-right: 32px;
 }
+
+.SkypeProfile img {
+	border-radius: 50px;
+}
