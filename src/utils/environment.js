@@ -2,6 +2,8 @@
 
 class Environment {
 	constructor() {
+		// Convert each required variable to a key/value
+		// pair, and merge all the pairs into the instance
 		Object.assign(this, ...this.requiredEnvironmentVariables.map(this._loadOrWarn));
 	}
 
@@ -17,6 +19,9 @@ class Environment {
 		];
 	}
 
+	// Convert a variable name into a key/value pair from
+	// the process.env, and warn if the variable does
+	// not have a value i.e. is unset.
 	_loadOrWarn(name) {
 		const val = process.env[name];
 
