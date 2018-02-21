@@ -4,9 +4,15 @@
 		background: #313045;;
 		border-radius: 16px;
 		color: #FFFFFF;
-		display: flex;
 		margin-bottom: 8px;
-    padding: 16px 32px;
+		position: relative;
+		overflow: hidden;
+}
+
+.Transaction .transactionInner {
+		align-items: center;
+		display: flex;
+		padding: 16px 32px 12px;
 }
 
 .Transaction .customerDetails {
@@ -14,23 +20,35 @@
 		width: 100%;
 }
 
-.Transaction .customerDetails:after {
-    clear: both;
-    content: "";
-    display: table;
+.Transaction .time {
+    display: inline-block;
+		font-size: 0.875em;
+		font-weight: bold;
+		line-height: 1em;
+		opacity: 0.5;
 }
 
-.Transaction .customerDetails dt,
-.Transaction .customerDetails dd {
-    float: left;
-    margin: 0 0 10px;
+.Transaction .from {
+		font-size: 1em;
+		line-height: 1.5em;
+		opacity: 0.5;
 }
 
-.Transaction .customerDetails dt {
-    clear: both;
-    margin-right: 10px;
-    min-width: 60px;
+.Transaction .amount {
+		font-size: 1.4375em;
+		font-weight: bold;
+		line-height: 2em;
 }
+
+.Transaction .progressBar {
+		background: #43E695;
+		border-radius: 0 2px 2px 0;
+		display: block;
+		height: 4px;
+		width: 50%;
+}
+
+
 
 @keyframes bounceInRight {
   from,

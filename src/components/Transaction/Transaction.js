@@ -65,16 +65,16 @@ class Transaction extends React.Component {
 
 		return (
 			<div className="Transaction">
-				<SkypeProfile username={username}/>
-				<dl className="customerDetails">
-					<dt className="name">Name:</dt>
-					<FirstName name={name}></FirstName>
-					<dt className="time">Time:</dt>
-					<dd className="time">{this._toHumanReadableInterval(timestamp)}</dd>
-					<dt className="from">From:</dt>
-					<dd className="from">{from}</dd>
-				</dl>
-				<p className="amount">{amount} {symbol}</p>
+				<div className="transactionInner">
+					<SkypeProfile username={username}/>
+					<div className="customerDetails">
+						<FirstName name={name}></FirstName>
+						<p className="time">{this._toHumanReadableInterval(timestamp)}</p>
+						<p className="from">{from}</p>
+					</div>
+					<p className="amount">{amount} {symbol}</p>
+				</div>
+				<div className="progressBar"></div>
 			</div>
 		);
 	}

@@ -5,7 +5,7 @@ import './FirstName.css';
 
 const FirstName = props => (
 	<div className="FirstName">
-		<dd>{props.name.split(' ')[0]}</dd>
+		<p>{props.name.split(' ')[0]}</p>
 	</div>
 );
 
