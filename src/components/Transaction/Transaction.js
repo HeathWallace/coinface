@@ -1,9 +1,10 @@
-/* global process */
 import React from 'react';
 import PropTypes from 'prop-types';
 import human from 'human-time';
 
 import './Transaction.css';
+
+import env from '../../utils/environment';
 
 import SkypeProfile from '../SkypeProfile/SkypeProfile';
 import FirstName from '../FirstName/FirstName';
@@ -14,8 +15,8 @@ class Transaction extends React.Component {
 
 		this.state = {
 			secondsElapsed: 0,
-			username: 'gary_purbrick',
-			name: 'Gary Purbrick',
+			username: 'unknown',
+			name: 'unknown',
 		};
 
 		this.tick = this.tick.bind(this);
@@ -24,8 +25,7 @@ class Transaction extends React.Component {
 	componentDidMount() {
 		this._interval = setInterval(this.tick, 1000);
 
-		const { REACT_APP_IDENTITY_RESOLVER: url } = process.env;
-		if (!url) throw new Error('REACT_APP_IDENTITY_RESOLVER unset in .env file');
+		const url = env.REACT_APP_IDENTITY_RESOLVER;
 
 		const { from } = this.props;
 
