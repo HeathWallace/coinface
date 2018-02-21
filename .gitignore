@@ -9,6 +9,10 @@
 # production
 /build
 
+# manually copied lib files for compilation
+/src/lib/*
+!/src/lib/.gitkeep
+
 # misc
 .DS_Store
 .env

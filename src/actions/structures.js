@@ -1,17 +1,18 @@
 // https://github.com/HeathWallace/ethereum-pos/issues/28
-// import { struct } from 'superstruct';
+import { struct as structLib } from '../lib/superstruct';
+import env from '../utils/environment';
 
-const struct = () => x => x;
+const structFake = () => x => x;
+structFake.union = () => {};
+
+const struct = env.NODE_ENV === 'production' ? structFake : structLib;
 
 export const Transaction = struct({
-	'address': 'string',
-	'topics': ['string'],
-	'data': 'string',
-	'blockNumber': 'string',
-	'timeStamp': 'string',
-	'gasPrice': 'string',
-	'gasUsed': 'string',
-	'logIndex': 'string',
+	'from': 'string',
+	'timestamp': 'number',
+	'to': 'string',
+	'tokenInfo': struct.union(['boolean', 'object']), // API is inconsistent with what it returns here.
 	'transactionHash': 'string',
-	'transactionIndex': 'string',
+	'type': 'string',
+	'value': 'string',
 });
