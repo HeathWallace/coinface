@@ -14,7 +14,7 @@ class App extends React.Component {
 		super(props);
 
 		this.state = {
-			settingsDrawerIsOpen: true,
+			settingsDrawerIsOpen: false,
 		};
 
 		this.toggleSettingsDrawer = this.toggleSettingsDrawer.bind(this);
