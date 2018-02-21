@@ -22,7 +22,7 @@ Header.defaultProps = {
 
 Header.propTypes = {
 	/** content to display with the header. */
-	children: PropTypes.string.isRequired,
+	children: PropTypes.node.isRequired,
 
 	/** background theme of the header. */
 	theme: PropTypes.oneOf(['light', 'dark']).isRequired,
