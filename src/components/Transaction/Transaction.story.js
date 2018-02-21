@@ -10,7 +10,6 @@ storiesOf('Transaction')
 	.add('with junk data', () => (
 		<Transaction
 			from={'0xb794f5ea0ba39494ce839613fffba74279579268'}
-			to={'0x281055afc982d96fab65b3a49cac8b878184cb16'}
 			amount={'88.00'}
 			timestamp={1519059931}
 			trust={4}
