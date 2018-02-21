@@ -60,7 +60,7 @@ class Transaction extends React.Component {
 	}
 
 	render() {
-		const { from, to, amount, timestamp, trust, symbol } = this.props;
+		const { from, amount, timestamp, symbol } = this.props;
 		const { username, name } = this.state;
 
 		return (
@@ -90,9 +90,6 @@ Transaction.propTypes = {
 
 	/** the address from which the transaction was sent */
 	from: PropTypes.string.isRequired,
-
-	/** address from which the transaction was sent */
-	to: PropTypes.string.isRequired,
 
 	/** the amount of currency moved in the transaction */
 	amount: PropTypes.string.isRequired,

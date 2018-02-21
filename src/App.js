@@ -6,20 +6,19 @@ import './App.css';
 import Header from './components/Header/Header';
 import logo from './assets/images/logo.svg';
 import TransactionList from './containers/TransactionList/TransactionList';
-import CreateRandomTransaction from './containers/CreateRandomTransaction/CreateRandomTransaction';
 
 class App extends Component {
 
 	openSettingsDraw() {
-		console.log("hello");
+		console.log('hello'); //eslint-disable-line
 	}
 
 	render() {
 		return (
-			<div className="App">
+			<div className='App'>
 				<Header onOpenSettings={this.openSettingsDraw}>
-					<div className="logo">
-						<img src={logo} alt="Shed" />
+					<div className='logo'>
+						<img src={logo} alt='Shed' />
 					</div>
 				</Header>
 				<TransactionList/>
