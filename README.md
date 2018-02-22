@@ -1,50 +1,65 @@
-# Ethereum point-of-sale
+![Logo](./public/favicon.ico)
 
-A vendor-facing point-of-sale React app to view incoming transactions to an Ethereum wallet.
+# Ethereum POS
+> Accept ERC-20 token payments in-store.
+
+Allows shops to accept ERC-20 compliant cryptocurrency payments.
 
 [![CircleCI](https://circleci.com/gh/HeathWallace/ethereum-pos.svg?style=shield&circle-token=4090d7f93c1bd552f529296e4cf5503cb22e44ed)](https://circleci.com/gh/HeathWallace/ethereum-pos)
 
-## Getting Started
+## Installing / Getting started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+A quick introduction of the minimal setup you need to get the app up & running.
+
+```shell
+git clone git@github.com:HeathWallace/ethereum-pos.git
+cd ethereum-pos
+npm install
+npm start
+```
+
+Create a file `.env` in the root of the app and add the variables shown in the console.
+
+Please follow [this guide to the fork+PR workflow](https://gist.github.com/Chaser324/ce0505fbed06b947d962). Pull requests are pre-populated with the project's PR template.
+
+## Developing
+
+### Built With
+
+React / Redux / Redux-thunk / Storybook / Ethplorer
 
 ### Prerequisites
 
-- [Node/NPM](https://nodejs.org)
+- [Node](https://nodejs.org)
 
-### Installing
+### Deploying / Publishing
 
-```
-- npm install
-- npm start
-```
+To deploy the app, build the app using the included build script (`npm run build`) and place the output of the `/build` directory in a publicly accessibly folder.
+
+The master branch of this repository is connected to Heroku with the [create-react-app-buildpack](https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack) to automate the above process.
+
+## Configuration
+
+Environment variables are listed in `/src/environment` and checked automatically at startup.
 
 ## Tests
 
-### Coding style tests
+Currently only linting is implemented. Unit tests are todo.
 
+```shell
+npm test
 ```
-- npm test
-```
 
-### Unit tests
+## Style guide
 
-Todo.
+ESLint is used to check code style; see Tests above.
 
-## Deployment
+## Licensing
 
-Todo: Add additional notes about how to deploy this on a live system.
-
-## Contributing
-
-Please follow [this guide to the fork+PR workflow](https://gist.github.com/Chaser324/ce0505fbed06b947d962). Pull requests are pre-populated with the project's PR template.
+See [LICENSE.md](blob/master/LICENSE.md).
 
 ## Authors
 
 Maintained by [@dan1elhughes](https://github.com/dan1elhughes).
 
 See the list of [contributors](https://github.com/heathwallace/ethereum-pos/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
