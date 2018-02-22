@@ -1,3 +1,7 @@
+.TransactionsList {
+	padding: 112px 64px 64px;
+}
+
 .TransactionsList .no-results {
     background: #d5d711;
     text-align: center;
