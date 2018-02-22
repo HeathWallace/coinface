@@ -7,6 +7,7 @@ import Header from './components/Header/Header';
 import logo from './assets/images/logo.svg';
 import TransactionList from './containers/TransactionList/TransactionList';
 import SettingsDrawer from './components/SettingsDrawer/SettingsDrawer';
+import TrustSetting from './components/TrustSetting/TrustSetting';
 import AddressInput from './components/AddressInput/AddressInput';
 import Button from './components/Button/Button';
 
@@ -47,6 +48,7 @@ class App extends React.Component {
 					onClose={this.toggleSettingsDrawer}
 				>
 					<h2>Settings</h2>
+					<TrustSetting labelText='Trust' />
 					<AddressInput labelText='Address' />
 					<Button variant='secondary'>Save</Button>
 				</SettingsDrawer>
