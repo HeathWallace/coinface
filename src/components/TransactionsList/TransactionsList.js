@@ -18,7 +18,7 @@ const TransactionsList = ({ transactions }) => (
 		{transactions.length <= 0 &&
 			<p className="no-results">
 				No transactions found!
-				<span className="icon">😖</span>
+				<span className="icon" role="img" aria-label="Confounded Face Emoji">😖</span>
 			</p>
 		}
 	</div>
