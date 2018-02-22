@@ -56,8 +56,6 @@ class App extends React.Component {
 					<AddressInput labelText='Address' onChange={this.tempLog} />
 					<Button variant='secondary' onClick={this.toggleSettingsDrawer}>Save</Button>
 				</SettingsDrawer>
-
-				<div className="overlay"></div>
 			</div>
 		);
 	}
