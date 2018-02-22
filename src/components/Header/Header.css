@@ -1,13 +1,16 @@
-.Header{
-	overflow: auto;
-}
-.Header.dark{
-	background: #333;
+.Header {
+	background: #313045;
 	color: #fff;
+	display: block;
+	height: 80px;
+	position: fixed;
+	overflow: hidden;
+	top: 0;
+	width: 100%;
+	z-index: 1;
 }
-.Header .SettingsWheel{
-	float: right;
-}
-.Header .content{
-	display: inline-block;
+
+.Header .logo {
+	padding: 20px 0;
+	text-align: center;
 }

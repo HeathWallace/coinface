@@ -31,6 +31,7 @@ class App extends React.Component {
 
 		return (
 			<div className='App'>
+
 				<Header onOpenSettings={this.toggleSettingsDrawer}>
 					<div className='logo'>
 						<img src={logo} alt='Shed' />
@@ -43,6 +44,8 @@ class App extends React.Component {
 					isOpen={settingsDrawerIsOpen}
 					onClose={this.toggleSettingsDrawer}
 				>This is the settings drawer.</SettingsDrawer>
+
+				<div className="overlay"></div>
 			</div>
 		);
 	}

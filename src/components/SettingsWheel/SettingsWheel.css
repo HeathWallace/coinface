@@ -1,22 +1,30 @@
 .SettingsWheel {
 	width: 50px;
 	height: 50px;
-	background: url(./SettingsWheel.png) no-repeat;
+	background: url(./SettingsWheel.svg) no-repeat;
 	border: none;
+	height: 50px;
+	position: absolute;
+	top: 15px;
 	transition: transform 0.3s ease-in-out;
 	transform: scale(1);
+	right: 24px;
+	width: 50px;
 }
+
 .SettingsWheel:hover {
 	cursor: pointer;
 	transform: rotate(90deg);
 }
+
 .SettingsWheel:focus {
-	transform: scale(1.1);
 	outline: 0;
 }
+
 .SettingsWheel:active {
-	transform: rotate(-45deg);
+	transform: rotate(360deg);
 }
+
 .SettingsWheel .accessible {
 	position: absolute;
 	left: -99999px;
