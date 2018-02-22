@@ -34,7 +34,7 @@ React / Redux / Redux-thunk / Storybook / Ethplorer
 
 ### Deploying / Publishing
 
-To deploy the app, build the app using the included build script (`npm run build`) and place the output of the `/build` directory in a publicly accessibly folder.
+To deploy the app, build the app using the included build script (`npm run build`) and place the output of the `/build` directory in a publicly accessible folder.
 
 The master branch of this repository is connected to Heroku with the [create-react-app-buildpack](https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack) to automate the above process.
 
