@@ -8,7 +8,7 @@
 	right: -100%;
 	top: 0;
 	width: 320px;
-	z-index: 2;
+	z-index: 3;
 }
 
 .SettingsDrawer.is-open {
@@ -18,22 +18,12 @@
 
 .SettingsDrawer.is-open + .overlay {
 	background: #000000;
-	bottom: 0;
-	left: 0;
-	opacity: 0.5;
-	position: absolute;
-	top: 0;
-	right: 0;
-	transition: background 1s;
+	pointer-events: auto;
 }
 
 .SettingsDrawer.is-closed {
 	animation: bounceOutRight forwards 1s;
 	right: 0;
-}
-
-.SettingsDrawer.is-closed {
-	transition: background 1s;
 }
 
 .SettingsDrawer .close-button {

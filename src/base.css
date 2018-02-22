@@ -34,3 +34,16 @@ body {
 	font-size: 16px;
 	line-height: 100%;
 }
+
+.overlay {
+	background: transparent;
+	bottom: 0;
+	left: 0;
+	opacity: 0.5;
+	pointer-events: none;
+	position: absolute;
+	transition: background 1s;
+	top: 0;
+	right: 0;
+	z-index: 2;
+}
