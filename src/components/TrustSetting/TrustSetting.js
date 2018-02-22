@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import inputIdGenerator from '../../utils/inputIdGenerator';
 import TextInput from '../TextInput/TextInput';
 
-const AddressInput = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange }) => (
-	<div className="AddressInput">
+const TrustSetting = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange }) => (
+	<div className="TrustSetting">
 		<TextInput
 			id={id}
 			labelText={labelText}
@@ -14,18 +14,18 @@ const AddressInput = ({ id = inputIdGenerator.nextIndex, labelText, value, onCha
 	</div>
 );
 
-AddressInput.description = `
-A mechanism by which the currently selected address can be changed.
+TrustSetting.description = `
+A mechanism by which the user can configure a preference between waiting a long time for high confidence or short time with low confidence in transactions validity.
 
-Further expansions include multiple address support or QR input.
+Initial draft is a basic text input, but future releases will revisit the UX of this input.
 `;
 
-AddressInput.defaultProps = {
+TrustSetting.defaultProps = {
 	/** Text for input label */
-	labelText: 'Address input',
+	labelText: 'Trust input',
 };
 
-AddressInput.propTypes = {
+TrustSetting.propTypes = {
 	/** HTML id attribute for the input
 	If not present one is generated automagically */
 	id: PropTypes.string,
@@ -40,4 +40,4 @@ AddressInput.propTypes = {
 	value: PropTypes.string,
 };
 
-export default AddressInput;
+export default TrustSetting;

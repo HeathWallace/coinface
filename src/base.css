@@ -35,6 +35,11 @@ body {
 	line-height: 100%;
 }
 
+.accessible {
+	position: absolute;
+	left: -9999px;
+}
+
 .overlay {
 	background: transparent;
 	bottom: 0;

@@ -16,6 +16,17 @@
 	right: 0;
 }
 
+/* Faux extension to drawer so for neater entrance/exit animation  */
+.SettingsDrawer:after {
+	content: "";
+	height: 100%;
+	width: 100px;
+	position: absolute;
+	right: -100px;
+	top: 0;
+	background: #313045;
+}
+
 .SettingsDrawer.is-open + .overlay {
 	background: #000000;
 	pointer-events: auto;
@@ -26,19 +37,36 @@
 	right: 0;
 }
 
+.SettingsDrawer h2 {
+	font-size: 26px;
+	line-height: 40px;
+	margin-bottom: 32px;
+}
+
 .SettingsDrawer .close-button {
-	background: url(./close.png) no-repeat center;
-	border: 0;
-	height: 30px;
+	width: 50px;
+	height: 50px;
+	background: url(./close.svg) no-repeat center;
+	padding: 0;
+	border: none;
 	position: absolute;
+	top: 15px;
 	right: 24px;
+	transition: transform 0.3s ease-in-out;
 	text-indent: -9999px;
-	top: 40px;
-	width: 30px;
+}
+
+.SettingsDrawer .close-button:hover {
+	cursor: pointer;
+	transform: rotate(90deg);
 }
 
 .SettingsDrawer .close-button:focus {
-	outline: 1px solid #000;
+	outline: 0;
+}
+
+.SettingsDrawer .close-button:active {
+	transform: rotate(360deg);
 }
 
 @keyframes bounceInRight {

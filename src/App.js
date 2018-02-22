@@ -7,6 +7,9 @@ import Header from './components/Header/Header';
 import logo from './assets/images/logo.svg';
 import TransactionList from './containers/TransactionList/TransactionList';
 import SettingsDrawer from './components/SettingsDrawer/SettingsDrawer';
+import TrustSetting from './components/TrustSetting/TrustSetting';
+import AddressInput from './components/AddressInput/AddressInput';
+import Button from './components/Button/Button';
 
 class App extends React.Component {
 
@@ -20,6 +23,10 @@ class App extends React.Component {
 		this.toggleSettingsDrawer = this.toggleSettingsDrawer.bind(this);
 	}
 
+	tempLog(e) {
+		console.log(e); // eslint-disable-line
+	}
+
 	toggleSettingsDrawer() {
 		this.setState(prevState => {
 			return { settingsDrawerIsOpen: !prevState.settingsDrawerIsOpen };
@@ -31,7 +38,7 @@ class App extends React.Component {
 
 		return (
 			<div className='App'>
-
+				<h1 className='accessible'>Gromits POS</h1>
 				<Header onOpenSettings={this.toggleSettingsDrawer}>
 					<div className='logo'>
 						<img src={logo} alt='Shed' />
@@ -43,7 +50,12 @@ class App extends React.Component {
 				<SettingsDrawer
 					isOpen={settingsDrawerIsOpen}
 					onClose={this.toggleSettingsDrawer}
-				>This is the settings drawer.</SettingsDrawer>
+				>
+					<h2>Settings</h2>
+					<TrustSetting labelText='Trust' onChange={this.tempLog} />
+					<AddressInput labelText='Address' onChange={this.tempLog} />
+					<Button variant='secondary' onClick={this.toggleSettingsDrawer}>Save</Button>
+				</SettingsDrawer>
 
 				<div className="overlay"></div>
 			</div>
