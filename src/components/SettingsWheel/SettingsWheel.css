@@ -22,8 +22,3 @@
 .SettingsWheel:active {
 	transform: rotate(360deg);
 }
-
-.SettingsWheel .accessible {
-	position: absolute;
-	left: -99999px;
-}

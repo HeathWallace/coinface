@@ -37,6 +37,12 @@
 	right: 0;
 }
 
+.SettingsDrawer h2 {
+	font-size: 26px;
+	line-height: 40px;
+	margin-bottom: 32px;
+}
+
 .SettingsDrawer .close-button {
 	width: 50px;
 	height: 50px;
