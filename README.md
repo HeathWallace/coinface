@@ -60,6 +60,6 @@ See [LICENSE.md](blob/master/LICENSE.md).
 
 ## Authors
 
-Maintained by [@dan1elhughes](https://github.com/dan1elhughes).
+Maintained by [@dan1elhughes](https://github.com/dan1elhughes) and [@ShaunBulbrook](https://github.com/ShaunBulbrook).
 
 See the list of [contributors](https://github.com/heathwallace/ethereum-pos/contributors) who participated in this project.
