@@ -1,6 +1,7 @@
 .SettingsWheel {
-	background: url(./settings-256.png) no-repeat center center;
-	background-size: 25px;
+	width: 50px;
+	height: 50px;
+	background: url(./SettingsWheel.svg) no-repeat;
 	border: none;
 	height: 50px;
 	position: absolute;

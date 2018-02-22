@@ -1,10 +1,13 @@
 .SettingsDrawer {
-	position: fixed;
-	top: 0;
-	right: -100%;
-	width: 300px;
+	background: #313045;
+	box-sizing: border-box;
+	color: #FFFFFF;
 	height: 100%;
-	background: #ccc;
+	padding: 96px 32px 32px;
+	position: fixed;
+	right: -100%;
+	top: 0;
+	width: 320px;
 	z-index: 2;
 }
 
@@ -13,20 +16,35 @@
 	right: 0;
 }
 
+.SettingsDrawer.is-open + .overlay {
+	background: #000000;
+	bottom: 0;
+	left: 0;
+	opacity: 0.5;
+	position: absolute;
+	top: 0;
+	right: 0;
+	transition: background 1s;
+}
+
 .SettingsDrawer.is-closed {
 	animation: bounceOutRight forwards 1s;
 	right: 0;
 }
 
+.SettingsDrawer.is-closed {
+	transition: background 1s;
+}
+
 .SettingsDrawer .close-button {
-	position: absolute;
-	top: 10px;
-	right: 10px;
 	background: url(./close.png) no-repeat center;
 	border: 0;
-	width: 30px;
 	height: 30px;
+	position: absolute;
+	right: 24px;
 	text-indent: -9999px;
+	top: 40px;
+	width: 30px;
 }
 
 .SettingsDrawer .close-button:focus {

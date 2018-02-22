@@ -44,7 +44,8 @@ class App extends React.Component {
 					isOpen={settingsDrawerIsOpen}
 					onClose={this.toggleSettingsDrawer}
 				>This is the settings drawer.</SettingsDrawer>
-				
+
+				<div className="overlay"></div>
 			</div>
 		);
 	}
