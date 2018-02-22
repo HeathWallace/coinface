@@ -52,32 +52,3 @@ body {
 	right: 0;
 	z-index: 2;
 }
-
-label {
-	font-size: 14px;
-	line-height: 16px;
-	font-weight: bold;
-	margin-bottom: 6px;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="email"] {
-	background: #1B1B26;
-	padding: 12px 16px;
-	color: #fff;
-	font-size: 16px;
-	line-height: 24px;
-	border: 0;
-	border-radius: 4px;
-	margin-bottom: 32px;
-	border: 1px solid transparent;
-	transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus {
-	border-color: #fff;
-	outline: 0;
-}

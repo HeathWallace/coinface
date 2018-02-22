@@ -1,18 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import inputIdGenerator from '../../utils/inputIdGenerator';
-
-import './AddressInput.css';
+import TextInput from '../TextInput/TextInput';
 
 const AddressInput = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange }) => (
 	<div className="AddressInput">
-		<label htmlFor={id}>
-			{labelText}
-		</label>
-		<input
+		<TextInput
 			id={id}
-			type="text"
-			onChange={e => onChange(e.target.value)}
+			labelText={labelText}
+			onChange={onChange}
 			value={value}
 		/>
 	</div>

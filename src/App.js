@@ -23,6 +23,10 @@ class App extends React.Component {
 		this.toggleSettingsDrawer = this.toggleSettingsDrawer.bind(this);
 	}
 
+	tempLog(e) {
+		console.log(e); // eslint-disable-line
+	}
+
 	toggleSettingsDrawer() {
 		this.setState(prevState => {
 			return { settingsDrawerIsOpen: !prevState.settingsDrawerIsOpen };
@@ -48,9 +52,9 @@ class App extends React.Component {
 					onClose={this.toggleSettingsDrawer}
 				>
 					<h2>Settings</h2>
-					<TrustSetting labelText='Trust' />
-					<AddressInput labelText='Address' />
-					<Button variant='secondary'>Save</Button>
+					<TrustSetting labelText='Trust' onChange={this.tempLog} />
+					<AddressInput labelText='Address' onChange={this.tempLog} />
+					<Button variant='secondary' onClick={this.toggleSettingsDrawer}>Save</Button>
 				</SettingsDrawer>
 
 				<div className="overlay"></div>
