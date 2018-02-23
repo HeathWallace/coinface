@@ -1,6 +1,8 @@
 import React from 'react';
 import { storiesOf, withInfo } from '../../stories';
 
+import './storybook.css';
+
 import TransactionsList from './TransactionsList';
 
 storiesOf('TransactionsList')
