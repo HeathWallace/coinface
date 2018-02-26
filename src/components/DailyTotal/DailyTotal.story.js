@@ -3,14 +3,14 @@ import { storiesOf, withInfo } from '../../stories';
 
 import DailyTotal from './DailyTotal';
 
-import './reset-fixed.css';
+import fixedPositionContainer from '../../utils/fixedPositionContainer';
 
 storiesOf('DailyTotal')
+
+	.addDecorator(fixedPositionContainer(({ height: 100 })))
 
 	.addDecorator((story, context) => withInfo(DailyTotal.description)(story)(context))
 
 	.add('base', () => (
-		<div className="reset-fixed">
-			<DailyTotal total="123.45" symbol="GRM" />
-		</div>
+		<DailyTotal total="123.45" symbol="GRM" />
 	));
