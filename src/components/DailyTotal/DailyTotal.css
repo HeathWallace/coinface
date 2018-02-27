@@ -1,0 +1,13 @@
+.DailyTotal {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background: #313045;
+	padding: 16px;
+	color: #fff;
+	line-height: 1.5em;
+}
+
+.DailyTotal p {
+	margin: 0;
+}

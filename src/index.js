@@ -6,16 +6,18 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import store from './store';
 import DevTools from './containers/DevTools/DevTools';
+import env from './utils/environment';
 
-import { getAllTransactions } from './actions';
+import { getAllTransactions, enableTransactionPolling } from './actions';
 
 store.dispatch(getAllTransactions());
+store.dispatch(enableTransactionPolling());
 
 ReactDOM.render(
 	<Provider store={store}>
 		<div>
 			<App />
-			<DevTools />
+			{ env.NODE_ENV !== 'production' && <DevTools /> }
 		</div>
 	</Provider>,
 	document.getElementById('root')

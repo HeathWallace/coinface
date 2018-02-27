@@ -1,0 +1,9 @@
+#root .TransactionsList .no-results {
+	position: static;
+}
+
+#root .TransactionsList .no-results p {
+	position: static;
+	transform: translateY(0);
+	color: #000;
+}

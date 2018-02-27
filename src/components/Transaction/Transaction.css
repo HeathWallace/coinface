@@ -1,54 +1,54 @@
 .Transaction {
+		align-items: center;
     animation: bounceInRight 1s;
-    background: #d5d711;
-    padding: 10px 10px 0;
-    margin-bottom: 10px;
+		background: #313045;;
+		border-radius: 16px;
+		color: #FFFFFF;
+		margin-bottom: 8px;
+		position: relative;
+		overflow: hidden;
 }
 
-.Transaction dl {
-    width: 100%;
-    margin: 0;
-    position: relative;
+.Transaction .transactionInner {
+		align-items: center;
+		display: flex;
+		padding: 16px 32px 12px;
 }
 
-.Transaction dl:after {
-    clear: both;
-    content: "";
-    display: table;
+.Transaction .customerDetails {
+		flex: 1;
+		width: 100%;
 }
 
-.Transaction dt,
-.Transaction dd {
-    float: left;
-    margin: 0 0 10px;
+.Transaction .time {
+    display: inline-block;
+		font-size: 0.875em;
+		font-weight: bold;
+		line-height: 1em;
+		opacity: 0.5;
 }
 
-.Transaction dt {
-    clear: both;
-    margin-right: 10px;
-    min-width: 60px;
+.Transaction .from {
+		font-size: 1em;
+		line-height: 1.5em;
+		opacity: 0.5;
+}
+
+.Transaction .amount {
+		font-size: 1.4375em;
+		font-weight: bold;
+		line-height: 2em;
+}
+
+.Transaction .progressBar {
+		background: #43E695;
+		border-radius: 0 2px 2px 0;
+		display: block;
+		height: 4px;
+		width: 100%;
 }
 
 
-.Transaction dt.time,
-.Transaction dt.amount {
-    position: absolute;
-    left: -9999px;
-}
-
-.Transaction dd.amount {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    font-size: 3em;
-    margin: 0;
-}
-
-.Transaction dd.time {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
 
 @keyframes bounceInRight {
   from,

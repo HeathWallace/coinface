@@ -1,0 +1,7 @@
+.FirstName {
+	display: inline-block;
+	font-size: 1.4375em;
+	font-weight: bold;
+	line-height: 2em;
+	margin-right: 10px;
+}

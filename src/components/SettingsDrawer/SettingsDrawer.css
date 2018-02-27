@@ -1,0 +1,128 @@
+.SettingsDrawer:after {
+	content: "";
+	background: transparent;
+	bottom: 0;
+	left: 0;
+	opacity: 0.5;
+	pointer-events: none;
+	position: absolute;
+	transition: background 1s;
+	top: 0;
+	right: 0;
+	z-index: 2;
+}
+
+.SettingsDrawer .inner {
+	background: #313045;
+	box-sizing: border-box;
+	color: #FFFFFF;
+	height: 100%;
+	padding: 96px 32px 32px;
+	position: fixed;
+	right: -100%;
+	top: 0;
+	width: 320px;
+	z-index: 3;
+}
+
+.SettingsDrawer.is-open .inner {
+	animation: bounceInRight forwards 1s;
+	right: 0;
+}
+
+/* Faux extension to drawer so for neater entrance/exit animation  */
+.SettingsDrawer .inner:after {
+	content: "";
+	height: 100%;
+	width: 100px;
+	position: absolute;
+	right: -100px;
+	top: 0;
+	background: #313045;
+}
+
+.SettingsDrawer.is-open:after {
+	background: #000000;
+	pointer-events: auto;
+}
+
+.SettingsDrawer.is-closed .inner {
+	animation: bounceOutRight forwards 1s;
+	right: 0;
+}
+
+.SettingsDrawer h2 {
+	font-size: 26px;
+	line-height: 40px;
+	margin-bottom: 32px;
+}
+
+.SettingsDrawer .close-button {
+	width: 50px;
+	height: 50px;
+	background: url(./close.svg) no-repeat center;
+	padding: 0;
+	border: none;
+	position: absolute;
+	top: 15px;
+	right: 24px;
+	transition: transform 0.3s ease-in-out;
+	text-indent: -9999px;
+}
+
+.SettingsDrawer .close-button:hover {
+	cursor: pointer;
+	transform: rotate(90deg);
+}
+
+.SettingsDrawer .close-button:focus {
+	outline: 0;
+}
+
+.SettingsDrawer .close-button:active {
+	transform: rotate(360deg);
+}
+
+@keyframes bounceInRight {
+	from,
+	60%,
+	75%,
+	90%,
+	to {
+		animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	}
+
+	from {
+	opacity: 0;
+		transform: translate3d(3000px, 0, 0);
+	}
+
+	60% {
+	opacity: 1;
+		transform: translate3d(-25px, 0, 0);
+	}
+
+	75% {
+		transform: translate3d(10px, 0, 0);
+	}
+
+	90% {
+		transform: translate3d(-5px, 0, 0);
+	}
+
+	to {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes bounceOutRight {
+	20% {
+		opacity: 1;
+		transform: translate3d(-20px, 0, 0);
+	}
+
+	to {
+		opacity: 0;
+		transform: translate3d(2000px, 0, 0);
+	}
+}

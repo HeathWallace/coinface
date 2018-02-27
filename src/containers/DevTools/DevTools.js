@@ -7,7 +7,9 @@ export default createDevTools(
 	<DockMonitor
 		toggleVisibilityKey='shift-ctrl-h'
 		changePositionKey='ctrl-q'
-		defaultIsVisible={true}>
+		defaultIsVisible={true}
+		defaultPosition='bottom'
+	>
 		<LogMonitor/>
 	</DockMonitor>
 );

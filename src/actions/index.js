@@ -28,3 +28,7 @@ export const getAllTransactions = () => dispatch => {
 			console.log(err); //eslint-disable-line
 		});
 };
+
+export const enableTransactionPolling = () => dispatch => {
+	setInterval(() => dispatch(getAllTransactions()), 5000);
+};
