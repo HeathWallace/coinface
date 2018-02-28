@@ -74,7 +74,9 @@ class Transaction extends React.Component {
 					</div>
 					<p className="amount">{amount} {symbol}</p>
 				</div>
-				<div className="progressBar"></div>
+				<div className="ocean">
+				  <div className="wave"></div>
+				</div>
 			</div>
 		);
 	}
