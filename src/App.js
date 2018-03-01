@@ -8,7 +8,7 @@ import logo from './assets/images/logo.svg';
 import TransactionList from './containers/TransactionList/TransactionList';
 import SettingsDrawer from './components/SettingsDrawer/SettingsDrawer';
 import TrustSetting from './components/TrustSetting/TrustSetting';
-import AddressInput from './components/AddressInput/AddressInput';
+import AddressInput from './containers/AddressInput/AddressInput';
 import Button from './components/Button/Button';
 import DailyTotal from './containers/DailyTotal/DailyTotal';
 

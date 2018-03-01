@@ -32,3 +32,10 @@ export const getAllTransactions = () => dispatch => {
 export const enableTransactionPolling = () => dispatch => {
 	setInterval(() => dispatch(getAllTransactions()), 5000);
 };
+
+export const setWalletAddress = newWalletAddressValue => {
+	return ({
+		type: types.SET_WALLET_ADDRESS,
+		payload: { newWalletAddressValue },
+	});
+};
