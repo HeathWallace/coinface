@@ -32,7 +32,8 @@
     "react-test-renderer": "^16.2.0",
     "redux-devtools": "^3.4.1",
     "redux-devtools-dock-monitor": "^1.1.3",
-    "redux-devtools-log-monitor": "^1.4.0"
+    "redux-devtools-log-monitor": "^1.4.0",
+    "storybook-addon-specifications": "^2.1.1"
   },
   "eslintIgnore": [
     "src/lib/superstruct/index.js"
