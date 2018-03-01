@@ -1,18 +1,19 @@
 import env from '../utils/environment';
 
+
 class Transactions {
+	get erc20TransferSignature() {
+		// ERC20 standard Transfer function "Transfer(address,address,uint256)"
+		// converted to hex then run through SHA3
+		return '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef';
+	}
+
 	constructor() {
-		this.base = 'https://api.ethplorer.io';
+		this.base = 'https://api.etherscan.io';
 
 		this.token = env.REACT_APP_CONTRACT_ADDRESS;
 		this.wallet = env.REACT_APP_WALLET_ADDRESS;
-		this.apiKey = env.REACT_APP_ETHPLORER_API_KEY;
-	}
-
-	get routes() {
-		return {
-			getAddressHistory: wallet => `${this.base}/getAddressHistory/${wallet}`,
-		};
+		this.apiKey = env.REACT_APP_ETHERSCAN_API_KEY;
 	}
 
 	buildQuery({ url, params }) {
@@ -24,16 +25,27 @@ class Transactions {
 			.join('&');
 	}
 
-	getTransactions() {
-		const type = 'transfer';
-		const { apiKey, token, wallet } = this;
+	get destinationTopic() {
+		return this.wallet.replace('0x', '0x000000000000000000000000');
+	}
 
-		const url = this.routes.getAddressHistory(wallet);
-		const params = { token, type, apiKey };
+	getTransactions() {
+		const { apiKey, token } = this;
+
+		const module = 'logs';
+		const action = 'getLogs';
+		const fromBlock = 0;
+		const toBlock = 'latest';
+		const topic0 = this.erc20TransferSignature;
+		const topic2 = this.destinationTopic;
+
+		const url = `${this.base}/api`;
+		const params = { module, action, fromBlock, toBlock, topic0, topic2, apiKey };
 
 		return fetch(this.buildQuery({ url, params }))
 			.then(response => response.json())
-			.then(result => result.operations.filter(transfer => transfer.to === wallet));
+			.then(response => response.result)
+			.then(transactions => transactions.filter(transaction => transaction.address === token));
 	}
 }
 
