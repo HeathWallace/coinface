@@ -19,8 +19,11 @@ export const receiveTransactions = transactions => dispatch => {
 	});
 };
 
-export const getAllTransactions = () => dispatch => {
-	api.getTransactions()
+export const getAllTransactions = () => (dispatch, getState) => {
+
+	const { walletAddress } = getState().settings;
+
+	api.getTransactions(walletAddress)
 		.then(transactions => {
 			dispatch(receiveTransactions(transactions));
 		})
