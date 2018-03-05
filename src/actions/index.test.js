@@ -1,16 +1,16 @@
 import * as types from '../constants/actionTypes';
 import * as actions from './index';
 const payload = {
-	from: '0x52903256dd18d85c2dc4a6c999907c9793ea61e3',
-	timestamp: 1519059931,
-	to: '0xb794f5ea0ba39494ce839613fffba74279579268',
-	tokenInfo: {
-		decimals: 2,
-		symbol: 'ABC',
-	},
-	transactionHash: '0x126f82dcb2f4a283b4ebe20887deb8fdae8b136bf6c732ab444fd8910b442e3b',
-	type: 'lorem',
-	value: '220',
+	transactionHash: '0x20797147bd5b2990df11d3c8fb861eb7314fc74fb37a74c9365367ee5f880aab',
+	timeStamp: '0x5a8edf01',
+	topics: [ '', '0xf5a3fa2065e82a7e53c4782f9f5961259d5629b8', '0x5c3216a6d9fbd7cf2afbe9157ff7e7d1db3d7bed' ],
+	data: '0xe1',
+	address: '0xe3b3651b2987f76a45753b5160504a2ab606716b',
+	blockNumber: '0x4e6196',
+	gasPrice: '0xee6b2800',
+	gasUsed: '0x8ee9',
+	logIndex: '0x3a',
+	transactionIndex: '0x51',
 };
 
 describe('actions', () => {
