@@ -2,19 +2,24 @@ import transactionsReducer from './transactions.js';
 import * as types from '../../constants/actionTypes';
 import env from '../../utils/environment';
 
+// check if user defined variables exist
+// if not, use dummy ones for now
+env.REACT_APP_DEFAULT_SYMBOL = env.REACT_APP_DEFAULT_SYMBOL ? env.REACT_APP_DEFAULT_SYMBOL : 'TST';
+env.REACT_APP_DEFAULT_DECIMALS = env.REACT_APP_DEFAULT_DECIMALS ? env.REACT_APP_DEFAULT_DECIMALS : '2';
+
 // all values are inserted as hexadecimal values
 // which are then converted in the reducer
 const newTransaction = {
-	transactionHash: '0x20797147bd5b2990df11d3c8fb861eb7314fc74fb37a74c9365367ee5f880aab',
+	transactionHash: '0x00000000',
 	timeStamp: '0x5a8edf01',
-	topics: [ '', '0xf5a3fa2065e82a7e53c4782f9f5961259d5629b8', '0x5c3216a6d9fbd7cf2afbe9157ff7e7d1db3d7bed' ],
+	topics: [ '', '0x0000000000000000001111111111111111111111', '0x00000000000000000022222222222222222' ],
 	data: '0xe1',
-	address: '0xe3b3651b2987f76a45753b5160504a2ab606716b',
-	blockNumber: '0x4e6196',
-	gasPrice: '0xee6b2800',
-	gasUsed: '0x8ee9',
-	logIndex: '0x3a',
-	transactionIndex: '0x51',
+	address: '0x123456789',
+	blockNumber: '0x123456789',
+	gasPrice: '0x123456789',
+	gasUsed: '0x123456789',
+	logIndex: '0x123456789',
+	transactionIndex: '0x123456789',
 };
 
 describe('transactions reducer', () => {
@@ -33,11 +38,11 @@ describe('transactions reducer', () => {
 			payload: newTransaction,
 		};
 		const expectedState = {
-			'0x20797147bd5b2990df11d3c8fb861eb7314fc74fb37a74c9365367ee5f880aab': {
+			'0x00000000': {
 				amount: '2.25',
 				timestamp: 1519312641,
-				from: '0x9f5961259d5629b8',
-				to: '0x7ff7e7d1db3d7bed',
+				from: '0x1111111111111111',
+				to: '0x22222222222',
 				symbol: env.REACT_APP_DEFAULT_SYMBOL,
 			},
 		};
@@ -47,11 +52,11 @@ describe('transactions reducer', () => {
 
 	it('should disregard new transactions with similar transactionHash', () => {
 		const initialState = {
-			'0x20797147bd5b2990df11d3c8fb861eb7314fc74fb37a74c9365367ee5f880aab': {
-				amount: '1.80',
+			'0x00000000': {
+				amount: '2.25',
 				timestamp: 1519312612,
-				from: '0x9f5961259d562123',
-				to: '0x7ff7e7d1db3d7456',
+				from: '0x1111111111111111',
+				to: '0x22222222222',
 				symbol: env.REACT_APP_DEFAULT_SYMBOL,
 			},
 		};
@@ -60,11 +65,11 @@ describe('transactions reducer', () => {
 			payload: newTransaction,
 		};
 		const expectedState = {
-			'0x20797147bd5b2990df11d3c8fb861eb7314fc74fb37a74c9365367ee5f880aab': {
-				amount: '1.80',
+			'0x00000000': {
+				amount: '2.25',
 				timestamp: 1519312612,
-				from: '0x9f5961259d562123',
-				to: '0x7ff7e7d1db3d7456',
+				from: '0x1111111111111111',
+				to: '0x22222222222',
 				symbol: env.REACT_APP_DEFAULT_SYMBOL,
 			},
 		};
