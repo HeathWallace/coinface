@@ -50,7 +50,7 @@ describe('transactions reducer', () => {
 		expect(transactionsReducer(initialState, action)).toEqual(expectedState);
 	});
 
-	it('should disregard new transactions with similar transactionHash', () => {
+	it('should disregard new transactions with identical transactionHash', () => {
 		const initialState = {
 			'0x00000000': {
 				amount: '2.25',
