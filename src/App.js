@@ -10,6 +10,7 @@ import SettingsDrawer from './components/SettingsDrawer/SettingsDrawer';
 import TrustSetting from './components/TrustSetting/TrustSetting';
 import AddressInput from './components/AddressInput/AddressInput';
 import Button from './components/Button/Button';
+import DailyTotal from './containers/DailyTotal/DailyTotal';
 
 class App extends React.Component {
 
@@ -46,6 +47,8 @@ class App extends React.Component {
 				</Header>
 
 				<TransactionList/>
+
+				<DailyTotal/>
 
 				<SettingsDrawer
 					isOpen={settingsDrawerIsOpen}
