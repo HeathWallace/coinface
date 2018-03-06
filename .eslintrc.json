@@ -37,6 +37,10 @@
 		"comma-dangle": [
 			"error",
 			"always-multiline"
+		],
+		"jsx-quotes": [
+			"warn",
+			"prefer-single"
 		]
 	}
 }
