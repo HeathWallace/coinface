@@ -19,7 +19,7 @@ jobs:
       - { save_cache: { key: 'dependency-cache-{{ checksum "package.json" }}', paths: [node_modules] } }
 
       # Run the tests configured in package.json.
-      - { run: 'npm test' }
+      - { run: 'npm run test-ci' }
 
       # Run linting.
       - { run: 'npm run lint' }

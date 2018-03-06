@@ -18,7 +18,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "npm run test-ci && npm run lint",
+    "test-ci": "react-scripts test --ci",
+    "test-watch": "react-scripts test",
     "lint": "eslint --ignore-path .gitignore .",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 3000 -c .storybook",
