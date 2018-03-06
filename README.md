@@ -44,12 +44,12 @@ Environment variables are listed in `/src/environment` and checked automatically
 
 ## Tests
 
-Unit tests are included for components/reducers/actions etc.
+To run all tests (including unit tests on components/actions/reducers, and linting) run the base `test` task.
 
 ```shell
 npm test
 ```
-Linting is also implemented.
+It's also possible to just run a linting task.
 
 ```shell
 npm run lint
