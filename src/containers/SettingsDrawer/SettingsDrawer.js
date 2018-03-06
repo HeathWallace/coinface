@@ -59,7 +59,7 @@ class ConnectedSettingsDrawer extends React.Component {
 				onClose={onClose}
 			>
 				<h2>Settings</h2>
-				<TrustSetting labelText="Trust" value={trustSetting} onChange={this.createOnChangeHandler('trustLevel')}/>
+				<TrustSetting labelText='Trust' value={trustSetting} onChange={this.createOnChangeHandler('trustLevel')}/>
 				<AddressInput labelText='Address' value={walletAddress} onChange={this.createOnChangeHandler('walletAddress')}/>
 				<Button variant='secondary' onClick={this.saveClickHandler}>Save</Button>
 			</SettingsDrawer>

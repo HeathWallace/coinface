@@ -50,9 +50,9 @@ class App extends React.Component {
 				<ConnectedSettingsDrawer
 					isOpen={settingsDrawerIsOpen}
 					onClose={this.toggleSettingsDrawer}
-					heading="Settings"
+					heading='Settings'
 
-					trustSettingValue="1"
+					trustSettingValue='1'
 					onSave={this.toggleSettingsDrawer}
 				/>
 			</div>
