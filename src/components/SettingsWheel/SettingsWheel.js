@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import './SettingsWheel.css';
 
 const SettingsWheel = ({accessibleText, onClick}) => (
-	<button className="SettingsWheel"
+	<button className='SettingsWheel'
 		onClick={onClick}>
-		<span className="accessible">{accessibleText}</span>
+		<span className='accessible'>{accessibleText}</span>
 	</button>
 );
 

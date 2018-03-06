@@ -6,7 +6,7 @@ import './TransactionsList.css';
 import Transaction from '../Transaction/Transaction';
 
 const TransactionsList = ({ transactions }) => (
-	<div className="TransactionsList">
+	<div className='TransactionsList'>
 		{transactions.length > 0 &&
 			transactions.map(transaction => (
 				<Transaction
@@ -16,7 +16,7 @@ const TransactionsList = ({ transactions }) => (
 			))
 		}
 		{transactions.length <= 0 &&
-			<div className="no-results">
+			<div className='no-results'>
 				<p>
 					There are no transactions to show...yet
 				</p>

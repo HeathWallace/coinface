@@ -12,5 +12,5 @@ storiesOf('Header')
 	))
 
 	.add('with dark theme', () => (
-		<Header theme="dark" onClick={action('clicked')}>Header</Header>
+		<Header theme='dark' onClick={action('clicked')}>Header</Header>
 	));

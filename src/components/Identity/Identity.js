@@ -34,7 +34,7 @@ class Identity extends React.Component {
 
 	render() {
 		return (
-			<div className="Identity">
+			<div className='Identity'>
 				<SkypeProfile
 					username={this.state.username}
 				/>
