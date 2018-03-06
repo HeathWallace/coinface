@@ -24,6 +24,16 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class ConnectedSettingsDrawer extends React.Component {
+	static get propTypes()  {
+		return {
+			isOpen: PropTypes.bool.isRequired,
+			onClose: PropTypes.func,
+			onSave: PropTypes.func,
+			trustSetting: PropTypes.string,
+			walletAddress: PropTypes.string.isRequired,
+		};
+	}
+
 	constructor (props) {
 		super(props);
 		const { trustSetting, walletAddress } = props;
@@ -61,16 +71,6 @@ class ConnectedSettingsDrawer extends React.Component {
 		this.props.onClose();
 	}
 }
-ConnectedSettingsDrawer.propTypes = {
-	/*If the settings drawer is open or closes. */
-	isOpen: PropTypes.bool.isRequired,
-
-	/** A callback to fire when the close button is pressed */
-	onClose: PropTypes.func,
-
-	/** A function to be run when the save button is interacted with */
-	onSave: PropTypes.func,
-};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConnectedSettingsDrawer);
