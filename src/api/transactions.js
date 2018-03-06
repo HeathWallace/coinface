@@ -1,6 +1,4 @@
 import env from '../utils/environment';
-import { getWalletAddress } from '../actions';
-import store from '../store';
 
 class Transactions {
 	get erc20TransferSignature() {

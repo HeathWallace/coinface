@@ -32,6 +32,12 @@ export const getAllTransactions = () => (dispatch, getState) => {
 		});
 };
 
+export const clearTransactions = () => {
+	return({
+		type: types.CLEAR_TRANSACTIONS,
+	});
+};
+
 export const enableTransactionPolling = () => dispatch => {
 	setInterval(() => dispatch(getAllTransactions()), 5000);
 };
