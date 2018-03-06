@@ -1,16 +1,16 @@
 import * as types from '../constants/actionTypes';
 import * as actions from './index';
 const payload = {
-	transactionHash: '0x20797147bd5b2990df11d3c8fb861eb7314fc74fb37a74c9365367ee5f880aab',
+	transactionHash: '0x00000000',
 	timeStamp: '0x5a8edf01',
-	topics: [ '', '0xf5a3fa2065e82a7e53c4782f9f5961259d5629b8', '0x5c3216a6d9fbd7cf2afbe9157ff7e7d1db3d7bed' ],
+	topics: [ '', '0x0000000000000000001111111111111111111111', '0x00000000000000000022222222222222222' ],
 	data: '0xe1',
-	address: '0xe3b3651b2987f76a45753b5160504a2ab606716b',
-	blockNumber: '0x4e6196',
-	gasPrice: '0xee6b2800',
-	gasUsed: '0x8ee9',
-	logIndex: '0x3a',
-	transactionIndex: '0x51',
+	address: '0x123456789',
+	blockNumber: '0x123456789',
+	gasPrice: '0x123456789',
+	gasUsed: '0x123456789',
+	logIndex: '0x123456789',
+	transactionIndex: '0x123456789',
 };
 
 describe('actions', () => {
