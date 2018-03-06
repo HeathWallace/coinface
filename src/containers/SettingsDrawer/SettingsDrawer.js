@@ -6,7 +6,7 @@ import TrustSetting from '../../components/TrustSetting/TrustSetting';
 import AddressInput from '../../components/AddressInput/AddressInput';
 import Button from '../../components/Button/Button';
 
-import { setWalletAddress, clearTransactions, getAllTransactions } from '../../actions';
+import { updateSettings, clearTransactions, getAllTransactions } from '../../actions';
 import SettingsDrawer from '../../components/SettingsDrawer/SettingsDrawer';
 
 
@@ -16,8 +16,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	onSave: ({ walletAddress }) => {
-		dispatch(setWalletAddress(walletAddress));
+	onSave: ({ walletAddress, trustSetting }) => {
+		dispatch(updateSettings({walletAddress, trustSetting}));
 		dispatch(clearTransactions());
 		dispatch(getAllTransactions());
 	},

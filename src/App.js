@@ -54,9 +54,7 @@ class App extends React.Component {
 
 					trustSettingValue="1"
 					onSave={this.toggleSettingsDrawer}
-				>
-
-				</ConnectedSettingsDrawer>
+				/>
 			</div>
 		);
 	}

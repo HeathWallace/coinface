@@ -9,14 +9,18 @@ const initialSettings = {
 	walletAddress: env.REACT_APP_WALLET_ADDRESS,
 };
 
-const setWalletAddress = (settingsState,  action) => {
-	const newWalletAddressValue = action.payload.newWalletAddressValue;
+const updateSettings = (settingsState,  action) => {
+	const newWalletAddressValue = action.payload.walletAddress;
+	const newTransferSettingValue = action.payload.trustSetting;
 
-	return {...settingsState, walletAddress: newWalletAddressValue};
+	return {...settingsState,
+		trustConfirmationLevel: newTransferSettingValue,
+		walletAddress: newWalletAddressValue,
+	};
 };
 
 const settingsReducer = createReducer(initialSettings, {
-	[types.SET_WALLET_ADDRESS]: setWalletAddress,
+	[types.UPDATE_SETTINGS]: updateSettings,
 });
 
 export default settingsReducer;

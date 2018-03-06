@@ -1,7 +1,7 @@
 import * as types from '../constants/actionTypes';
 import api from '../api/transactions';
 
-import { Transaction } from './structures';
+import { Transaction, Settings } from './structures';
 import checkFSA from './checkFSA';
 
 export const addTransaction = checkFSA(data => {
@@ -42,9 +42,11 @@ export const enableTransactionPolling = () => dispatch => {
 	setInterval(() => dispatch(getAllTransactions()), 5000);
 };
 
-export const setWalletAddress = newWalletAddressValue => {
+export const updateSettings = checkFSA(data => {
+	const payload = Settings(data);
+
 	return ({
-		type: types.SET_WALLET_ADDRESS,
-		payload: { newWalletAddressValue },
+		type: types.UPDATE_SETTINGS,
+		payload,
 	});
-};
+});
