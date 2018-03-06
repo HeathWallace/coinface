@@ -23,9 +23,10 @@ class Environment {
 	// the process.env, and warn if the variable does
 	// not have a value i.e. is unset.
 	_loadOrWarn(name) {
+		const isCI = process.env.CI || false;
 		const val = process.env[name];
 
-		if (!val) console.error(`The environment variable ${name} is not set. Create a '.env' file in the root and define this variable.`); //eslint-disable-line
+		if (!val && !isCI) console.error(`The environment variable ${name} is not set. Create a '.env' file in the root and define this variable.`); //eslint-disable-line
 
 		return {
 			[name]: val,
