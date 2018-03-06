@@ -26,10 +26,8 @@ const mapDispatchToProps = dispatch => ({
 class ConnectedSettingsDrawer extends React.Component {
 	constructor (props) {
 		super(props);
-		this.state = {
-			trustSetting: props.trustSetting,
-			walletAddress: props.walletAddress,
-		};
+		const { trustSetting, walletAddress } = props;
+		this.state = {trustSetting, walletAddress};
 
 		this.createOnChangeHandler = this.createOnChangeHandler.bind(this);
 		this.saveClickHandler = this.saveClickHandler.bind(this);
@@ -60,6 +58,7 @@ class ConnectedSettingsDrawer extends React.Component {
 
 	saveClickHandler () {
 		this.props.onSave(this.state);
+		this.props.onClose();
 	}
 }
 ConnectedSettingsDrawer.propTypes = {
