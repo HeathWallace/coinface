@@ -27,8 +27,6 @@ class Transactions {
 	}
 
 	getTransactions(walletAddress) {
-		// this.wallet = getWalletAddress(store);
-
 		const { apiKey, token } = this;
 
 		const module = 'logs';

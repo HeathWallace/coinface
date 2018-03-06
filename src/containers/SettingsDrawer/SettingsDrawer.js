@@ -11,8 +11,8 @@ import SettingsDrawer from '../../components/SettingsDrawer/SettingsDrawer';
 
 
 const mapStateToProps = state => ({
-	trustSettingValue: state.settings.trustConfirmationLevel,
-	walletAddressValue: state.settings.walletAddress,
+	trustSetting: state.settings.trustConfirmationLevel,
+	walletAddress: state.settings.walletAddress,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -27,8 +27,8 @@ class ConnectedSettingsDrawer extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			trustLevel: '1',
-			walletAddress: '0x5c3216a6d9fbd7cf2afbe9157ff7e7d1db3d7bed',
+			trustSetting: props.trustSetting,
+			walletAddress: props.walletAddress,
 		};
 
 		this.createOnChangeHandler = this.createOnChangeHandler.bind(this);
@@ -43,7 +43,7 @@ class ConnectedSettingsDrawer extends React.Component {
 
 	render () {
 		const { isOpen, onClose } = this.props;
-		const { trustLevel, walletAddress } = this.state;
+		const { trustSetting, walletAddress } = this.state;
 
 		return(
 			<SettingsDrawer
@@ -51,7 +51,7 @@ class ConnectedSettingsDrawer extends React.Component {
 				onClose={onClose}
 			>
 				<h2>Settings</h2>
-				<TrustSetting labelText="Trust" value={trustLevel} onChange={this.createOnChangeHandler('trustLevel')}/>
+				<TrustSetting labelText="Trust" value={trustSetting} onChange={this.createOnChangeHandler('trustLevel')}/>
 				<AddressInput labelText='Address' value={walletAddress} onChange={this.createOnChangeHandler('walletAddress')}/>
 				<Button variant='secondary' onClick={this.saveClickHandler}>Save</Button>
 			</SettingsDrawer>
@@ -67,8 +67,8 @@ ConnectedSettingsDrawer.propTypes = {
 	isOpen: PropTypes.bool.isRequired,
 
 	/** A callback to fire when the close button is pressed */
-
 	onClose: PropTypes.func,
+
 	/** A function to be run when the save button is interacted with */
 	onSave: PropTypes.func,
 };
