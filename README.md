@@ -44,10 +44,15 @@ Environment variables are listed in `/src/environment` and checked automatically
 
 ## Tests
 
-Currently only linting is implemented. Unit tests are todo.
+To run all tests (including unit tests on components/actions/reducers, and linting) run the base `test` task.
 
 ```shell
 npm test
+```
+It's also possible to just run a linting task.
+
+```shell
+npm run lint
 ```
 
 ## Style guide
