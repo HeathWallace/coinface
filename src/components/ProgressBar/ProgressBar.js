@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import './ProgressBar.css';
 
 const ProgressBar = ({ trust }) => (
-	<div className="ProgressBar" style={{height:`${trust}%`}}>
+	<div className='ProgressBar' style={{height:`${trust}%`}}>
 		{trust < 100 &&
-			<div className="wave"></div>
+			<div className='wave'></div>
 		}
 	</div>
 );
