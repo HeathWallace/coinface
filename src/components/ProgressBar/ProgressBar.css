@@ -1,8 +1,8 @@
 .ProgressBar {
 	background: #2A293B;
-  bottom:0;
+	bottom:0;
 	height: 50%;
-  left:0;
+	left:0;
 	position:absolute;
 	width:100%;
 	z-index: 1;
@@ -10,11 +10,11 @@
 
 .ProgressBar .wave {
 	animation: wave 5s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
-  background: url(./wave.svg) repeat-x;
+	background: url(./wave.svg) repeat-x;
 	background-size: 1600px 30px;
 	height: 15px;
-  position: absolute;
-  top: -14px;
+	position: absolute;
+	top: -14px;
 	width: 6400px;
 	will-change: animation;
 }
@@ -25,9 +25,9 @@
 	background-size: 1600px 30px;
 	content: ".";
 	height: 15px;
-  position: absolute;
+	position: absolute;
 	opacity: 0.75;
-  top: 25px;
+	top: 25px;
 	width: 6400px;
 	will-change: animation;
 }
@@ -39,7 +39,7 @@
 	content: ".";
 	height: 15px;
 	position: absolute;
-  opacity: 0.5;
+	opacity: 0.5;
 	top: 25px;
 	transform: translate3d(0, 0, 0);
 	width: 6400px;
@@ -47,21 +47,21 @@
 }
 
 @keyframes wave {
-  0% {
-    /*transform: translateX(0);*/
+	0% {
+		/*transform: translateX(0);*/
 		margin-left: 0;
-  }
-  100% {
-    /*transform: translateX(-1600px);*/
+	}
+	100% {
+		/*transform: translateX(-1600px);*/
 		margin-left: -1600px;
-  }
+	}
 }
 
 @keyframes swell {
-  0%, 100% {
-    transform: translate3d(0,-25px,0);
-  }
-  50% {
-    transform: translate3d(0,5px,0);
-  }
+	0%, 100% {
+		transform: translate3d(0,-25px,0);
+	}
+	50% {
+		transform: translate3d(0,5px,0);
+	}
 }
