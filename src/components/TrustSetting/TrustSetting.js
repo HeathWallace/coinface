@@ -5,7 +5,7 @@ import NumberInput from '../NumberInput/NumberInput';
 
 const TrustSetting = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange }) => (
 	<div className='TrustSetting'>
-		<TextInput
+		<NumberInput
 			id={id}
 			labelText={labelText}
 			onChange={onChange}
