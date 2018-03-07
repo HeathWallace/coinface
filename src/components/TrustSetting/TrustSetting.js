@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import inputIdGenerator from '../../utils/inputIdGenerator';
-import TextInput from '../TextInput/TextInput';
+import NumberInput from '../NumberInput/NumberInput';
 
 const TrustSetting = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange }) => (
 	<div className='TrustSetting'>

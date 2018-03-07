@@ -5,16 +5,16 @@ import env from '../../utils/environment';
 
 const initialSettings = {
 	contractAddress: env.REACT_APP_CONTRACT_ADDRESS,
-	trustConfirmationLevel: '1',
+	trustLevel: '1',
 	walletAddress: env.REACT_APP_WALLET_ADDRESS,
 };
 
 const updateSettings = (settingsState,  action) => {
 	const newWalletAddressValue = action.payload.walletAddress;
-	const newTransferSettingValue = action.payload.trustSetting;
+	const newTransferSettingValue = action.payload.trustLevel;
 
 	return {...settingsState,
-		trustConfirmationLevel: newTransferSettingValue,
+		trustLevel: newTransferSettingValue,
 		walletAddress: newWalletAddressValue,
 	};
 };
