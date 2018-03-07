@@ -50,69 +50,24 @@
 		width: 100%;
 }
 
-.Transaction .ocean {
-  width:100%;
-  position:absolute;
-  bottom:0;
-  left:0;
-  background: #2A293B;
-	z-index: 1;
-	height: 50%;
+.Transaction:nth-child(5n+1) .ProgressBar .wave {
+	animation-delay: 1s;
 }
 
-.Transaction .wave {
-  background: url(./wave.svg) repeat-x;
-	background-size: 1600px 30px;
-  position: absolute;
-  top: -14px;
-  width: 6400px;
-  height: 15px;
-  animation: wave 3s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
-  transform: translate3d(0, 0, 0);
+.Transaction:nth-child(5n+2) .ProgressBar .wave {
+	animation-delay: 2s;
 }
 
-.Transaction .wave:before {
-	background: url(./wave.svg) repeat-x;
-	background-size: 1600px 30px;
-  position: absolute;
-  top: 25px;
-	width: 6400px;
-  height: 15px;
-  animation: wave 2s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.5s infinite, swell 3s ease infinite;
-  opacity: 0.75;
-	transform: translate3d(0, 0, 0);
-	content: ".";
+.Transaction:nth-child(5n+3) .ProgressBar .wave {
+	animation-delay: 3s;
 }
 
-.Transaction .wave:after {
-	background: url(./wave.svg) repeat-x;
-	background-size: 1600px 30px;
-  position: absolute;
-  top: 25px;
-	width: 6400px;
-  height: 15px;
-  animation: wave 2s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.75s infinite, swell 3s ease -1s infinite;
-  opacity: 0.5;
-	transform: translate3d(0, 0, 0);
-	content: ".";
+.Transaction:nth-child(5n+4) .ProgressBar .wave {
+	animation-delay: 4s;
 }
 
-@keyframes wave {
-  0% {
-    margin-left: 0;
-  }
-  100% {
-    margin-left: -1600px;
-  }
-}
-
-@keyframes swell {
-  0%, 100% {
-    transform: translate3d(0,-25px,0);
-  }
-  50% {
-    transform: translate3d(0,5px,0);
-  }
+.Transaction:nth-child(5n+5) .ProgressBar .wave {
+	animation-delay: 5s;
 }
 
 @keyframes bounceInRight {
