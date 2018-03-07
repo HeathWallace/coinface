@@ -12,11 +12,22 @@ jobs:
       - { restore_cache: { key: 'dependency-cache-{{ checksum "package.json" }}' } }
 
       # Install dependencies.
-      - { run: 'npm install' }
+      - { run: 'npm install --silent' }
 
       # Save the content of node_modules to cache for
       # the next build.
       - { save_cache: { key: 'dependency-cache-{{ checksum "package.json" }}', paths: [node_modules] } }
 
       # Run the tests configured in package.json.
-      - { run: 'npm test' }
+      - run:
+          command: npm run test-ci -- --testResultsProcessor="jest-junit"
+          environment:
+            JEST_JUNIT_OUTPUT: reports/junit/js-test-results.xml
+
+      # Run linting.
+      - run:
+          command: npm run lint -- --format junit -o reports/junit/js-lint-results.xml
+
+      # Store test and lint results
+      - { store_test_results: { path: reports/junit } }
+      - { store_artifacts: { path: reports/junit } }

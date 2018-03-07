@@ -6,10 +6,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import logo from './assets/images/logo.svg';
 import TransactionList from './containers/TransactionList/TransactionList';
-import SettingsDrawer from './components/SettingsDrawer/SettingsDrawer';
-import TrustSetting from './components/TrustSetting/TrustSetting';
-import AddressInput from './components/AddressInput/AddressInput';
-import Button from './components/Button/Button';
+import ConnectedSettingsDrawer from './containers/SettingsDrawer/SettingsDrawer';
 import DailyTotal from './containers/DailyTotal/DailyTotal';
 
 class App extends React.Component {
@@ -50,15 +47,14 @@ class App extends React.Component {
 
 				<DailyTotal/>
 
-				<SettingsDrawer
+				<ConnectedSettingsDrawer
 					isOpen={settingsDrawerIsOpen}
 					onClose={this.toggleSettingsDrawer}
-				>
-					<h2>Settings</h2>
-					<TrustSetting labelText='Trust' onChange={this.tempLog} />
-					<AddressInput labelText='Address' onChange={this.tempLog} />
-					<Button variant='secondary' onClick={this.toggleSettingsDrawer}>Save</Button>
-				</SettingsDrawer>
+					heading='Settings'
+
+					trustSettingValue='1'
+					onSave={this.toggleSettingsDrawer}
+				/>
 			</div>
 		);
 	}

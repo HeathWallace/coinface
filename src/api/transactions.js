@@ -1,6 +1,5 @@
 import env from '../utils/environment';
 
-
 class Transactions {
 	get erc20TransferSignature() {
 		// ERC20 standard Transfer function "Transfer(address,address,uint256)"
@@ -10,9 +9,7 @@ class Transactions {
 
 	constructor() {
 		this.base = 'https://api.etherscan.io';
-
 		this.token = env.REACT_APP_CONTRACT_ADDRESS;
-		this.wallet = env.REACT_APP_WALLET_ADDRESS;
 		this.apiKey = env.REACT_APP_ETHERSCAN_API_KEY;
 	}
 
@@ -25,11 +22,11 @@ class Transactions {
 			.join('&');
 	}
 
-	get destinationTopic() {
-		return this.wallet.replace('0x', '0x000000000000000000000000');
+	createDestinationTopic(walletAddress) {
+		return walletAddress.replace('0x', '0x000000000000000000000000');
 	}
 
-	getTransactions() {
+	getTransactions(walletAddress) {
 		const { apiKey, token } = this;
 
 		const module = 'logs';
@@ -37,7 +34,7 @@ class Transactions {
 		const fromBlock = 0;
 		const toBlock = 'latest';
 		const topic0 = this.erc20TransferSignature;
-		const topic2 = this.destinationTopic;
+		const topic2 = this.createDestinationTopic(walletAddress);
 
 		const url = `${this.base}/api`;
 		const params = { module, action, fromBlock, toBlock, topic0, topic2, apiKey };

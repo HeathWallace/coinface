@@ -1,7 +1,7 @@
 import * as types from '../constants/actionTypes';
 import api from '../api/transactions';
 
-import { Transaction } from './structures';
+import { Transaction, Settings } from './structures';
 import checkFSA from './checkFSA';
 
 export const addTransaction = checkFSA(data => {
@@ -19,8 +19,11 @@ export const receiveTransactions = transactions => dispatch => {
 	});
 };
 
-export const getAllTransactions = () => dispatch => {
-	api.getTransactions()
+export const getAllTransactions = () => (dispatch, getState) => {
+
+	const { walletAddress } = getState().settings;
+
+	api.getTransactions(walletAddress)
 		.then(transactions => {
 			dispatch(receiveTransactions(transactions));
 		})
@@ -29,6 +32,19 @@ export const getAllTransactions = () => dispatch => {
 		});
 };
 
+export const clearTransactions = () => ({
+	type: types.CLEAR_TRANSACTIONS,
+});
+
 export const enableTransactionPolling = () => dispatch => {
 	setInterval(() => dispatch(getAllTransactions()), 5000);
 };
+
+export const updateSettings = checkFSA(data => {
+	const payload = Settings(data);
+
+	return ({
+		type: types.UPDATE_SETTINGS,
+		payload,
+	});
+});
