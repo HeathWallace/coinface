@@ -64,17 +64,17 @@ class Transaction extends React.Component {
 		const { username, name } = this.state;
 
 		return (
-			<div className="Transaction">
-				<div className="transactionInner">
+			<div className='Transaction'>
+				<div className='transactionInner'>
 					<SkypeProfile username={username}/>
-					<div className="customerDetails">
+					<div className='customerDetails'>
 						<FirstName name={name}></FirstName>
-						<p className="time">{this._toHumanReadableInterval(timestamp)}</p>
-						<p className="from">{from}</p>
+						<p className='time'>{this._toHumanReadableInterval(timestamp)}</p>
+						<p className='from'>{from}</p>
 					</div>
-					<p className="amount">{amount} {symbol}</p>
+					<p className='amount'>{amount} {symbol}</p>
 				</div>
-				<div className="progressBar"></div>
+				<div className='progressBar'></div>
 			</div>
 		);
 	}

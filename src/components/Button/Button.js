@@ -8,7 +8,7 @@ const _if = (conditional, ifTrue, ifFalse = '') => conditional ? ifTrue : ifFals
 
 //Declare a component that returns an HTML button with the given properties
 const Button = ({children, variant, disabled, onClick}) => {
-	return <button type="button"
+	return <button type='button'
 		className={`Button ${variant} ${_if(disabled, 'disabled')}`}
 		onClick={onClick}
 		disabled={disabled}

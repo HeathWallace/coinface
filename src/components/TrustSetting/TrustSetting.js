@@ -4,7 +4,7 @@ import inputIdGenerator from '../../utils/inputIdGenerator';
 import TextInput from '../TextInput/TextInput';
 
 const TrustSetting = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange }) => (
-	<div className="TrustSetting">
+	<div className='TrustSetting'>
 		<TextInput
 			id={id}
 			labelText={labelText}
