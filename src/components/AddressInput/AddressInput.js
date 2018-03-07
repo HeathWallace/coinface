@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import inputIdGenerator from '../../utils/inputIdGenerator';
 import TextInput from '../TextInput/TextInput';
 
-const AddressInput = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange }) => (
-	<div className='AddressInput'>
+const AddressInput = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange, isValid }) => (
+	<div className="AddressInput">
 		<TextInput
 			id={id}
 			labelText={labelText}
 			onChange={onChange}
 			value={value}
+			isValid={isValid}
 		/>
 	</div>
 );

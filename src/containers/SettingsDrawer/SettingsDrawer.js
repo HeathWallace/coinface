@@ -50,28 +50,29 @@ class ConnectedSettingsDrawer extends React.Component {
 	}
 
 	addressInputIsValid(value) {
-		this.walletAddressErrors = [];
+		let walletAddressErrors = [];
 
 		// check value isn't too long
 		if(value.length > 42) {
-			this.walletAddressErrors.push('Value is too long');
+			walletAddressErrors.push('Value is too long');
 		}
 
 		// check value starts with '0x'
 		if(!value.match(/0x/)) {
-			this.walletAddressErrors.push('Must start with 0x');
+			walletAddressErrors.push('Must start with 0x');
 		}
 		// check value is in hexadecimal
 		if(!value.substr(2).match(/^[0-9a-fA-F]+$/)) {
-			this.walletAddressErrors.push('Incorrect format');
+			walletAddressErrors.push('Incorrect format');
 		}
 
-		return false;
+		return walletAddressErrors;
 	}
 
 	render () {
 		const { isOpen, onClose } = this.props;
 		const { trustLevel, walletAddress } = this.state;
+		const walletAddressErrors = this.addressInputIsValid(walletAddress);
 
 		return(
 			<SettingsDrawer
@@ -83,7 +84,7 @@ class ConnectedSettingsDrawer extends React.Component {
 				<AddressInput isValid={this.addressInputIsValid(walletAddress)} labelText='Address' value={walletAddress} onChange={this.createOnChangeHandler('walletAddress')}/>
 				{this.walletAddressErrors.length > 0 &&
 					<ul className='errors'>
-						{this.walletAddressErrors.map((item, index) => (
+						{walletAddressErrors.map((item, index) => (
 							<li key={index}>
 								{item}
 							</li>
