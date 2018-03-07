@@ -38,7 +38,7 @@ class ConnectedSettingsDrawer extends React.Component {
 		super(props);
 		const { trustLevel, walletAddress } = props;
 		this.state = {trustLevel, walletAddress};
-
+		this.addressInputIsValid(walletAddress);
 		this.createOnChangeHandler = this.createOnChangeHandler.bind(this);
 		this.saveClickHandler = this.saveClickHandler.bind(this);
 	}
@@ -47,6 +47,26 @@ class ConnectedSettingsDrawer extends React.Component {
 		return value => this.setState({
 			[name]: value,
 		});
+	}
+
+	addressInputIsValid(value) {
+		this.walletAddressErrors = [];
+
+		// check value isn't too long
+		if(value.length > 42) {
+			this.walletAddressErrors.push('Value is too long');
+		}
+
+		// check value starts with '0x'
+		if(!value.match(/0x/)) {
+			this.walletAddressErrors.push('Must start with 0x');
+		}
+		// check value is in hexadecimal
+		if(!value.substr(2).match(/^[0-9a-fA-F]+$/)) {
+			this.walletAddressErrors.push('Incorrect format');
+		}
+
+		return false;
 	}
 
 	render () {
@@ -60,7 +80,16 @@ class ConnectedSettingsDrawer extends React.Component {
 			>
 				<h2>Settings</h2>
 				<TrustSetting labelText='Trust' value={trustLevel} onChange={this.createOnChangeHandler('trustLevel')}/>
-				<AddressInput labelText='Address' value={walletAddress} onChange={this.createOnChangeHandler('walletAddress')}/>
+				<AddressInput isValid={this.addressInputIsValid(walletAddress)} labelText='Address' value={walletAddress} onChange={this.createOnChangeHandler('walletAddress')}/>
+				{this.walletAddressErrors.length > 0 &&
+					<ul className='errors'>
+						{this.walletAddressErrors.map((item, index) => (
+							<li key={index}>
+								{item}
+							</li>
+						))}
+					</ul>
+				}
 				<Button variant='secondary' onClick={this.saveClickHandler}>Save</Button>
 			</SettingsDrawer>
 		);
