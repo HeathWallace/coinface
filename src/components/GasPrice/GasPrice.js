@@ -9,12 +9,13 @@ const GasPrice = ( { recommendedPrice } ) => (
 	</div>
 );
 
+GasPrice.description = `
+	A visualization of the recommended gas price.
+`;
+
 GasPrice.propTypes = {
 	recommendedPrice: PropTypes.number,
 };
 
-GasPrice.description = `
-	A visualization of the recommended gas price.
-`;
 
 export default GasPrice;

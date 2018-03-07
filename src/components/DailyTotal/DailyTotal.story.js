@@ -1,3 +1,4 @@
+/* global module */
 import React from 'react';
 import { storiesOf, withInfo } from '../../stories';
 
@@ -5,7 +6,7 @@ import DailyTotal from './DailyTotal';
 
 import fixedPositionContainer from '../../utils/fixedPositionContainer';
 
-storiesOf('DailyTotal')
+storiesOf('DailyTotal', module)
 
 	.addDecorator(fixedPositionContainer(({ height: 100 })))
 
