@@ -1,7 +1,7 @@
 .Transaction {
 		align-items: center;
     animation: bounceInRight 1s;
-		background: #313045;;
+		background: transparent;
 		border-radius: 16px;
 		color: #FFFFFF;
 		margin-bottom: 8px;
@@ -13,6 +13,8 @@
 		align-items: center;
 		display: flex;
 		padding: 16px 32px 12px;
+		position: relative;
+		z-index: 2;
 }
 
 .Transaction .customerDetails {
@@ -48,7 +50,70 @@
 		width: 100%;
 }
 
+.Transaction .ocean {
+  width:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+  background: #2A293B;
+	z-index: 1;
+	height: 50%;
+}
 
+.Transaction .wave {
+  background: url(./wave.svg) repeat-x;
+	background-size: 1600px 30px;
+  position: absolute;
+  top: -14px;
+  width: 6400px;
+  height: 15px;
+  animation: wave 3s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.Transaction .wave:before {
+	background: url(./wave.svg) repeat-x;
+	background-size: 1600px 30px;
+  position: absolute;
+  top: 25px;
+	width: 6400px;
+  height: 15px;
+  animation: wave 2s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.5s infinite, swell 3s ease infinite;
+  opacity: 0.75;
+	transform: translate3d(0, 0, 0);
+	content: ".";
+}
+
+.Transaction .wave:after {
+	background: url(./wave.svg) repeat-x;
+	background-size: 1600px 30px;
+  position: absolute;
+  top: 25px;
+	width: 6400px;
+  height: 15px;
+  animation: wave 2s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.75s infinite, swell 3s ease -1s infinite;
+  opacity: 0.5;
+	transform: translate3d(0, 0, 0);
+	content: ".";
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0,-25px,0);
+  }
+  50% {
+    transform: translate3d(0,5px,0);
+  }
+}
 
 @keyframes bounceInRight {
   from,
