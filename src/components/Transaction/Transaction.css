@@ -1,7 +1,7 @@
 .Transaction {
 		align-items: center;
     animation: bounceInRight 1s;
-		background: #313045;;
+		background: transparent;
 		border-radius: 16px;
 		color: #FFFFFF;
 		margin-bottom: 8px;
@@ -13,6 +13,8 @@
 		align-items: center;
 		display: flex;
 		padding: 16px 32px 12px;
+		position: relative;
+		z-index: 2;
 }
 
 .Transaction .customerDetails {
@@ -48,7 +50,25 @@
 		width: 100%;
 }
 
+.Transaction:nth-child(5n+1) .ProgressBar .wave {
+	animation-delay: 1s;
+}
 
+.Transaction:nth-child(5n+2) .ProgressBar .wave {
+	animation-delay: 2s;
+}
+
+.Transaction:nth-child(5n+3) .ProgressBar .wave {
+	animation-delay: 3s;
+}
+
+.Transaction:nth-child(5n+4) .ProgressBar .wave {
+	animation-delay: 4s;
+}
+
+.Transaction:nth-child(5n+5) .ProgressBar .wave {
+	animation-delay: 5s;
+}
 
 @keyframes bounceInRight {
   from,
