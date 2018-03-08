@@ -1,10 +1,10 @@
 .ProgressBar {
 	background: #2A293B;
-	bottom:0;
+	bottom: 0;
 	height: 50%;
-	left:0;
-	position:absolute;
-	width:100%;
+	left: 0;
+	position: absolute;
+	width: 100%;
 	z-index: 1;
 }
 
@@ -23,7 +23,7 @@
 	animation: wave 4s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.5s infinite, swell 5s ease infinite;
 	background: url(./wave.svg) repeat-x;
 	background-size: 1600px 30px;
-	content: ".";
+	content: '.';
 	height: 15px;
 	position: absolute;
 	opacity: 0.75;
@@ -36,7 +36,7 @@
 	animation: wave 4s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.75s infinite, swell 5s ease -1s infinite;
 	background: url(./wave.svg) repeat-x;
 	background-size: 1600px 30px;
-	content: ".";
+	content: '.';
 	height: 15px;
 	position: absolute;
 	opacity: 0.5;

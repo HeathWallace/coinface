@@ -1,36 +1,36 @@
 @font-face {
-  font-family: SanFrancisco;
-	src: url("./assets/fonts/SFUIDisplay-Regular.eot");
-	src: url("./assets/fonts/SFUIDisplay-Regular.eot?") format('embedded-opentype'),
-	url("./assets/fonts/SFUIDisplay-Regular.woff") format('woff'),
-	url("./assets/fonts/SFUIDisplay-Regular.ttf") format('truetype'),
-	url("./assets/fonts/SFUIDisplay-Regular.svg#SFUIDisplayRegular") format('svg');
+	font-family: SanFrancisco;
+	src: url(./assets/fonts/SFUIDisplay-Regular.eot);
+	src: url(./assets/fonts/SFUIDisplay-Regular.eot?) format('embedded-opentype'),
+		url(./assets/fonts/SFUIDisplay-Regular.woff) format('woff'),
+		url(./assets/fonts/SFUIDisplay-Regular.ttf) format('truetype'),
+		url(./assets/fonts/SFUIDisplay-Regular.svg#SFUIDisplayRegular) format('svg');
 }
 
 @font-face {
-  font-family: SanFrancisco;
-	src: url("./assets/fonts/SFUIDisplay-Bold.eot");
-	src: url("./assets/fonts/SFUIDisplay-Bold.eot?") format('embedded-opentype'),
-	url("./assets/fonts/SFUIDisplay-Bold.woff") format('woff'),
-	url("./assets/fonts/SFUIDisplay-Bold.ttf") format('truetype'),
-	url("./assets/fonts/SFUIDisplay-Bold.svg#SFUIDisplayBold") format('svg');
+	font-family: SanFrancisco;
+	src: url(./assets/fonts/SFUIDisplay-Bold.eot);
+	src: url(./assets/fonts/SFUIDisplay-Bold.eot?) format('embedded-opentype'),
+		url(./assets/fonts/SFUIDisplay-Bold.woff) format('woff'),
+		url(./assets/fonts/SFUIDisplay-Bold.ttf) format('truetype'),
+		url(./assets/fonts/SFUIDisplay-Bold.svg#SFUIDisplayBold) format('svg');
 	font-weight: bold;
 }
 
 @font-face {
-  font-family: SanFrancisco;
-	src: url("./assets/fonts/SFUIDisplay-Thin.eot");
-	src: url("./assets/fonts/SFUIDisplay-Thin.eot?") format('embedded-opentype'),
-	url("./assets/fonts/SFUIDisplay-Thin.woff") format('woff'),
-	url("./assets/fonts/SFUIDisplay-Thin.ttf") format('truetype'),
-	url("./assets/fonts/SFUIDisplay-Thin.svg#SFUIDisplayThin") format('svg');
+	font-family: SanFrancisco;
+	src: url(./assets/fonts/SFUIDisplay-Thin.eot);
+	src: url(./assets/fonts/SFUIDisplay-Thin.eot?) format('embedded-opentype'),
+		url(./assets/fonts/SFUIDisplay-Thin.woff) format('woff'),
+		url(./assets/fonts/SFUIDisplay-Thin.ttf) format('truetype'),
+		url(./assets/fonts/SFUIDisplay-Thin.svg#SFUIDisplayThin) format('svg');
 	font-weight: thinner;
 }
 
 
 body {
 	background: linear-gradient(296.57deg, #FF7676 0%, #F54EA2 100%);
-	font-family: SanFrancisco, "Times New Roman", san-serif;
+	font-family: SanFrancisco, Arial, sans-serif;
 	font-size: 16px;
 	line-height: 100%;
 }

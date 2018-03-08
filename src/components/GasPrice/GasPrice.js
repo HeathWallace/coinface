@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './GasPrice.css';
-
 const GasPrice = ( { recommendedPrice } ) => (
-	<div className="GasPrice">
+	<div className='GasPrice'>
 		<p>Suggested Gas price: {recommendedPrice}</p>
 	</div>
 );

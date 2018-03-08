@@ -49,7 +49,7 @@ To run all tests (including unit tests on components/actions/reducers, and linti
 ```shell
 npm test
 ```
-It's also possible to just run a linting task.
+It's also possible to just run a linting task for both `eslint` and `stylelint` tasks.
 
 ```shell
 npm run lint
