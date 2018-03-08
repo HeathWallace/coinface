@@ -1,5 +1,5 @@
 .SettingsDrawer:after {
-	content: "";
+	content: '';
 	background: transparent;
 	bottom: 0;
 	left: 0;
@@ -32,7 +32,7 @@
 
 /* Faux extension to drawer so for neater entrance/exit animation  */
 .SettingsDrawer .inner:after {
-	content: "";
+	content: '';
 	height: 100%;
 	width: 100px;
 	position: absolute;
@@ -93,12 +93,12 @@
 	}
 
 	from {
-	opacity: 0;
+		opacity: 0;
 		transform: translate3d(3000px, 0, 0);
 	}
 
 	60% {
-	opacity: 1;
+		opacity: 1;
 		transform: translate3d(-25px, 0, 0);
 	}
 
