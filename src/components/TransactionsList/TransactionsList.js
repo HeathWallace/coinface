@@ -10,17 +10,16 @@ const TransactionsList = ({ transactions }) => {
 	const pendingTransactions = transactions.filter(transaction => transaction.trust < 100);
 	const completedTransactions = transactions.filter(transaction => transaction.trust >= 100);
 
-
 	return (
 		<div className='TransactionsList'>
-			{transactions.trust >0 &&
+			{transactions.length >0 &&
 				<div>
-					<PendingTransactionsList transaction={pendingTransactions}/>
-					<CompletedTransactionsList transaction={completedTransactions}/>
+					<PendingTransactionsList transactions={pendingTransactions}/>
+					<CompletedTransactionsList transactions={completedTransactions}/>
 				</div>
 			}
 
-			{transactions.trust <= 0 &&
+			{transactions.length <= 0 &&
 				<div className='no-results'>
 					<p>
 						There are no transactions to show...yet
