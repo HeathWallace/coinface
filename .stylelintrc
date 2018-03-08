@@ -1,0 +1,13 @@
+{
+	"extends": "stylelint-config-recommended",
+	"rules": {
+		"block-closing-brace-newline-after": "always",
+		"block-opening-brace-newline-after": "always-multi-line",
+		"block-opening-brace-space-before": "always",
+		"function-url-quotes": "never",
+		"indentation": "tab",
+		"selector-list-comma-space-after": "always-single-line",
+		"selector-list-comma-space-before": "never-single-line",
+		"string-quotes": "single"
+	}
+}
