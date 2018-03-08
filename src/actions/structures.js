@@ -21,5 +21,5 @@ export const Transaction = struct({
 
 export const Settings = struct({
 	walletAddress: 'string',
-	trustSetting: 'string',
+	trustLevel: 'string',
 });

@@ -11,13 +11,13 @@ import SettingsDrawer from '../../components/SettingsDrawer/SettingsDrawer';
 
 
 const mapStateToProps = state => ({
-	trustSetting: state.settings.trustConfirmationLevel,
+	trustLevel: state.settings.trustLevel,
 	walletAddress: state.settings.walletAddress,
 });
 
 const mapDispatchToProps = dispatch => ({
-	onSave: ({ walletAddress, trustSetting }) => {
-		dispatch(updateSettings({walletAddress, trustSetting}));
+	onSave: ({ walletAddress, trustLevel }) => {
+		dispatch(updateSettings({walletAddress, trustLevel}));
 		dispatch(clearTransactions());
 		dispatch(getAllTransactions());
 	},
@@ -29,15 +29,15 @@ class ConnectedSettingsDrawer extends React.Component {
 			isOpen: PropTypes.bool.isRequired,
 			onClose: PropTypes.func,
 			onSave: PropTypes.func,
-			trustSetting: PropTypes.string,
+			trustLevel: PropTypes.string,
 			walletAddress: PropTypes.string.isRequired,
 		};
 	}
 
 	constructor (props) {
 		super(props);
-		const { trustSetting, walletAddress } = props;
-		this.state = {trustSetting, walletAddress};
+		const { trustLevel, walletAddress } = props;
+		this.state = {trustLevel, walletAddress};
 
 		this.createOnChangeHandler = this.createOnChangeHandler.bind(this);
 		this.saveClickHandler = this.saveClickHandler.bind(this);
@@ -51,7 +51,7 @@ class ConnectedSettingsDrawer extends React.Component {
 
 	render () {
 		const { isOpen, onClose } = this.props;
-		const { trustSetting, walletAddress } = this.state;
+		const { trustLevel, walletAddress } = this.state;
 
 		return(
 			<SettingsDrawer
@@ -59,7 +59,7 @@ class ConnectedSettingsDrawer extends React.Component {
 				onClose={onClose}
 			>
 				<h2>Settings</h2>
-				<TrustSetting labelText='Trust' value={trustSetting} onChange={this.createOnChangeHandler('trustLevel')}/>
+				<TrustSetting labelText='Trust' value={trustLevel} onChange={this.createOnChangeHandler('trustLevel')}/>
 				<AddressInput labelText='Address' value={walletAddress} onChange={this.createOnChangeHandler('walletAddress')}/>
 				<Button variant='secondary' onClick={this.saveClickHandler}>Save</Button>
 			</SettingsDrawer>

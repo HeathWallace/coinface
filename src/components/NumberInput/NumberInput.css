@@ -1,8 +1,8 @@
-.TextInput {
+.NumberInput {
 	margin-bottom: 32px;
 }
 
-.TextInput label {
+.NumberInput label {
 	font-size: 14px;
 	line-height: 16px;
 	font-weight: bold;
@@ -10,7 +10,7 @@
 	display: block;
 }
 
-.TextInput input {
+.NumberInput input {
 	background: #1B1B26;
 	padding: 12px 16px;
 	color: #fff;
@@ -21,7 +21,7 @@
 	transition: border-color 0.3s ease;
 }
 
-.TextInput input:focus {
+.NumberInput input:focus {
 	border-color: #fff;
 	outline: 0;
 }
