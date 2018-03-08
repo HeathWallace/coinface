@@ -8,6 +8,8 @@
 		"indentation": "tab",
 		"selector-list-comma-space-after": "always-single-line",
 		"selector-list-comma-space-before": "never-single-line",
-		"string-quotes": "single"
+		"string-quotes": "single",
+		"declaration-colon-space-after": "always",
+		"declaration-colon-space-before": "never"
 	}
 }
