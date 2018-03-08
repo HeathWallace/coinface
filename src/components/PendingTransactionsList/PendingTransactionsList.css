@@ -1,0 +1,25 @@
+.PendingTransactionsList {
+	background: linear-gradient(296.57deg, #FF7676 0%, #F54EA2 100%);
+	padding: 112px 64px 64px;
+}
+
+.PendingTransactionsList .no-results {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.PendingTransactionsList .no-results p {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: bold;
+    text-align: center;
+	color: white;
+	opacity: 0.5;
+}

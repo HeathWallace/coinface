@@ -1,0 +1,9 @@
+#root .PendingTransactionsList .no-results {
+	position: static;
+}
+
+#root .PendingTransactionsList .no-results p {
+	position: static;
+	transform: translateY(0);
+	color: #000;
+}
