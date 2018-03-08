@@ -21,7 +21,7 @@
     "test": "npm run test-ci && npm run lint",
     "test-ci": "cross-env CI=true react-scripts test",
     "test-watch": "react-scripts test",
-	"lint": "npm run eslint && npm run stylelint",
+    "lint": "npm run eslint && npm run stylelint",
     "eslint": "eslint --ignore-path .gitignore .",
     "stylelint": "stylelint src/**/*.css",
     "eject": "react-scripts eject",
