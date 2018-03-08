@@ -8,6 +8,7 @@ import env from '../../utils/environment';
 
 import SkypeProfile from '../SkypeProfile/SkypeProfile';
 import FirstName from '../FirstName/FirstName';
+import ProgressBar from '../ProgressBar/ProgressBar';
 
 class Transaction extends React.Component {
 	constructor(props) {
@@ -60,21 +61,21 @@ class Transaction extends React.Component {
 	}
 
 	render() {
-		const { from, amount, timestamp, symbol } = this.props;
+		const { from, amount, timestamp, symbol, trust } = this.props;
 		const { username, name } = this.state;
 
 		return (
-			<div className="Transaction">
-				<div className="transactionInner">
+			<div className='Transaction'>
+				<div className='transactionInner'>
 					<SkypeProfile username={username}/>
-					<div className="customerDetails">
+					<div className='customerDetails'>
 						<FirstName name={name}></FirstName>
-						<p className="time">{this._toHumanReadableInterval(timestamp)}</p>
-						<p className="from">{from}</p>
+						<p className='time'>{this._toHumanReadableInterval(timestamp)}</p>
+						<p className='from'>{from}</p>
 					</div>
-					<p className="amount">{amount} {symbol}</p>
+					<p className='amount'>{amount} {symbol}</p>
 				</div>
-				<div className="progressBar"></div>
+				<ProgressBar trust={trust}></ProgressBar>
 			</div>
 		);
 	}
@@ -100,8 +101,8 @@ Transaction.propTypes = {
 	/** the timestamp at which the transaction occurred */
 	timestamp: PropTypes.number.isRequired,
 
-	/** the number of confirmations that the transaction has received */
-	trust: PropTypes.number,
+	/** the percentage of confirmations required that the transaction has received */
+	trust: PropTypes.number.isRequired,
 };
 
 export default Transaction;

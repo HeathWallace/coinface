@@ -18,3 +18,8 @@ export const Transaction = struct({
 	transactionHash: 'string',
 	transactionIndex: 'string',
 });
+
+export const Settings = struct({
+	walletAddress: 'string',
+	trustSetting: 'string',
+});

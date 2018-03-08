@@ -4,7 +4,7 @@ import inputIdGenerator from '../../utils/inputIdGenerator';
 import TextInput from '../TextInput/TextInput';
 
 const AddressInput = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange }) => (
-	<div className="AddressInput">
+	<div className='AddressInput'>
 		<TextInput
 			id={id}
 			labelText={labelText}

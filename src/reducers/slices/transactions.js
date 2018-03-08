@@ -44,10 +44,15 @@ class Handlers {
 			},
 		};
 	}
+
+	static [types.CLEAR_TRANSACTIONS] () {
+		return initialTransactions;
+	}
 }
 
 const transactionsReducer = createReducer(initialTransactions, {
 	[types.ADD_TRANSACTION]: Handlers[types.ADD_TRANSACTION],
+	[types.CLEAR_TRANSACTIONS]: Handlers[types.CLEAR_TRANSACTIONS],
 });
 
 export default transactionsReducer;

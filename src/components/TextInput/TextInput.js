@@ -5,13 +5,13 @@ import inputIdGenerator from '../../utils/inputIdGenerator';
 import './TextInput.css';
 
 const TextInput = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange }) => (
-	<div className="TextInput">
+	<div className='TextInput'>
 		<label htmlFor={id}>
 			{labelText}
 		</label>
 		<input
 			id={id}
-			type="text"
+			type='text'
 			onChange={e => onChange(e.target.value)}
 			value={value}
 		/>

@@ -7,7 +7,7 @@ import './Header.css';
 
 const Header = ({ theme, children, onOpenSettings }) => (
 	<div className={`Header ${theme}`}>
-		<div className="content">{children}</div>
+		<div className='content'>{children}</div>
 		<SettingsWheel onClick={onOpenSettings} />
 	</div>
 );

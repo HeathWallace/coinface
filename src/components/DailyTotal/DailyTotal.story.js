@@ -12,5 +12,5 @@ storiesOf('DailyTotal')
 	.addDecorator((story, context) => withInfo(DailyTotal.description)(story)(context))
 
 	.add('base', () => (
-		<DailyTotal total="123.45" symbol="GRM" />
+		<DailyTotal total='123.45' symbol='GRM' />
 	));
