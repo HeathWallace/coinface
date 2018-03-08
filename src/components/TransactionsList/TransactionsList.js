@@ -3,27 +3,33 @@ import PropTypes from 'prop-types';
 
 import './TransactionsList.css';
 
-import Transaction from '../Transaction/Transaction';
+import PendingTransactionsList from '../PendingTransactionsList/PendingTransactionsList';
+import CompletedTransactionsList from '../CompletedTransactionsList/CompletedTransactionsList';
 
-const TransactionsList = ({ transactions }) => (
-	<div className='TransactionsList'>
-		{transactions.length > 0 &&
-			transactions.map(transaction => (
-				<Transaction
-					key={transaction.hash}
-					{...transaction}
-				/>
-			))
-		}
-		{transactions.length <= 0 &&
-			<div className='no-results'>
-				<p>
-					There are no transactions to show...yet
-				</p>
-			</div>
-		}
-	</div>
-);
+const TransactionsList = ({ transactions }) => {
+	const pendingTransactions = transactions.filter(transaction => transaction.trust < 100);
+	const completedTransactions = transactions.filter(transaction => transaction.trust >= 100);
+
+
+	return (
+		<div className='TransactionsList'>
+			{transactions.trust >0 &&
+				<div>
+					<PendingTransactionsList transaction={pendingTransactions}/>
+					<CompletedTransactionsList transaction={completedTransactions}/>
+				</div>
+			}
+
+			{transactions.trust <= 0 &&
+				<div className='no-results'>
+					<p>
+						There are no transactions to show...yet
+					</p>
+				</div>
+			}
+		</div>
+	);
+};
 
 TransactionsList.description = `
 Iterates through the transactions and hands rendering responsibility to child <Transaction/> components.

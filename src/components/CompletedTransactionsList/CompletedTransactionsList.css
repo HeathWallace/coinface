@@ -1,0 +1,25 @@
+.CompletedTransactionsList {
+	background: #2A293B;
+	padding: 112px 64px 64px;
+}
+
+.CompletedTransactionsList .no-results {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.CompletedTransactionsList .no-results p {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: bold;
+    text-align: center;
+	color: white;
+	opacity: 0.5;
+}
