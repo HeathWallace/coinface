@@ -1,3 +1,4 @@
+/* global module */
 import React from 'react';
 import { storiesOf, withInfo, action } from '../../stories';
 
@@ -5,7 +6,7 @@ import SettingsDrawer from './SettingsDrawer';
 
 import fixedPositionContainer from '../../utils/fixedPositionContainer';
 
-storiesOf('SettingsDrawer')
+storiesOf('SettingsDrawer', module)
 
 	.addDecorator(fixedPositionContainer({ height: 600 }))
 

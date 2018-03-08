@@ -1,9 +1,10 @@
+/* global module */
 import React from 'react';
 import { storiesOf, withInfo } from '../../stories';
 
 import Transaction from './Transaction';
 
-storiesOf('Transaction')
+storiesOf('Transaction', module)
 
 	.addDecorator((story, context) => withInfo(Transaction.description)(story)(context))
 

@@ -1,9 +1,10 @@
+/* global module */
 import React from 'react';
 import { storiesOf, withInfo } from '../../stories';
 
 import SkypeProfile from './SkypeProfile';
 
-storiesOf('SkypeProfile')
+storiesOf('SkypeProfile', module)
 
 	.addDecorator((story, context) => withInfo(SkypeProfile.description)(story)(context))
 
