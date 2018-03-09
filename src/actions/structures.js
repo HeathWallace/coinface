@@ -1,4 +1,4 @@
-// https://github.com/HeathWallace/ethereum-pos/issues/28
+// https://github.com/HeathWallace/coinface/issues/28
 import { struct as structLib } from '../lib/superstruct';
 import env from '../utils/environment';
 
