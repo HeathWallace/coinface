@@ -30,7 +30,7 @@
 	animation-timing-function: cubic-bezier( 0.36, 0.45, 0.63, 0.53);
 	background: inherit;
 	background-size: inherit;
-	content: ".";
+	content: '.';
 	height: inherit;
 	position: inherit;
 	top: 0px;
