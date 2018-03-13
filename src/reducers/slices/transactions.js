@@ -1,19 +1,12 @@
 import { createReducer } from '../util';
 import * as types from '../../constants/actionTypes';
 
-import env from '../../utils/environment';
-
 const initialTransactions = {};
 
 class Handlers {
 	static [types.ADD_TRANSACTION] (transactionsState, { payload }) {
 
-		const { transactionHash, data, timeStamp, topics: [/*functionSignature*/, paddedFrom, paddedTo] } = payload;
-
-		// If we already know about this transaction, return the state unmodified.
-		if (transactionsState[transactionHash]) {
-			return transactionsState;
-		}
+		const { address, transactionHash, data, timeStamp, topics: [/*functionSignature*/, paddedFrom, paddedTo], confirmations } = payload;
 
 		const timestamp = parseInt(timeStamp, 16);
 
@@ -21,14 +14,10 @@ class Handlers {
 		const to = '0x' + paddedTo.substr(26);
 		const from = '0x' + paddedFrom.substr(26);
 
-		let symbol = env.REACT_APP_DEFAULT_SYMBOL;
-
 		// Converts the indivisible base amount with a decimal
 		// to a human-readable amount. I.e., 300 base units
 		// with 2 decimals is represented as 3.00
-		const value = parseInt(data, 16);
-		const decimals = parseInt(env.REACT_APP_DEFAULT_DECIMALS, 10);
-		const amount = (value * Math.pow(10, -decimals)).toFixed(decimals);
+		const amount = parseInt(data, 16);
 
 		// Otherwise, combine the new transaction with the existing ones.
 		return {
@@ -40,7 +29,31 @@ class Handlers {
 				from,
 				to,
 				amount,
-				symbol,
+				token: address,
+				confirmations,
+			},
+		};
+	}
+
+	static [types.ADD_PENDING_TRANSACTION] (transactionsState, { payload }) {
+
+		const { from, params, timestamp, token, txHash, confirmations } = payload;
+
+		const [ paddedTo, _amount ] = params;
+
+		const to = '0x' + paddedTo.substr(26);
+		const amount = parseInt(_amount, 16);
+
+		return {
+			...transactionsState,
+
+			[txHash]: {
+				timestamp,
+				from,
+				to,
+				amount,
+				token,
+				confirmations,
 			},
 		};
 	}
@@ -52,6 +65,7 @@ class Handlers {
 
 const transactionsReducer = createReducer(initialTransactions, {
 	[types.ADD_TRANSACTION]: Handlers[types.ADD_TRANSACTION],
+	[types.ADD_PENDING_TRANSACTION]: Handlers[types.ADD_PENDING_TRANSACTION],
 	[types.CLEAR_TRANSACTIONS]: Handlers[types.CLEAR_TRANSACTIONS],
 });
 

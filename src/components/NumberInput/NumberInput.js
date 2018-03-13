@@ -34,7 +34,7 @@ NumberInput.propTypes = {
 	onChange: PropTypes.func,
 
 	/** Pre-defined value for input, if present */
-	value: PropTypes.string,
+	value: PropTypes.number,
 };
 
 export default NumberInput;

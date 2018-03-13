@@ -7,8 +7,21 @@ import store from './store';
 import DevTools from './containers/DevTools/DevTools';
 import env from './utils/environment';
 
-import { getAllTransactions, enableTransactionPolling } from './actions';
+import {
+	getAllTransactions,
+	getPendingTransactions,
+	enableTransactionPolling,
+	setTrust,
+	addToken,
+	addWallet,
+} from './actions';
 
+store.dispatch(addWallet(env.REACT_APP_WALLET_ADDRESS));
+store.dispatch(addToken(env.REACT_APP_CONTRACT_ADDRESS));
+
+store.dispatch(setTrust(6));
+
+store.dispatch(getPendingTransactions());
 store.dispatch(getAllTransactions());
 store.dispatch(enableTransactionPolling());
 

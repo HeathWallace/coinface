@@ -1,21 +1,44 @@
 import * as types from '../constants/actionTypes';
-import api from '../api/transactions';
+import transactionApi from '../api/transactions';
+import tokenMetadataApi from '../api/tokenMetadata';
+import pendingApi from '../api/pending';
+import txHashApi from '../api/txHash';
 
-import { Transaction, Settings } from './structures';
-import checkFSA from './checkFSA';
+import { Transaction } from './structures';
 
-export const addTransaction = checkFSA(data => {
+const POLL_RATE = 10000; // milliseconds
+
+/*
+|--------------------------------------------------------------------------
+| Transactions
+|--------------------------------------------------------------------------
+*/
+
+export const addTransaction = data => {
 	const payload = Transaction(data);
 
 	return ({
 		type: types.ADD_TRANSACTION,
 		payload,
 	});
-});
+};
 
-export const receiveTransactions = transactions => dispatch => {
-	transactions.forEach(transaction => {
-		dispatch(addTransaction(transaction));
+export const receiveTransactions = transactions => (dispatch, getState) => {
+
+	const { settings, transactions: knownTxs } = getState();
+
+	const { trustLevel } = settings;
+
+	transactions.forEach(async transaction => {
+
+		// If we already know about it, skip if it's already exceeded the confirmation target.
+		const transactionIsKnown = !!knownTxs[transaction.transactionHash];
+		if (transactionIsKnown && knownTxs[transaction.transactionHash].confirmations >= trustLevel) return;
+
+		// Otherwise, scrape for how many confirmations it has.
+		const meta = await txHashApi.getMeta(transaction.transactionHash);
+		const { confirmations } = meta;
+		dispatch(addTransaction({ ...transaction, confirmations}));
 	});
 };
 
@@ -23,7 +46,7 @@ export const getAllTransactions = () => (dispatch, getState) => {
 
 	const { walletAddress } = getState().settings;
 
-	api.getTransactions(walletAddress)
+	transactionApi.getTransactions({ walletAddress })
 		.then(transactions => {
 			dispatch(receiveTransactions(transactions));
 		})
@@ -37,14 +60,81 @@ export const clearTransactions = () => ({
 });
 
 export const enableTransactionPolling = () => dispatch => {
-	setInterval(() => dispatch(getAllTransactions()), 5000);
+	setInterval(() => {
+		dispatch(getAllTransactions());
+		dispatch(getPendingTransactions());
+	}, POLL_RATE);
 };
 
-export const updateSettings = checkFSA(data => {
-	const payload = Settings(data);
+/*
+|--------------------------------------------------------------------------
+| Pendings
+|--------------------------------------------------------------------------
+*/
 
-	return ({
-		type: types.UPDATE_SETTINGS,
-		payload,
+export const addPendingTransaction = meta => ({
+	type: types.ADD_PENDING_TRANSACTION,
+	payload: meta,
+});
+
+export const getPendingTransaction = txHash => dispatch => {
+	txHashApi.getMeta(txHash).then(meta => {
+		dispatch(addPendingTransaction(meta));
 	});
+};
+
+export const getPendingTransactions = () => (dispatch, getState) => {
+	const { walletAddress } = getState().settings;
+	pendingApi.getTransactionsTo(walletAddress).then(transactions => {
+		transactions.forEach(({ txHash }) => {
+			dispatch(getPendingTransaction(txHash));
+		});
+	});
+};
+
+/*
+|--------------------------------------------------------------------------
+| Tokens
+|--------------------------------------------------------------------------
+*/
+
+export const startLoadingTokenMetadata = metadata => ({
+	type: types.START_LOADING_TOKEN_METADATA,
+	payload: metadata,
+});
+
+export const finishLoadingTokenMetadata = metadata => ({
+	type: types.FINISH_LOADING_TOKEN_METADATA,
+	payload: metadata,
+});
+
+export const addTokenMetadata = address => dispatch => {
+	dispatch(startLoadingTokenMetadata({ address }));
+	tokenMetadataApi.getMetadata(address).then(metadata => {
+		dispatch(finishLoadingTokenMetadata(metadata));
+	});
+};
+
+/*
+|--------------------------------------------------------------------------
+| Settings
+|--------------------------------------------------------------------------
+*/
+
+export const addWallet = walletAddress => ({
+	type: types.ADD_WALLET,
+	payload: { walletAddress },
+});
+
+export const addToken = tokenAddress => dispatch => {
+	dispatch(addTokenMetadata(tokenAddress));
+	return {
+		type: types.ADD_TOKEN,
+		payload: { tokenAddress },
+	};
+};
+
+export const setTrust = trustLevel => ({
+	type: types.SET_TRUST,
+	payload: { trustLevel },
 });

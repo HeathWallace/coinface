@@ -10,6 +10,8 @@ import SkypeProfile from '../SkypeProfile/SkypeProfile';
 import FirstName from '../FirstName/FirstName';
 import ProgressBar from '../ProgressBar/ProgressBar';
 
+const identityCache = {};
+
 class Transaction extends React.Component {
 	constructor(props) {
 		super(props);
@@ -17,7 +19,7 @@ class Transaction extends React.Component {
 		this.state = {
 			secondsElapsed: 0,
 			username: 'unknown',
-			name: 'unknown',
+			name: 'Unknown',
 		};
 
 		this.tick = this.tick.bind(this);
@@ -30,15 +32,23 @@ class Transaction extends React.Component {
 
 		const { from } = this.props;
 
-		fetch(`${url}/search/?address=${from}`)
-			.then(response => response.json())
-			.then(([ user ]) => {
-				if (user) {
-					const { username, name } = user;
+		if (identityCache[from]) {
+			const { username, name } = identityCache[from];
+			this.setState({ username, name });
+		} else {
+			fetch(`${url}/search/?address=${from}`)
+				.then(response => response.json())
+				.then(([ user ]) => {
+					if (user) {
+						const { username, name } = user;
 
-					this.setState({ username, name });
-				}
-			});
+						identityCache[from] = { username, name };
+
+						this.setState({ username, name });
+					}
+				});
+		}
+
 	}
 
 	componentWillUnmount() {
@@ -60,8 +70,16 @@ class Transaction extends React.Component {
 		return human(difference);
 	}
 
+	_toHumanReadableAmount(value, decimals = 0) {
+		// Converts the indivisible base amount with a decimal
+		// to a human-readable amount. I.e., 300 base units
+		// with 2 decimals is represented as 3.00
+
+		return (value * Math.pow(10, -decimals)).toFixed(decimals);
+	}
+
 	render() {
-		const { from, amount, timestamp, symbol, trust } = this.props;
+		const { from, amount, timestamp, symbol, trust, decimals } = this.props;
 		const { username, name } = this.state;
 
 		return (
@@ -71,9 +89,9 @@ class Transaction extends React.Component {
 					<div className='customerDetails'>
 						<FirstName name={name}></FirstName>
 						<p className='time'>{this._toHumanReadableInterval(timestamp)}</p>
-						<p className='from'>{from}</p>
+						<p className='from'><code>{from}</code></p>
 					</div>
-					<p className='amount'>{amount} {symbol}</p>
+					<p className='amount'>{this._toHumanReadableAmount(amount, decimals)} {symbol}</p>
 				</div>
 				<ProgressBar trust={trust}></ProgressBar>
 			</div>
@@ -93,16 +111,19 @@ Transaction.propTypes = {
 	from: PropTypes.string.isRequired,
 
 	/** the amount of currency moved in the transaction */
-	amount: PropTypes.string.isRequired,
+	amount: PropTypes.number.isRequired,
 
 	/** The suffix to show after the transaction amount, such as "BTC" or "ETH" */
-	symbol: PropTypes.string,
+	symbol: PropTypes.string.isRequired,
 
 	/** the timestamp at which the transaction occurred */
 	timestamp: PropTypes.number.isRequired,
 
 	/** the percentage of confirmations required that the transaction has received */
 	trust: PropTypes.number.isRequired,
+
+	/** the number of decimals which the currency uses: i.e., 300 pennies with 2 decimals is 3.00 GBP. */
+	decimals: PropTypes.number,
 };
 
 export default Transaction;
