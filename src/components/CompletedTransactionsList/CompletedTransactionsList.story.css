@@ -1,8 +1,8 @@
-.TransactionsList .no-results {
+.CompletedTransactionsList .no-results {
 	position: static;
 }
 
-.TransactionsList .no-results p {
+.CompletedTransactionsList .no-results p {
 	position: static;
 	transform: translateY(0);
 	color: #000;

@@ -9,59 +9,51 @@
 }
 
 .ProgressBar .wave {
-	animation: wave 5s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+	animation-name: wave;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier( 0.36, 0.45, 0.63, 0.53);
 	background: url(./wave.svg) repeat-x;
 	background-size: 1600px 30px;
 	height: 15px;
 	position: absolute;
 	top: -14px;
-	width: 6400px;
+	width: 4096px;
+	will-change: animation;
+}
+
+.ProgressBar .wave:before,
+.ProgressBar .wave:after {
+	animation-name: wave;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier( 0.36, 0.45, 0.63, 0.53);
+	background: inherit;
+	background-size: inherit;
+	content: '.';
+	height: inherit;
+	position: inherit;
+	top: 0px;
+	transform: translate3d(0, 0, 0);
+	width: inherit;
 	will-change: animation;
 }
 
 .ProgressBar .wave:before {
-	animation: wave 4s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.5s infinite, swell 5s ease infinite;
-	background: url(./wave.svg) repeat-x;
-	background-size: 1600px 30px;
-	content: '.';
-	height: 15px;
-	position: absolute;
-	opacity: 0.75;
-	top: 25px;
-	width: 6400px;
-	will-change: animation;
+	animation-delay: 1s;
+	opacity: 0.5;
 }
 
 .ProgressBar .wave:after {
-	animation: wave 4s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.75s infinite, swell 5s ease -1s infinite;
-	background: url(./wave.svg) repeat-x;
-	background-size: 1600px 30px;
-	content: '.';
-	height: 15px;
-	position: absolute;
-	opacity: 0.5;
-	top: 25px;
-	transform: translate3d(0, 0, 0);
-	width: 6400px;
-	will-change: animation;
+	animation-delay: 2s;
+	opacity: 0.25;
 }
 
 @keyframes wave {
 	0% {
-		/*transform: translateX(0);*/
-		margin-left: 0;
+		transform: translateX(0);
 	}
 	100% {
-		/*transform: translateX(-1600px);*/
-		margin-left: -1600px;
-	}
-}
-
-@keyframes swell {
-	0%, 100% {
-		transform: translate3d(0,-25px,0);
-	}
-	50% {
-		transform: translate3d(0,5px,0);
+		transform: translateX(-1600px);
 	}
 }
