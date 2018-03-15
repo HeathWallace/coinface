@@ -24,6 +24,23 @@ describe('transaction actions', () => {
 
 		expect(actions.addTransaction(payload)).toEqual(expectedAction);
 	});
+
+	it('should create an action for a pending transaction', () => {
+		const expectedAction = {
+			type: types.ADD_PENDING_TRANSACTION,
+			payload,
+		};
+
+		expect(actions.addPendingTransaction(payload)).toEqual(expectedAction);
+	});
+
+	it('should create an action for clearing all transactions', () => {
+		const expectedAction = {
+			type: types.CLEAR_TRANSACTIONS,
+		};
+
+		expect(actions.clearTransactions()).toEqual(expectedAction);
+	});
 });
 
 describe('token actions', () => {
@@ -47,5 +64,31 @@ describe('token actions', () => {
 		};
 
 		expect(actions.finishLoadingTokenMetadata(payload)).toEqual(expectedAction);
+	});
+});
+
+describe('settings', () => {
+	it('should create an action to add wallet address', () => {
+		const payload = {
+			walletAddress: '0x987654321',
+		};
+		const expectedAction = {
+			type: types.ADD_WALLET,
+			payload,
+		};
+
+		expect(actions.addWallet('0x987654321')).toEqual(expectedAction);
+	});
+
+	it('should create an action to set a trust level', () => {
+		const payload = {
+			trustLevel: 100,
+		};
+		const expectedAction = {
+			type: types.SET_TRUST,
+			payload,
+		};
+
+		expect(actions.setTrust(100)).toEqual(expectedAction);
 	});
 });
