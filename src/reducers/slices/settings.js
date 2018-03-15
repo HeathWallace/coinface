@@ -1,26 +1,20 @@
 import { createReducer } from '../util';
 import * as types from '../../constants/actionTypes';
 
-import env from '../../utils/environment';
-
 const initialSettings = {
-	contractAddress: env.REACT_APP_CONTRACT_ADDRESS,
-	trustLevel: '1',
-	walletAddress: env.REACT_APP_WALLET_ADDRESS,
+	tokenAddress: '',
+	trustLevel: 1,
+	walletAddress: '',
 };
 
-const updateSettings = (settingsState,  action) => {
-	const newWalletAddressValue = action.payload.walletAddress;
-	const newTransferSettingValue = action.payload.trustLevel;
-
-	return {...settingsState,
-		trustLevel: newTransferSettingValue,
-		walletAddress: newWalletAddressValue,
-	};
-};
+const addWallet = (settings, { payload }) => ({ ...settings, walletAddress: payload.walletAddress });
+const setTrust = (settings, { payload }) => ({ ...settings, trustLevel: payload.trustLevel });
+const addToken = (settings, { payload }) => ({ ...settings, tokenAddress: payload.tokenAddress });
 
 const settingsReducer = createReducer(initialSettings, {
-	[types.UPDATE_SETTINGS]: updateSettings,
+	[types.ADD_WALLET]: addWallet,
+	[types.SET_TRUST]: setTrust,
+	[types.ADD_TOKEN]: addToken,
 });
 
 export default settingsReducer;

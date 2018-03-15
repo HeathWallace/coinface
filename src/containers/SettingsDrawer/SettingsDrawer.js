@@ -6,9 +6,8 @@ import TrustSetting from '../../components/TrustSetting/TrustSetting';
 import AddressInput from '../../components/AddressInput/AddressInput';
 import Button from '../../components/Button/Button';
 
-import { updateSettings, clearTransactions, getAllTransactions } from '../../actions';
+import { addWallet, setTrust, clearTransactions, getAllTransactions } from '../../actions';
 import SettingsDrawer from '../../components/SettingsDrawer/SettingsDrawer';
-
 
 const mapStateToProps = state => ({
 	trustLevel: state.settings.trustLevel,
@@ -17,7 +16,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	onSave: ({ walletAddress, trustLevel }) => {
-		dispatch(updateSettings({walletAddress, trustLevel}));
+		dispatch(addWallet(walletAddress));
+		dispatch(setTrust(trustLevel));
 		dispatch(clearTransactions());
 		dispatch(getAllTransactions());
 	},
@@ -29,7 +29,7 @@ class ConnectedSettingsDrawer extends React.Component {
 			isOpen: PropTypes.bool.isRequired,
 			onClose: PropTypes.func,
 			onSave: PropTypes.func,
-			trustLevel: PropTypes.string,
+			trustLevel: PropTypes.number,
 			walletAddress: PropTypes.string.isRequired,
 		};
 	}
@@ -71,6 +71,5 @@ class ConnectedSettingsDrawer extends React.Component {
 		this.props.onClose();
 	}
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConnectedSettingsDrawer);

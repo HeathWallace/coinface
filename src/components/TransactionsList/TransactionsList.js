@@ -8,8 +8,7 @@ import CompletedTransactionsList from '../CompletedTransactionsList/CompletedTra
 
 const TransactionsList = ({ transactions }) => {
 	const pendingTransactions = transactions.filter(transaction => transaction.trust < 100);
-	//Trust prop is not presently supplied so using !transaction.trust to show completed transactions
-	const completedTransactions = transactions.filter(transaction => !transaction.trust || transaction.trust >= 100);
+	const completedTransactions = transactions.filter(transaction => transaction.trust >= 100);
 
 	return (
 		<div className='TransactionsList'>

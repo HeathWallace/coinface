@@ -17,9 +17,10 @@ export const Transaction = struct({
 	logIndex: 'string',
 	transactionHash: 'string',
 	transactionIndex: 'string',
+	confirmations: 'number',
 });
 
 export const Settings = struct({
 	walletAddress: 'string',
-	trustLevel: 'string',
+	trustLevel: 'number',
 });
