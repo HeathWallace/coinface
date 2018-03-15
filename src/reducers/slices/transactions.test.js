@@ -1,11 +1,5 @@
 import transactionsReducer from './transactions.js';
 import * as types from '../../constants/actionTypes';
-import env from '../../utils/environment';
-
-// check if user defined variables exist
-// if not, use dummy ones for now
-env.REACT_APP_DEFAULT_SYMBOL = env.REACT_APP_DEFAULT_SYMBOL ? env.REACT_APP_DEFAULT_SYMBOL : 'TST';
-env.REACT_APP_DEFAULT_DECIMALS = env.REACT_APP_DEFAULT_DECIMALS ? env.REACT_APP_DEFAULT_DECIMALS : '2';
 
 // all values are inserted as hexadecimal values
 // which are then converted in the reducer
@@ -14,12 +8,13 @@ const newTransaction = {
 	timeStamp: '0x5a8edf01',
 	topics: [ '', '0x0000000000000000001111111111111111111111', '0x00000000000000000022222222222222222' ],
 	data: '0xe1',
-	address: '0x123456789',
+	address: '0x987654321',
 	blockNumber: '0x123456789',
 	gasPrice: '0x123456789',
 	gasUsed: '0x123456789',
 	logIndex: '0x123456789',
 	transactionIndex: '0x123456789',
+	confirmations: 4,
 };
 
 describe('transactions reducer', () => {
@@ -39,25 +34,27 @@ describe('transactions reducer', () => {
 		};
 		const expectedState = {
 			'0x00000000': {
-				amount: '2.25',
+				amount: 225,
 				timestamp: 1519312641,
 				from: '0x1111111111111111',
 				to: '0x22222222222',
-				symbol: env.REACT_APP_DEFAULT_SYMBOL,
+				confirmations: 4,
+				token: '0x987654321',
 			},
 		};
 
 		expect(transactionsReducer(initialState, action)).toEqual(expectedState);
 	});
 
-	it('should disregard new transactions with identical transactionHash', () => {
+	it('should replace original transaction if new transaction is added', () => {
 		const initialState = {
 			'0x00000000': {
-				amount: '2.25',
-				timestamp: 1519312612,
+				amount: 225,
+				timestamp: 1519312641,
 				from: '0x1111111111111111',
 				to: '0x22222222222',
-				symbol: env.REACT_APP_DEFAULT_SYMBOL,
+				confirmations: 0,
+				token: '0x987654321',
 			},
 		};
 		const action = {
@@ -66,11 +63,12 @@ describe('transactions reducer', () => {
 		};
 		const expectedState = {
 			'0x00000000': {
-				amount: '2.25',
-				timestamp: 1519312612,
+				amount: 225,
+				timestamp: 1519312641,
 				from: '0x1111111111111111',
 				to: '0x22222222222',
-				symbol: env.REACT_APP_DEFAULT_SYMBOL,
+				confirmations: 4,
+				token: '0x987654321',
 			},
 		};
 
