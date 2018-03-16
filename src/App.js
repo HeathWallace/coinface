@@ -6,7 +6,6 @@ import Header from './components/Header/Header';
 import logo from './assets/images/logo.svg';
 import TransactionList from './containers/TransactionList/TransactionList';
 import ConnectedSettingsDrawer from './containers/SettingsDrawer/SettingsDrawer';
-import DailyTotal from './containers/DailyTotal/DailyTotal';
 
 class App extends React.Component {
 
@@ -43,8 +42,6 @@ class App extends React.Component {
 				</Header>
 
 				<TransactionList/>
-
-				<DailyTotal/>
 
 				<ConnectedSettingsDrawer
 					isOpen={settingsDrawerIsOpen}

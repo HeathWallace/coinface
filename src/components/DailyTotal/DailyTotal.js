@@ -5,7 +5,8 @@ import './DailyTotal.css';
 
 const DailyTotal = ({ total, symbol }) => (
 	<div className='DailyTotal'>
-		<p>Total: {total} {symbol}</p>
+		<span className='date'>Mon 12 Feb</span>
+		<span className='total'>Total: {total} {symbol}</span>
 	</div>
 );
 
