@@ -80,17 +80,17 @@ class ConnectedSettingsDrawer extends React.Component {
 				onClose={onClose}
 			>
 				<h2>Settings</h2>
-				<TrustSetting labelText='Trust' value={trustLevel} onChange={this.createOnChangeHandler('trustLevel')}/>
-				<AddressInput isValid={this.addressInputIsValid(walletAddress)} labelText='Address' value={walletAddress} onChange={this.createOnChangeHandler('walletAddress')}/>
-				{this.walletAddressErrors.length > 0 &&
-					<ul className='errors'>
-						{walletAddressErrors.map((item, index) => (
-							<li key={index}>
-								{item}
-							</li>
-						))}
-					</ul>
-				}
+				<TrustSetting
+					labelText='Trust'
+					value={trustLevel}
+					onChange={this.createOnChangeHandler('trustLevel')}
+				/>
+				<AddressInput
+					labelText='Address' value={walletAddress}
+					onChange={this.createOnChangeHandler('walletAddress')}
+					isValid={walletAddressErrors.length > 0 ? false : true}
+					errors={walletAddressErrors}
+				/>
 				<Button variant='secondary' onClick={this.saveClickHandler}>Save</Button>
 			</SettingsDrawer>
 		);

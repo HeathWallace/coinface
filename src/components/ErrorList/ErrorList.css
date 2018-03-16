@@ -1,0 +1,9 @@
+.ErrorList ul {
+	margin-top: -16px;
+	margin-bottom: 32px;
+	padding-left: 18px;
+}
+
+.ErrorList li {
+	margin-bottom: 8px;
+}
