@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './ErrorList.css';
 
 const ErrorList = ({ errors }) => (
-	<div className='ErrorList'>
+	<div className='base'>
 		{errors.length > 0 &&
 		<ul>
 			{errors.map((item, index) => (
@@ -18,12 +18,16 @@ const ErrorList = ({ errors }) => (
 );
 
 ErrorList.description = `
-Displaying to the vendor the total monetary value of the transactions made in that day, particularly useful for quick reference.
+Displays a list of errors
 `;
 
 ErrorList.propTypes = {
 	/** array of error strings */
 	errors: PropTypes.array,
+};
+
+ErrorList.defaultProps = {
+	errors: [],
 };
 
 export default ErrorList;
