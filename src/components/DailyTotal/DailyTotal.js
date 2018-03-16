@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import './DailyTotal.css';
 
-const DailyTotal = ({ total, symbol }) => (
+const DailyTotal = ({ total, symbol, date }) => (
 	<div className='DailyTotal'>
-		<span className='date'>Mon 12 Feb</span>
+		<span className='date'>{date}</span>
 		<span className='total'>Total: {total} {symbol}</span>
 	</div>
 );
@@ -20,6 +20,9 @@ DailyTotal.propTypes = {
 
 	/** The suffix to show after the transaction amount, such as "BTC" or "ETH" */
 	symbol: PropTypes.string,
+
+	/** The date associated with the total */
+	date: PropTypes.string,
 };
 
 export default DailyTotal;
