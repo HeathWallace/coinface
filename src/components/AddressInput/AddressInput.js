@@ -2,15 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import inputIdGenerator from '../../utils/inputIdGenerator';
 import TextInput from '../TextInput/TextInput';
+import ErrorList from '../ErrorList/ErrorList';
 
-const AddressInput = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange }) => (
+const AddressInput = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange, isValid, errors }) => (
 	<div className='AddressInput'>
 		<TextInput
 			id={id}
 			labelText={labelText}
 			onChange={onChange}
 			value={value}
+			isValid={isValid}
 		/>
+		<ErrorList errors={errors} />
 	</div>
 );
 
@@ -38,6 +41,12 @@ AddressInput.propTypes = {
 
 	/** Pre-defined value for input, if present */
 	value: PropTypes.string,
+
+	/** Flag if the input is valid or not */
+	isValid: PropTypes.bool,
+
+	/** array of error strings */
+	errors: PropTypes.array,
 };
 
 export default AddressInput;
