@@ -23,7 +23,7 @@ Displays a list of errors
 
 ErrorList.propTypes = {
 	/** array of error strings */
-	errors: PropTypes.array,
+	errors: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 ErrorList.defaultProps = {
