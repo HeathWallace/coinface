@@ -1,6 +1,7 @@
 .CompletedTransactionsList {
 	background: #2A293B;
-	padding: 112px 64px 64px;
+	padding: 112px 32px 0;
+	position: relative;
 }
 
 .CompletedTransactionsList .no-results {
@@ -22,4 +23,27 @@
 	text-align: center;
 	color: white;
 	opacity: 0.5;
+}
+
+.CompletedTransactionsList .wave {
+	animation-name: wave;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier( 0.36, 0.45, 0.63, 0.53);
+	background: url(./wave.svg) repeat-x;
+	background-size: 1600px 30px;
+	height: 15px;
+	position: absolute;
+	top: -14px;
+	width: 4096px;
+	will-change: animation;
+}
+
+@keyframes wave {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-1600px);
+	}
 }
