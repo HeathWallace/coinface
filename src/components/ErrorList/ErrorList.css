@@ -1,9 +1,13 @@
 .ErrorList ul {
-	margin-top: -16px;
-	margin-bottom: 32px;
-	padding-left: 18px;
+	list-style: none;
+	margin-top: -28px;
+	margin-bottom: 16px;
 }
 
 .ErrorList li {
-	margin-bottom: 8px;
+	font-size: 14px;
+	line-height: 24px;
+	padding-left: 24px;
+	background: url(Error.svg) no-repeat left 4px;
+	background-size: 16px;
 }

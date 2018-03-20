@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './ErrorList.css';
 
 const ErrorList = ({ errors }) => (
-	<div className='base'>
+	<div className='ErrorList'>
 		{errors.length > 0 &&
 		<ul>
 			{errors.map((item, index) => (
