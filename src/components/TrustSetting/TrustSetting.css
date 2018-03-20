@@ -61,6 +61,7 @@
 	box-shadow: none;
 	outline: none;
 }
+/* stylelint-disable no-descending-specificity */
 .TrustSetting input::-webkit-slider-runnable-track {
 	background: linear-gradient(to right, var(--track-gradient-start), var(--track-gradient-end));
 	content: '';
@@ -77,8 +78,7 @@
 	border-radius: 10px;
 	border: 1px solid grey;
 	z-index: 100;
-	box-shadow:
-		5px 0 0 -5px var(--track-post-color),
+	box-shadow: 5px 0 0 -5px var(--track-post-color),
 		6px 0 0 -5px var(--track-post-color),
 		7px 0 0 -5px var(--track-post-color),
 		8px 0 0 -5px var(--track-post-color),
@@ -316,3 +316,4 @@
 		240px 0 0 -5px var(--track-post-color);
 	margin-top: -5px;
 }
+/* stylelint-ensable   */
