@@ -1,37 +1,318 @@
 .TrustSetting {
-	background-color: #313045;
+	--bg-color: white;
+	--track-post-color: #313045;
+	--track-gradient-start: #F54EA2;
+	--track-gradient-end: #FF7676;
+
+	background-color: var(--bg-color);
 	color: white;
-}
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-	input[type=range]{
-	  -webkit-appearance: none;
-	  background: none;
-	}
-
-	input[type=range]::-webkit-slider-runnable-track {
-	  height: 7px;
-	  background: #1B1B26;
-	  border: none;
-	  border-radius: 10px;
-	}
-	input[type="range"]::-moz-range-progress {
-	  background-color: #43e5f7;
-	}
-
-	input[type=range]::-webkit-slider-thumb {
-	  -webkit-appearance: none;
-
-	  border: none;
-	  height: 20px;
-	  width: 20px;
-	  border-radius: 50%;
-		background: #FFF;
-		/*margin-top needs to match the height of the track*/
-	  margin-top: -7px;
-	  position: relative;
-	}
+	position: relative;
+	display: inline-block;
 }
 
-/* Colours for the sliders
-Dark blue #1B1B26
-linear-gradient(to right, #F54EA2 , #FF7676);*/
+.TrustSetting.max {
+	--track-post-color: transparent;
+}
+
+.TrustSetting:before {
+	content: '';
+	width: 10px;
+	height: 10px;
+	background-color: var(--bg-color);
+	display: block;
+	position: absolute;
+	right: 0;
+	bottom: 22px;
+}
+.TrustSetting:after {
+	content: '';
+	width: 10px;
+	height: 10px;
+	background-color: var(--track-post-color);
+	display: block;
+	position: absolute;
+	right: 0;
+	border-radius: 0px 10px 10px 0;
+	bottom: 22px;
+}
+.TrustSetting.max:before,
+.TrustSetting.max:after {
+	display: none;
+}
+.TrustSetting input {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: none;
+	cursor: pointer;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	height: 100%;
+	min-height: 50px;
+	width: 240px;
+	overflow: hidden;
+}
+.TrustSetting input:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	outline: none;
+}
+.TrustSetting input::-webkit-slider-runnable-track {
+	background: linear-gradient(to right, var(--track-gradient-start), var(--track-gradient-end));
+	content: '';
+	height: 10px;
+	pointer-events: none;
+	border-radius: 10px;
+}
+.TrustSetting input::-webkit-slider-thumb {
+	height: 20px;
+	width: 20px;
+	-webkit-appearance: none;
+	appearance: none;
+	background: #fff;
+	border-radius: 10px;
+	border: 1px solid grey;
+	z-index: 100;
+	box-shadow:
+		5px 0 0 -5px var(--track-post-color),
+		6px 0 0 -5px var(--track-post-color),
+		7px 0 0 -5px var(--track-post-color),
+		8px 0 0 -5px var(--track-post-color),
+		9px 0 0 -5px var(--track-post-color),
+		10px 0 0 -5px var(--track-post-color),
+		11px 0 0 -5px var(--track-post-color),
+		12px 0 0 -5px var(--track-post-color),
+		13px 0 0 -5px var(--track-post-color),
+		14px 0 0 -5px var(--track-post-color),
+		15px 0 0 -5px var(--track-post-color),
+		16px 0 0 -5px var(--track-post-color),
+		17px 0 0 -5px var(--track-post-color),
+		18px 0 0 -5px var(--track-post-color),
+		19px 0 0 -5px var(--track-post-color),
+		20px 0 0 -5px var(--track-post-color),
+		21px 0 0 -5px var(--track-post-color),
+		22px 0 0 -5px var(--track-post-color),
+		23px 0 0 -5px var(--track-post-color),
+		24px 0 0 -5px var(--track-post-color),
+		25px 0 0 -5px var(--track-post-color),
+		26px 0 0 -5px var(--track-post-color),
+		27px 0 0 -5px var(--track-post-color),
+		28px 0 0 -5px var(--track-post-color),
+		29px 0 0 -5px var(--track-post-color),
+		30px 0 0 -5px var(--track-post-color),
+		31px 0 0 -5px var(--track-post-color),
+		32px 0 0 -5px var(--track-post-color),
+		33px 0 0 -5px var(--track-post-color),
+		34px 0 0 -5px var(--track-post-color),
+		35px 0 0 -5px var(--track-post-color),
+		36px 0 0 -5px var(--track-post-color),
+		37px 0 0 -5px var(--track-post-color),
+		38px 0 0 -5px var(--track-post-color),
+		39px 0 0 -5px var(--track-post-color),
+		40px 0 0 -5px var(--track-post-color),
+		41px 0 0 -5px var(--track-post-color),
+		42px 0 0 -5px var(--track-post-color),
+		43px 0 0 -5px var(--track-post-color),
+		44px 0 0 -5px var(--track-post-color),
+		45px 0 0 -5px var(--track-post-color),
+		46px 0 0 -5px var(--track-post-color),
+		47px 0 0 -5px var(--track-post-color),
+		48px 0 0 -5px var(--track-post-color),
+		49px 0 0 -5px var(--track-post-color),
+		50px 0 0 -5px var(--track-post-color),
+		51px 0 0 -5px var(--track-post-color),
+		52px 0 0 -5px var(--track-post-color),
+		53px 0 0 -5px var(--track-post-color),
+		54px 0 0 -5px var(--track-post-color),
+		55px 0 0 -5px var(--track-post-color),
+		56px 0 0 -5px var(--track-post-color),
+		57px 0 0 -5px var(--track-post-color),
+		58px 0 0 -5px var(--track-post-color),
+		59px 0 0 -5px var(--track-post-color),
+		60px 0 0 -5px var(--track-post-color),
+		61px 0 0 -5px var(--track-post-color),
+		62px 0 0 -5px var(--track-post-color),
+		63px 0 0 -5px var(--track-post-color),
+		64px 0 0 -5px var(--track-post-color),
+		65px 0 0 -5px var(--track-post-color),
+		66px 0 0 -5px var(--track-post-color),
+		67px 0 0 -5px var(--track-post-color),
+		68px 0 0 -5px var(--track-post-color),
+		69px 0 0 -5px var(--track-post-color),
+		70px 0 0 -5px var(--track-post-color),
+		71px 0 0 -5px var(--track-post-color),
+		72px 0 0 -5px var(--track-post-color),
+		73px 0 0 -5px var(--track-post-color),
+		74px 0 0 -5px var(--track-post-color),
+		75px 0 0 -5px var(--track-post-color),
+		76px 0 0 -5px var(--track-post-color),
+		77px 0 0 -5px var(--track-post-color),
+		78px 0 0 -5px var(--track-post-color),
+		79px 0 0 -5px var(--track-post-color),
+		80px 0 0 -5px var(--track-post-color),
+		81px 0 0 -5px var(--track-post-color),
+		82px 0 0 -5px var(--track-post-color),
+		83px 0 0 -5px var(--track-post-color),
+		84px 0 0 -5px var(--track-post-color),
+		85px 0 0 -5px var(--track-post-color),
+		86px 0 0 -5px var(--track-post-color),
+		87px 0 0 -5px var(--track-post-color),
+		88px 0 0 -5px var(--track-post-color),
+		89px 0 0 -5px var(--track-post-color),
+		90px 0 0 -5px var(--track-post-color),
+		91px 0 0 -5px var(--track-post-color),
+		92px 0 0 -5px var(--track-post-color),
+		93px 0 0 -5px var(--track-post-color),
+		94px 0 0 -5px var(--track-post-color),
+		95px 0 0 -5px var(--track-post-color),
+		96px 0 0 -5px var(--track-post-color),
+		97px 0 0 -5px var(--track-post-color),
+		98px 0 0 -5px var(--track-post-color),
+		99px 0 0 -5px var(--track-post-color),
+		100px 0 0 -5px var(--track-post-color),
+		101px 0 0 -5px var(--track-post-color),
+		102px 0 0 -5px var(--track-post-color),
+		103px 0 0 -5px var(--track-post-color),
+		104px 0 0 -5px var(--track-post-color),
+		105px 0 0 -5px var(--track-post-color),
+		106px 0 0 -5px var(--track-post-color),
+		107px 0 0 -5px var(--track-post-color),
+		108px 0 0 -5px var(--track-post-color),
+		109px 0 0 -5px var(--track-post-color),
+		110px 0 0 -5px var(--track-post-color),
+		111px 0 0 -5px var(--track-post-color),
+		112px 0 0 -5px var(--track-post-color),
+		113px 0 0 -5px var(--track-post-color),
+		114px 0 0 -5px var(--track-post-color),
+		115px 0 0 -5px var(--track-post-color),
+		116px 0 0 -5px var(--track-post-color),
+		117px 0 0 -5px var(--track-post-color),
+		118px 0 0 -5px var(--track-post-color),
+		119px 0 0 -5px var(--track-post-color),
+		120px 0 0 -5px var(--track-post-color),
+		121px 0 0 -5px var(--track-post-color),
+		122px 0 0 -5px var(--track-post-color),
+		123px 0 0 -5px var(--track-post-color),
+		124px 0 0 -5px var(--track-post-color),
+		125px 0 0 -5px var(--track-post-color),
+		126px 0 0 -5px var(--track-post-color),
+		127px 0 0 -5px var(--track-post-color),
+		128px 0 0 -5px var(--track-post-color),
+		129px 0 0 -5px var(--track-post-color),
+		130px 0 0 -5px var(--track-post-color),
+		131px 0 0 -5px var(--track-post-color),
+		132px 0 0 -5px var(--track-post-color),
+		133px 0 0 -5px var(--track-post-color),
+		134px 0 0 -5px var(--track-post-color),
+		135px 0 0 -5px var(--track-post-color),
+		136px 0 0 -5px var(--track-post-color),
+		137px 0 0 -5px var(--track-post-color),
+		138px 0 0 -5px var(--track-post-color),
+		139px 0 0 -5px var(--track-post-color),
+		140px 0 0 -5px var(--track-post-color),
+		141px 0 0 -5px var(--track-post-color),
+		142px 0 0 -5px var(--track-post-color),
+		143px 0 0 -5px var(--track-post-color),
+		144px 0 0 -5px var(--track-post-color),
+		145px 0 0 -5px var(--track-post-color),
+		146px 0 0 -5px var(--track-post-color),
+		147px 0 0 -5px var(--track-post-color),
+		148px 0 0 -5px var(--track-post-color),
+		149px 0 0 -5px var(--track-post-color),
+		150px 0 0 -5px var(--track-post-color),
+		151px 0 0 -5px var(--track-post-color),
+		152px 0 0 -5px var(--track-post-color),
+		153px 0 0 -5px var(--track-post-color),
+		154px 0 0 -5px var(--track-post-color),
+		155px 0 0 -5px var(--track-post-color),
+		156px 0 0 -5px var(--track-post-color),
+		157px 0 0 -5px var(--track-post-color),
+		158px 0 0 -5px var(--track-post-color),
+		159px 0 0 -5px var(--track-post-color),
+		160px 0 0 -5px var(--track-post-color),
+		161px 0 0 -5px var(--track-post-color),
+		162px 0 0 -5px var(--track-post-color),
+		163px 0 0 -5px var(--track-post-color),
+		164px 0 0 -5px var(--track-post-color),
+		165px 0 0 -5px var(--track-post-color),
+		166px 0 0 -5px var(--track-post-color),
+		167px 0 0 -5px var(--track-post-color),
+		168px 0 0 -5px var(--track-post-color),
+		169px 0 0 -5px var(--track-post-color),
+		170px 0 0 -5px var(--track-post-color),
+		171px 0 0 -5px var(--track-post-color),
+		172px 0 0 -5px var(--track-post-color),
+		173px 0 0 -5px var(--track-post-color),
+		174px 0 0 -5px var(--track-post-color),
+		175px 0 0 -5px var(--track-post-color),
+		176px 0 0 -5px var(--track-post-color),
+		177px 0 0 -5px var(--track-post-color),
+		178px 0 0 -5px var(--track-post-color),
+		179px 0 0 -5px var(--track-post-color),
+		180px 0 0 -5px var(--track-post-color),
+		181px 0 0 -5px var(--track-post-color),
+		182px 0 0 -5px var(--track-post-color),
+		183px 0 0 -5px var(--track-post-color),
+		184px 0 0 -5px var(--track-post-color),
+		185px 0 0 -5px var(--track-post-color),
+		186px 0 0 -5px var(--track-post-color),
+		187px 0 0 -5px var(--track-post-color),
+		188px 0 0 -5px var(--track-post-color),
+		189px 0 0 -5px var(--track-post-color),
+		190px 0 0 -5px var(--track-post-color),
+		191px 0 0 -5px var(--track-post-color),
+		192px 0 0 -5px var(--track-post-color),
+		193px 0 0 -5px var(--track-post-color),
+		194px 0 0 -5px var(--track-post-color),
+		195px 0 0 -5px var(--track-post-color),
+		196px 0 0 -5px var(--track-post-color),
+		197px 0 0 -5px var(--track-post-color),
+		198px 0 0 -5px var(--track-post-color),
+		199px 0 0 -5px var(--track-post-color),
+		200px 0 0 -5px var(--track-post-color),
+		201px 0 0 -5px var(--track-post-color),
+		202px 0 0 -5px var(--track-post-color),
+		203px 0 0 -5px var(--track-post-color),
+		204px 0 0 -5px var(--track-post-color),
+		205px 0 0 -5px var(--track-post-color),
+		206px 0 0 -5px var(--track-post-color),
+		207px 0 0 -5px var(--track-post-color),
+		208px 0 0 -5px var(--track-post-color),
+		209px 0 0 -5px var(--track-post-color),
+		210px 0 0 -5px var(--track-post-color),
+		211px 0 0 -5px var(--track-post-color),
+		212px 0 0 -5px var(--track-post-color),
+		213px 0 0 -5px var(--track-post-color),
+		214px 0 0 -5px var(--track-post-color),
+		215px 0 0 -5px var(--track-post-color),
+		216px 0 0 -5px var(--track-post-color),
+		217px 0 0 -5px var(--track-post-color),
+		218px 0 0 -5px var(--track-post-color),
+		219px 0 0 -5px var(--track-post-color),
+		220px 0 0 -5px var(--track-post-color),
+		221px 0 0 -5px var(--track-post-color),
+		222px 0 0 -5px var(--track-post-color),
+		223px 0 0 -5px var(--track-post-color),
+		224px 0 0 -5px var(--track-post-color),
+		225px 0 0 -5px var(--track-post-color),
+		226px 0 0 -5px var(--track-post-color),
+		227px 0 0 -5px var(--track-post-color),
+		228px 0 0 -5px var(--track-post-color),
+		229px 0 0 -5px var(--track-post-color),
+		230px 0 0 -5px var(--track-post-color),
+		231px 0 0 -5px var(--track-post-color),
+		232px 0 0 -5px var(--track-post-color),
+		233px 0 0 -5px var(--track-post-color),
+		234px 0 0 -5px var(--track-post-color),
+		235px 0 0 -5px var(--track-post-color),
+		236px 0 0 -5px var(--track-post-color),
+		237px 0 0 -5px var(--track-post-color),
+		238px 0 0 -5px var(--track-post-color),
+		239px 0 0 -5px var(--track-post-color),
+		240px 0 0 -5px var(--track-post-color);
+	margin-top: -5px;
+}
