@@ -12,7 +12,7 @@ const GravatarProfile = ({email, gravStyle}) => {
 			<img src={'https://www.gravatar.com/avatar/' + hash + opts} alt='Gravatar avatar'/>
 		</div>
 	);
-}
+};
 
 GravatarProfile.description = `
 Used as a visualisation of a customers Gravatar profile picture.
