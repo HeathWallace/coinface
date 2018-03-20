@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 
 import './CompletedTransactionsList.css';
 
+import SectionHeader from '../SectionHeader/SectionHeader';
 import Transaction from '../Transaction/Transaction';
 import DailyTotal from '../../containers/DailyTotal/DailyTotal';
 
 const CompletedTransactionsList = ({ transactions }) => (
 	<div className='CompletedTransactionsList'>
-		<DailyTotal/>
 		<div className='wave'></div>
+		<SectionHeader header='Completed'/>
+		<DailyTotal/>
 		{transactions.length > 0 &&
 			transactions.map(transaction => (
 				<Transaction
