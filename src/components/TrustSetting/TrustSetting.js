@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import inputIdGenerator from '../../utils/inputIdGenerator';
 
+import './TrustSetting.css';
+
 const TrustSetting = ({ id = inputIdGenerator.nextIndex, labelText, minValue, maxValue, value, onChange }) => (
 	<div className='TrustSetting'>
 		<label htmlFor={id}>

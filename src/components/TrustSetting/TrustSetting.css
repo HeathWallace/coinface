@@ -1,0 +1,37 @@
+.TrustSetting {
+	background-color: #313045;
+	color: white;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	input[type=range]{
+	  -webkit-appearance: none;
+	  background: none;
+	}
+
+	input[type=range]::-webkit-slider-runnable-track {
+	  height: 7px;
+	  background: #1B1B26;
+	  border: none;
+	  border-radius: 10px;
+	}
+	input[type="range"]::-moz-range-progress {
+	  background-color: #43e5f7;
+	}
+
+	input[type=range]::-webkit-slider-thumb {
+	  -webkit-appearance: none;
+
+	  border: none;
+	  height: 20px;
+	  width: 20px;
+	  border-radius: 50%;
+		background: #FFF;
+		/*margin-top needs to match the height of the track*/
+	  margin-top: -7px;
+	  position: relative;
+	}
+}
+
+/* Colours for the sliders
+Dark blue #1B1B26
+linear-gradient(to right, #F54EA2 , #FF7676);*/
