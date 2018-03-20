@@ -20,9 +20,10 @@ const mapStateToProps = state => ({
 			const { amount } = transaction;
 			const { decimals } = token;
 
+			const decimalPointFactor = Math.pow(10, decimals);
 			const value = amount * Math.pow(10, -decimals);
-
-			return total + value;
+			
+			return Math.round((total + value) * decimalPointFactor) / decimalPointFactor;
 		}, 0),
 	symbol: env.REACT_APP_DEFAULT_SYMBOL,
 	date: extractDate(state.transactions),

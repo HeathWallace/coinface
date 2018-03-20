@@ -24,6 +24,18 @@ Please follow [this guide to the fork+PR workflow](https://gist.github.com/Chase
 
 ## Developing
 
+All components should be developed in isolation through Storybook. 
+
+Each component should be grouped into its own folder along with the necessary styling for that component. Create a file `{component}.story.js` alongside the component you have created to define stories for the component. 
+
+To run the Storybook development server execute the following command:
+
+```shell
+npm run storybook
+```
+
+This will open a new browser window in which you can view all components for which stories have been created.
+
 ### Built With
 
 React / Redux / Redux-thunk / Storybook / Ethplorer

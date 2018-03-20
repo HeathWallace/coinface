@@ -4,7 +4,7 @@ import { isFSA } from 'flux-standard-action';
 const createReducer = (initialState, handlers) => (state = initialState, action) => {
 
 	if (!isFSA(action)) {
-		console.error(`Unrecognised format: ${action.type} is not FSA-compliant`);
+		console.trace(`Unrecognised format: ${action.type} is not FSA-compliant`);
 	}
 
 	if (handlers.hasOwnProperty(action.type)) {

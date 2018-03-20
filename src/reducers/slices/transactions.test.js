@@ -18,9 +18,11 @@ const newTransaction = {
 };
 
 describe('transactions reducer', () => {
-	it('should return the initial state', () => {
+	it('should ignore an unrecognised action type', () => {
 		const initialState = undefined;
-		const action = {};
+		const action = {
+			type: 'loremIpsum',
+		};
 		const expectedState = {};
 
 		expect(transactionsReducer(initialState, action)).toEqual(expectedState);
