@@ -8,7 +8,7 @@ import Transaction from '../Transaction/Transaction';
 
 const PendingTransactionsList = ({ transactions }) => (
 	<div className='PendingTransactionsList'>
-		<SectionHeader header='Pending'/>
+		<SectionHeader>Pending</SectionHeader>
 		{transactions.length > 0 &&
 			transactions.map(transaction => (
 				<Transaction

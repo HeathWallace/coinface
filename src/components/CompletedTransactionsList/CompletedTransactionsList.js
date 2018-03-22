@@ -10,7 +10,7 @@ import DailyTotal from '../../containers/DailyTotal/DailyTotal';
 const CompletedTransactionsList = ({ transactions }) => (
 	<div className='CompletedTransactionsList'>
 		<div className='wave'></div>
-		<SectionHeader header='Completed'/>
+		<SectionHeader>Completed</SectionHeader>
 		<DailyTotal/>
 		{transactions.length > 0 &&
 			transactions.map(transaction => (

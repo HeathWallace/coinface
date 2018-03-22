@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import './SectionHeader.css';
 
-const SectionHeader = ({ header }) => (
+const SectionHeader = ({ children }) => (
 	<div className='SectionHeader'>
-		<h2>{header}</h2>
+		<h2>{children}</h2>
 	</div>
 );
 
