@@ -8,7 +8,7 @@ storiesOf('ErrorList', module)
 
 	.addDecorator((story, context) => withInfo(ErrorList.description)(story)(context))
 
-	.add('with errors', () => (
+	.add('base', () => (
 		<ErrorList
 			errors={['Value is too long',
 				'Must start with 0x',
