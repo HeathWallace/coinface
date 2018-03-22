@@ -39,6 +39,10 @@
 	will-change: animation;
 }
 
+.CompletedTransactionsList .Transaction:last-child {
+	margin-bottom: 0
+}
+
 @keyframes wave {
 	0% {
 		transform: translateX(0);
