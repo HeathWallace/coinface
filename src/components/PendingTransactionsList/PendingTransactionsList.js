@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 
 import './PendingTransactionsList.css';
 
+import SectionHeader from '../SectionHeader/SectionHeader';
 import Transaction from '../Transaction/Transaction';
 
 const PendingTransactionsList = ({ transactions }) => (
 	<div className='PendingTransactionsList'>
+		<SectionHeader>Pending</SectionHeader>
 		{transactions.length > 0 &&
 			transactions.map(transaction => (
 				<Transaction
