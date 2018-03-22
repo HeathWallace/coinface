@@ -15,7 +15,7 @@ Headers used for each section of the main app.
 
 SectionHeader.propTypes = {
 	/** String of characters  */
-	header: PropTypes.string,
+	children: PropTypes.string,
 };
 
 export default SectionHeader;
