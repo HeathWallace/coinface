@@ -2,6 +2,8 @@ import React from 'react';
 import './reset.css';
 import './base.css';
 
+import bindMethods from 'yaab';
+
 import Header from './components/Header/Header';
 import logo from './assets/images/logo.svg';
 import TransactionList from './containers/TransactionList/TransactionList';
@@ -11,12 +13,11 @@ class App extends React.Component {
 
 	constructor(props) {
 		super(props);
+		bindMethods(this);
 
 		this.state = {
 			settingsDrawerIsOpen: false,
 		};
-
-		this.toggleSettingsDrawer = this.toggleSettingsDrawer.bind(this);
 	}
 
 	tempLog(e) {

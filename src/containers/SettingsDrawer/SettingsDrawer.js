@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import bindMethods from 'yaab';
+
 import TrustSetting from '../../components/TrustSetting/TrustSetting';
 import AddressInput from '../../components/AddressInput/AddressInput';
 import Button from '../../components/Button/Button';
@@ -39,8 +41,7 @@ class ConnectedSettingsDrawer extends React.Component {
 		const { trustLevel, walletAddress } = props;
 		this.state = {trustLevel, walletAddress};
 		this.addressInputIsValid(walletAddress);
-		this.createOnChangeHandler = this.createOnChangeHandler.bind(this);
-		this.saveClickHandler = this.saveClickHandler.bind(this);
+		bindMethods(this);
 	}
 
 	createOnChangeHandler(name) {
