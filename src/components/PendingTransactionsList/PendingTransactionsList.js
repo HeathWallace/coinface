@@ -24,6 +24,7 @@ const PendingTransactionsList = ({ transactions }) => (
 				</p>
 			</div>
 		}
+		<div className='wave'></div>
 	</div>
 );
 

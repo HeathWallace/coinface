@@ -1,6 +1,7 @@
 .PendingTransactionsList {
-	background: linear-gradient(296.57deg, #FF7676 0%, #F54EA2 100%);
-	padding: 112px 64px 64px;
+	background: linear-gradient(270deg, #FF7676 0%, #F54EA2 100%);
+	padding: 112px 32px 47px;
+	position: relative;
 }
 
 .PendingTransactionsList .no-results {
@@ -22,4 +23,27 @@
 	text-align: center;
 	color: white;
 	opacity: 0.5;
+}
+
+.PendingTransactionsList .wave {
+	animation-name: wave;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier( 0.36, 0.45, 0.63, 0.53);
+	background: url(./wave.svg) repeat-x;
+	background-size: 1600px 30px;
+	bottom: 0;
+	height: 15px;
+	position: absolute;
+	width: 4096px;
+	will-change: animation;
+}
+
+@keyframes wave {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-1600px);
+	}
 }
