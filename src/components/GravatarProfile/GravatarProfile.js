@@ -6,7 +6,7 @@ import './GravatarProfile.css';
 
 const GravatarProfile = ({email, gravStyle}) => (
 	<div className='GravatarProfile'>
-		<img src={'https://www.gravatar.com/avatar/' + md5(email.trim().toLowerCase()) + '?d=' + gravStyle} />
+		<img src={'https://www.gravatar.com/avatar/' + md5(email.trim().toLowerCase()) + '?d=' + gravStyle} alt="" />
 	</div>
 );
 
