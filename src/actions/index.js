@@ -72,6 +72,27 @@ export const enableTransactionPolling = () => dispatch => {
 |--------------------------------------------------------------------------
 */
 
+export const createSimulatedTransactions = () => (dispatch, getState) => {
+	const { settings } = getState();
+
+	const { tokenAddress, walletAddress, trustLevel } = settings;
+
+	let i = Number(trustLevel);
+	while (i--) {
+		dispatch(addPendingTransaction({
+			confirmations: i,
+			from: walletAddress,
+			params: [
+				walletAddress,
+				'00000000000000000000000000000000000000000000000000000000000000c8',
+			],
+			timestamp: 0,
+			token: tokenAddress,
+			txHash: `0x000000000000000000000000000000000000000000000000000000000000000${i}`,
+		}));
+	}
+};
+
 export const addPendingTransaction = meta => ({
 	type: types.ADD_PENDING_TRANSACTION,
 	payload: meta,
@@ -126,13 +147,10 @@ export const addWallet = walletAddress => ({
 	payload: { walletAddress },
 });
 
-export const addToken = tokenAddress => dispatch => {
-	dispatch(addTokenMetadata(tokenAddress));
-	return {
-		type: types.ADD_TOKEN,
-		payload: { tokenAddress },
-	};
-};
+export const addToken = tokenAddress => ({
+	type: types.ADD_TOKEN,
+	payload: { tokenAddress },
+});
 
 export const setTrust = trustLevel => ({
 	type: types.SET_TRUST,
