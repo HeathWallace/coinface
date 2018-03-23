@@ -6,7 +6,7 @@
 	line-height: 1.5em;
 	padding: 16px;
 	position: fixed;
-	z-index: 2;
+	z-index: 3;
 }
 
 .DailyTotal .total {

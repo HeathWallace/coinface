@@ -1,5 +1,5 @@
 .Header {
-	background: transparent;
+	background: linear-gradient(270deg, #FF7676 0%, #F54EA2 100%);
 	color: #fff;
 	display: block;
 	height: 80px;
@@ -7,7 +7,7 @@
 	overflow: hidden;
 	top: 0;
 	width: 100%;
-	z-index: 1;
+	z-index: 3;
 }
 
 .Header .logo {
