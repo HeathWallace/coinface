@@ -4,6 +4,7 @@
 	height: 50%;
 	left: 0;
 	position: absolute;
+	transition: height 1s ease;
 	width: 100%;
 	z-index: 1;
 }
