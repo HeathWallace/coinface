@@ -1,0 +1,11 @@
+.SectionHeader {
+	padding: 0 0 0 32px;
+	margin: 0 0 16px 0;
+}
+
+.SectionHeader h2 {
+	color: #FFFFFF;
+	font-size: 20px;
+	line-height: 32px;
+	opacity: 0.5;
+}
