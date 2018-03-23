@@ -5,6 +5,7 @@ class Environment {
 		// Convert each required variable to a key/value
 		// pair, and merge all the pairs into the instance
 		Object.assign(this, ...this.requiredEnvironmentVariables.map(this._loadOrWarn));
+		Object.assign(this, ...this.optionalEnvironmentVariables.map(this._load));
 	}
 
 	get requiredEnvironmentVariables() {
@@ -21,9 +22,25 @@ class Environment {
 		];
 	}
 
+	get optionalEnvironmentVariables() {
+		return [
+			'REACT_APP_SIMULATED_TRANSACTIONS',
+		];
+	}
+
 	// Convert a variable name into a key/value pair from
 	// the process.env, and warn if the variable does
 	// not have a value i.e. is unset.
+	_load(name) {
+		const val = process.env[name];
+
+		return {
+			[name]: val,
+		};
+	}
+
+	// Convert a variable name into a key/value pair from
+	// the process.env
 	_loadOrWarn(name) {
 		const isCI = process.env.CI || false;
 		const val = process.env[name];
