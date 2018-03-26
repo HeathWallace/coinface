@@ -9,7 +9,7 @@
 	transition: background 1s;
 	top: 0;
 	right: 0;
-	z-index: 2;
+	z-index: 4;
 }
 
 .SettingsDrawer .inner {
@@ -22,7 +22,7 @@
 	right: -100%;
 	top: 0;
 	width: 320px;
-	z-index: 3;
+	z-index: 5;
 }
 
 .SettingsDrawer.is-open .inner {

@@ -9,7 +9,6 @@ import DailyTotal from '../../containers/DailyTotal/DailyTotal';
 
 const CompletedTransactionsList = ({ transactions }) => (
 	<div className='CompletedTransactionsList'>
-		<div className='wave'></div>
 		<SectionHeader>Completed</SectionHeader>
 		<DailyTotal/>
 		{transactions.length > 0 &&

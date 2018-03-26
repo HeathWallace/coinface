@@ -29,7 +29,7 @@
 
 
 body {
-	background: linear-gradient(296.57deg, #FF7676 0%, #F54EA2 100%);
+	background: #2A293B;
 	font-family: SanFrancisco, Arial, sans-serif;
 	font-size: 16px;
 	line-height: 100%;
@@ -38,4 +38,8 @@ body {
 .accessible {
 	position: absolute;
 	left: -9999px;
+}
+
+.App {
+	overflow-x: hidden;
 }
