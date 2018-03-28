@@ -5,7 +5,7 @@
 	left: 0;
 	opacity: 0.5;
 	pointer-events: none;
-	position: absolute;
+	position: fixed;
 	transition: background 1s;
 	top: 0;
 	right: 0;
