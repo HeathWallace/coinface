@@ -1,12 +1,11 @@
 .DailyTotal {
-	background: #313045;
-	bottom: 0;
+	border-bottom: 1px solid rgba(255,255,255,0.5);
 	color: #FFFFFF;
+	font-size: 0.875em;
 	left: 0;
-	line-height: 1.5em;
-	padding: 16px;
-	position: fixed;
-	z-index: 3;
+	line-height: 1em;
+	margin: 0 32px 20px;
+	padding: 16px 0;
 }
 
 .DailyTotal .total {
