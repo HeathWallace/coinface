@@ -12,37 +12,10 @@
 		"es6": true,
 		"jest": true
 	},
-	"plugins": [
-		"react"
-	],
-	"extends": [
-		"eslint:recommended",
-		"plugin:react/recommended"
-	],
+	"plugins": ["prettier"],
+	"extends": ["prettier", "prettier/react"],
 	"rules": {
-		"indent": [
-			"error",
-			"tab"
-		],
-		"linebreak-style": [
-			"error",
-			"unix"
-		],
-		"quotes": [
-			"error",
-			"single"
-		],
-		"semi": [
-			"error",
-			"always"
-		],
-		"comma-dangle": [
-			"error",
-			"always-multiline"
-		],
-		"jsx-quotes": [
-			"warn",
-			"prefer-single"
-		]
+		"prettier/prettier": "error",
+		"linebreak-style": ["error", "unix"]
 	}
 }
