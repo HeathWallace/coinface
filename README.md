@@ -69,7 +69,7 @@ npm run lint
 
 ## Style guide
 
-ESLint is used to check code style; see Tests above.
+Prettier & ESLint are used to control code style. For Atom, using [prettier-atom](https://atom.io/packages/prettier-atom) with "Automatically format on save" and "ESLint integration" enabled is recommended.
 
 ## Licensing
 
