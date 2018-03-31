@@ -1,6 +1,7 @@
 ![Logo](./public/favicon.ico)
 
 # Coinface
+
 > Accept ERC-20 token payments in-store.
 
 Allows shops to accept ERC-20 compliant cryptocurrency payments.
@@ -24,9 +25,9 @@ Please follow [this guide to the fork+PR workflow](https://gist.github.com/Chase
 
 ## Developing
 
-All components should be developed in isolation through Storybook. 
+All components should be developed in isolation through Storybook.
 
-Each component should be grouped into its own folder along with the necessary styling for that component. Create a file `{component}.story.js` alongside the component you have created to define stories for the component. 
+Each component should be grouped into its own folder along with the necessary styling for that component. Create a file `{component}.story.js` alongside the component you have created to define stories for the component.
 
 To run the Storybook development server execute the following command:
 
@@ -42,7 +43,7 @@ React / Redux / Redux-thunk / Storybook / Ethplorer
 
 ### Prerequisites
 
-- [Node](https://nodejs.org)
+* [Node](https://nodejs.org)
 
 ### Deploying / Publishing
 
@@ -61,6 +62,7 @@ To run all tests (including unit tests on components/actions/reducers, and linti
 ```shell
 npm test
 ```
+
 It's also possible to just run a linting task for both `eslint` and `stylelint` tasks.
 
 ```shell
