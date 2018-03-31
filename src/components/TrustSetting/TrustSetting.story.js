@@ -9,5 +9,5 @@ storiesOf('TrustSetting', module)
 	.addDecorator((story, context) => withInfo(TrustSetting.description)(story)(context))
 
 	.add('base', () => (
-		<TrustSetting onChange={action('onChange')} />
+		<TrustSetting onChange={action('onChange')} min={1} max={5}/>
 	));
