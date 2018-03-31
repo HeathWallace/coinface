@@ -27,6 +27,7 @@
     "lint": "npm run eslint && npm run stylelint",
     "eslint": "eslint --ignore-path .gitignore .",
     "stylelint": "stylelint src/**/*.css",
+    "format": "npm run eslint -- --fix",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 3000 -c .storybook",
     "postinstall": "copyfiles -f node_modules/superstruct/lib/index.js src/lib/superstruct"

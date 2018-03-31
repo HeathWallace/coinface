@@ -71,6 +71,8 @@ npm run lint
 
 Prettier & ESLint are used to control code style. For Atom, using [prettier-atom](https://atom.io/packages/prettier-atom) with "Automatically format on save" and "ESLint integration" enabled is recommended.
 
+If you prefer not to auto-format on save, `npm run format` is available.
+
 ## Licensing
 
 See [LICENSE.md](blob/master/LICENSE.md).
