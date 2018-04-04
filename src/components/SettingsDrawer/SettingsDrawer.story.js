@@ -7,10 +7,11 @@ import SettingsDrawer from './SettingsDrawer';
 import fixedPositionContainer from '../../utils/fixedPositionContainer';
 
 storiesOf('SettingsDrawer', module)
-
 	.addDecorator(fixedPositionContainer({ height: 600 }))
 
-	.addDecorator((story, context) => withInfo(SettingsDrawer.description)(story)(context))
+	.addDecorator((story, context) =>
+		withInfo(SettingsDrawer.description)(story)(context)
+	)
 
 	.add('Open', () => (
 		<SettingsDrawer isOpen={true} onClose={action('onClose')}>

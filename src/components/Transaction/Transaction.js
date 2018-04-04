@@ -39,7 +39,7 @@ class Transaction extends React.Component {
 		} else {
 			fetch(`${url}/search/?address=${from}`)
 				.then(response => response.json())
-				.then(([ user ]) => {
+				.then(([user]) => {
 					if (user) {
 						const { username, name } = user;
 
@@ -49,7 +49,6 @@ class Transaction extends React.Component {
 					}
 				});
 		}
-
 	}
 
 	componentWillUnmount() {
@@ -84,17 +83,21 @@ class Transaction extends React.Component {
 		const { username, name } = this.state;
 
 		return (
-			<div className='Transaction'>
-				<div className='transactionInner'>
-					<SkypeProfile username={username}/>
-					<div className='customerDetails'>
-						<FirstName name={name}></FirstName>
-						<p className='time'>{this._toHumanReadableInterval(timestamp)}</p>
-						<p className='from'><code>{from}</code></p>
+			<div className="Transaction">
+				<div className="transactionInner">
+					<SkypeProfile username={username} />
+					<div className="customerDetails">
+						<FirstName name={name} />
+						<p className="time">{this._toHumanReadableInterval(timestamp)}</p>
+						<p className="from">
+							<code>{from}</code>
+						</p>
 					</div>
-					<p className='amount'>{this._toHumanReadableAmount(amount, decimals)} {symbol}</p>
+					<p className="amount">
+						{this._toHumanReadableAmount(amount, decimals)} {symbol}
+					</p>
 				</div>
-				<ProgressBar trust={trust}></ProgressBar>
+				<ProgressBar trust={trust} />
 			</div>
 		);
 	}

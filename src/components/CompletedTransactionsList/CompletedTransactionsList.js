@@ -8,24 +8,18 @@ import Transaction from '../Transaction/Transaction';
 import DailyTotal from '../../containers/DailyTotal/DailyTotal';
 
 const CompletedTransactionsList = ({ transactions }) => (
-	<div className='CompletedTransactionsList'>
+	<div className="CompletedTransactionsList">
 		<SectionHeader>Completed</SectionHeader>
-		<DailyTotal/>
+		<DailyTotal />
 		{transactions.length > 0 &&
 			transactions.map(transaction => (
-				<Transaction
-					key={transaction.hash}
-					{...transaction}
-				/>
-			))
-		}
-		{transactions.length <= 0 &&
-			<div className='no-results'>
-				<p>
-					There are no transactions to show...yet
-				</p>
+				<Transaction key={transaction.hash} {...transaction} />
+			))}
+		{transactions.length <= 0 && (
+			<div className="no-results">
+				<p>There are no transactions to show...yet</p>
 			</div>
-		}
+		)}
 	</div>
 );
 

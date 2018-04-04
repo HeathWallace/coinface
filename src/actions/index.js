@@ -17,36 +17,38 @@ const POLL_RATE = 10000; // milliseconds
 export const addTransaction = data => {
 	const payload = Transaction(data);
 
-	return ({
+	return {
 		type: types.ADD_TRANSACTION,
 		payload,
-	});
+	};
 };
 
 export const receiveTransactions = transactions => (dispatch, getState) => {
-
 	const { settings, transactions: knownTxs } = getState();
 
 	const { trustLevel } = settings;
 
 	transactions.forEach(async transaction => {
-
 		// If we already know about it, skip if it's already exceeded the confirmation target.
 		const transactionIsKnown = !!knownTxs[transaction.transactionHash];
-		if (transactionIsKnown && knownTxs[transaction.transactionHash].confirmations >= trustLevel) return;
+		if (
+			transactionIsKnown &&
+			knownTxs[transaction.transactionHash].confirmations >= trustLevel
+		)
+			return;
 
 		// Otherwise, scrape for how many confirmations it has.
 		const meta = await txHashApi.getMeta(transaction.transactionHash);
 		const { confirmations } = meta;
-		dispatch(addTransaction({ ...transaction, confirmations}));
+		dispatch(addTransaction({ ...transaction, confirmations }));
 	});
 };
 
 export const getAllTransactions = () => (dispatch, getState) => {
-
 	const { walletAddress } = getState().settings;
 
-	transactionApi.getTransactions({ walletAddress })
+	transactionApi
+		.getTransactions({ walletAddress })
 		.then(transactions => {
 			dispatch(receiveTransactions(transactions));
 		})
@@ -79,17 +81,19 @@ export const createSimulatedTransactions = () => (dispatch, getState) => {
 
 	let i = Number(trustLevel);
 	while (i--) {
-		dispatch(addPendingTransaction({
-			confirmations: i,
-			from: walletAddress,
-			params: [
-				walletAddress,
-				'00000000000000000000000000000000000000000000000000000000000000c8',
-			],
-			timestamp: 0,
-			token: tokenAddress,
-			txHash: `0x000000000000000000000000000000000000000000000000000000000000000${i}`,
-		}));
+		dispatch(
+			addPendingTransaction({
+				confirmations: i,
+				from: walletAddress,
+				params: [
+					walletAddress,
+					'00000000000000000000000000000000000000000000000000000000000000c8',
+				],
+				timestamp: 0,
+				token: tokenAddress,
+				txHash: `0x000000000000000000000000000000000000000000000000000000000000000${i}`,
+			})
+		);
 	}
 };
 

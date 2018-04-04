@@ -4,8 +4,15 @@ import inputIdGenerator from '../../utils/inputIdGenerator';
 import TextInput from '../TextInput/TextInput';
 import ErrorList from '../ErrorList/ErrorList';
 
-const AddressInput = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange, isValid, errors }) => (
-	<div className='AddressInput'>
+const AddressInput = ({
+	id = inputIdGenerator.nextIndex,
+	labelText,
+	value,
+	onChange,
+	isValid,
+	errors,
+}) => (
+	<div className="AddressInput">
 		<TextInput
 			id={id}
 			labelText={labelText}
@@ -30,7 +37,7 @@ AddressInput.defaultProps = {
 
 AddressInput.propTypes = {
 	/** HTML id attribute for the input
-	If not present one is generated automagically */
+	 If not present one is generated automagically */
 	id: PropTypes.string,
 
 	/** Text used for the label */

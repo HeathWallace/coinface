@@ -4,9 +4,17 @@ import md5 from 'md5';
 
 import './GravatarProfile.css';
 
-const GravatarProfile = ({email, gravStyle}) => (
-	<div className='GravatarProfile'>
-		<img src={'https://www.gravatar.com/avatar/' + md5(email.trim().toLowerCase()) + '?d=' + gravStyle} alt="" />
+const GravatarProfile = ({ email, gravStyle }) => (
+	<div className="GravatarProfile">
+		<img
+			src={
+				'https://www.gravatar.com/avatar/' +
+				md5(email.trim().toLowerCase()) +
+				'?d=' +
+				gravStyle
+			}
+			alt=""
+		/>
 	</div>
 );
 
@@ -19,7 +27,6 @@ GravatarProfile.propTypes = {
 	email: PropTypes.string.isRequired,
 	/** gravatar style to be used to generate default gravatars. Options are mm, identicon, monsterid, wavatar, retro, robohash */
 	gravStyle: PropTypes.string,
-
 };
 
 GravatarProfile.defaultProps = {

@@ -7,25 +7,27 @@ import PendingTransactionsList from '../PendingTransactionsList/PendingTransacti
 import CompletedTransactionsList from '../CompletedTransactionsList/CompletedTransactionsList';
 
 const TransactionsList = ({ transactions }) => {
-	const pendingTransactions = transactions.filter(transaction => transaction.trust < 100);
-	const completedTransactions = transactions.filter(transaction => transaction.trust >= 100);
+	const pendingTransactions = transactions.filter(
+		transaction => transaction.trust < 100
+	);
+	const completedTransactions = transactions.filter(
+		transaction => transaction.trust >= 100
+	);
 
 	return (
-		<div className='TransactionsList'>
-			{transactions.length >0 &&
+		<div className="TransactionsList">
+			{transactions.length > 0 && (
 				<div>
-					<PendingTransactionsList transactions={pendingTransactions}/>
-					<CompletedTransactionsList transactions={completedTransactions}/>
+					<PendingTransactionsList transactions={pendingTransactions} />
+					<CompletedTransactionsList transactions={completedTransactions} />
 				</div>
-			}
+			)}
 
-			{transactions.length <= 0 &&
-				<div className='no-results'>
-					<p>
-						There are no transactions to show...yet
-					</p>
+			{transactions.length <= 0 && (
+				<div className="no-results">
+					<p>There are no transactions to show...yet</p>
 				</div>
-			}
+			)}
 		</div>
 	);
 };

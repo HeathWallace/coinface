@@ -27,6 +27,7 @@
     "lint": "npm run eslint && npm run stylelint",
     "eslint": "eslint --ignore-path .gitignore .",
     "stylelint": "stylelint src/**/*.css",
+    "format": "npm run eslint -- --fix",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 3000 -c .storybook",
     "postinstall": "copyfiles -f node_modules/superstruct/lib/index.js src/lib/superstruct"
@@ -37,7 +38,10 @@
     "cross-env": "^5.1.4",
     "enzyme": "^3.3.0",
     "eslint": "^4.18.2",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
     "jest-junit": "^3.6.0",
+    "prettier": "^1.11.1",
     "react-test-renderer": "^16.2.0",
     "redux-devtools": "^3.4.1",
     "redux-devtools-dock-monitor": "^1.1.3",

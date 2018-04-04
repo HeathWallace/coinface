@@ -4,14 +4,18 @@ import inputIdGenerator from '../../utils/inputIdGenerator';
 
 import './TextInput.css';
 
-const TextInput = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange, isValid }) => (
+const TextInput = ({
+	id = inputIdGenerator.nextIndex,
+	labelText,
+	value,
+	onChange,
+	isValid,
+}) => (
 	<div className={`TextInput ${isValid ? '' : 'is-invalid'}`}>
-		<label htmlFor={id}>
-			{labelText}
-		</label>
+		<label htmlFor={id}>{labelText}</label>
 		<input
 			id={id}
-			type='text'
+			type="text"
 			onChange={e => onChange(e.target.value)}
 			value={value}
 			aria-invalid={!isValid}
@@ -25,7 +29,7 @@ Basic text input complete with label
 
 TextInput.propTypes = {
 	/** HTML id attribute for the input
-	If not present one is generated automagically */
+	 If not present one is generated automagically */
 	id: PropTypes.string,
 
 	/** Text used for the label */

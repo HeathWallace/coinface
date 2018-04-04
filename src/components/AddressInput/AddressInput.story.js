@@ -5,9 +5,8 @@ import { storiesOf, action, withInfo } from '../../stories';
 import AddressInput from './AddressInput';
 
 storiesOf('AddressInput', module)
+	.addDecorator((story, context) =>
+		withInfo(AddressInput.description)(story)(context)
+	)
 
-	.addDecorator((story, context) => withInfo(AddressInput.description)(story)(context))
-
-	.add('base', () => (
-		<AddressInput onChange={action('onChange')} />
-	));
+	.add('base', () => <AddressInput onChange={action('onChange')} />);

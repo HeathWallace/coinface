@@ -4,16 +4,10 @@ import PropTypes from 'prop-types';
 import './ErrorList.css';
 
 const ErrorList = ({ errors }) => (
-	<div className='ErrorList'>
-		{errors.length > 0 &&
-		<ul>
-			{errors.map((item, index) => (
-				<li key={index}>
-					{item}
-				</li>
-			))}
-		</ul>
-		}
+	<div className="ErrorList">
+		{errors.length > 0 && (
+			<ul>{errors.map((item, index) => <li key={index}>{item}</li>)}</ul>
+		)}
 	</div>
 );
 

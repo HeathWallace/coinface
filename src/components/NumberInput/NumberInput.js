@@ -4,14 +4,17 @@ import inputIdGenerator from '../../utils/inputIdGenerator';
 
 import './NumberInput.css';
 
-const NumberInput = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange }) => (
-	<div className='NumberInput'>
-		<label htmlFor={id}>
-			{labelText}
-		</label>
+const NumberInput = ({
+	id = inputIdGenerator.nextIndex,
+	labelText,
+	value,
+	onChange,
+}) => (
+	<div className="NumberInput">
+		<label htmlFor={id}>{labelText}</label>
 		<input
 			id={id}
-			type='number'
+			type="number"
 			onChange={e => onChange(e.target.value)}
 			value={value}
 		/>
@@ -24,7 +27,7 @@ Basic number input complete with label
 
 NumberInput.propTypes = {
 	/** HTML id attribute for the input
-	If not present one is generated automagically */
+	 If not present one is generated automagically */
 	id: PropTypes.string,
 
 	/** Text used for the label */

@@ -4,9 +4,15 @@ import * as types from '../../constants/actionTypes';
 const initialTransactions = {};
 
 class Handlers {
-	static [types.ADD_TRANSACTION] (transactionsState, { payload }) {
-
-		const { address, transactionHash, data, timeStamp, topics: [/*functionSignature*/, paddedFrom, paddedTo], confirmations } = payload;
+	static [types.ADD_TRANSACTION](transactionsState, { payload }) {
+		const {
+			address,
+			transactionHash,
+			data,
+			timeStamp,
+			topics: [, /*functionSignature*/ paddedFrom, paddedTo],
+			confirmations,
+		} = payload;
 
 		const timestamp = parseInt(timeStamp, 16);
 
@@ -24,7 +30,7 @@ class Handlers {
 			...transactionsState,
 
 			// Stored at a computed key in the object.
-			[ transactionHash ]: {
+			[transactionHash]: {
 				timestamp,
 				from,
 				to,
@@ -35,11 +41,10 @@ class Handlers {
 		};
 	}
 
-	static [types.ADD_PENDING_TRANSACTION] (transactionsState, { payload }) {
-
+	static [types.ADD_PENDING_TRANSACTION](transactionsState, { payload }) {
 		const { from, params, timestamp, token, txHash, confirmations } = payload;
 
-		const [ paddedTo, _amount ] = params;
+		const [paddedTo, _amount] = params;
 
 		const to = '0x' + paddedTo.substr(26);
 		const amount = parseInt(_amount, 16);
@@ -58,7 +63,7 @@ class Handlers {
 		};
 	}
 
-	static [types.CLEAR_TRANSACTIONS] () {
+	static [types.CLEAR_TRANSACTIONS]() {
 		return initialTransactions;
 	}
 }
