@@ -19,10 +19,6 @@ class App extends React.Component {
 		};
 	}
 
-	tempLog(e) {
-		console.log(e); // eslint-disable-line
-	}
-
 	toggleSettingsDrawer() {
 		this.setState(prevState => {
 			return { settingsDrawerIsOpen: !prevState.settingsDrawerIsOpen };
