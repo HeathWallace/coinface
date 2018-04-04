@@ -18,14 +18,19 @@ import {
 	addWallet,
 } from './actions';
 
+// Default settings
 store.dispatch(addWallet(env.REACT_APP_WALLET_ADDRESS));
 store.dispatch(addToken(env.REACT_APP_CONTRACT_ADDRESS));
-store.dispatch(addTokenMetadata(env.REACT_APP_CONTRACT_ADDRESS));
-
 store.dispatch(setTrust(6));
 
+// Preload token data for contract
+store.dispatch(addTokenMetadata(env.REACT_APP_CONTRACT_ADDRESS));
+
+// Fetch transactions
 store.dispatch(getPendingTransactions());
 store.dispatch(getAllTransactions());
+
+// Set up polling for transactions
 store.dispatch(enableTransactionPolling());
 
 if (env.REACT_APP_SIMULATED_TRANSACTIONS) {
