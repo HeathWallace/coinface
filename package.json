@@ -16,7 +16,7 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "superstruct": "^0.5.1",
-    "yaab": "0.1.0"
+    "yaab": "^0.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
