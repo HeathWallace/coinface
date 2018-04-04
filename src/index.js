@@ -36,7 +36,7 @@ ReactDOM.render(
 	<Provider store={store}>
 		<div>
 			<App />
-			{ env.NODE_ENV !== 'production' && <DevTools /> }
+			{env.NODE_ENV !== 'production' && <DevTools />}
 		</div>
 	</Provider>,
 	document.getElementById('root')

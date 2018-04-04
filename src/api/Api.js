@@ -5,11 +5,17 @@ export default class Api {
 	}
 
 	fetch(url, params) {
-		const allParams = {...this.fixedParams, ...params};
+		const allParams = { ...this.fixedParams, ...params };
 
 		const escape = encodeURIComponent;
 
-		const finalURL = this.base + url + '?' + Object.keys(allParams).map(key => `${escape(key)}=${escape(allParams[key])}`).join('&');
+		const finalURL =
+			this.base +
+			url +
+			'?' +
+			Object.keys(allParams)
+				.map(key => `${escape(key)}=${escape(allParams[key])}`)
+				.join('&');
 
 		return fetch(finalURL).then(response => response.json());
 	}

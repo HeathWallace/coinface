@@ -10,4 +10,6 @@ class TokenMetadata extends Api {
 	}
 }
 
-export default new TokenMetadata('https://api.ethplorer.io', { apiKey: env.REACT_APP_ETHPLORER_API_KEY });
+export default new TokenMetadata('https://api.ethplorer.io', {
+	apiKey: env.REACT_APP_ETHPLORER_API_KEY,
+});

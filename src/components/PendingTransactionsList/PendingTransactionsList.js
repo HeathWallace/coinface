@@ -7,24 +7,18 @@ import SectionHeader from '../SectionHeader/SectionHeader';
 import Transaction from '../Transaction/Transaction';
 
 const PendingTransactionsList = ({ transactions }) => (
-	<div className='PendingTransactionsList'>
+	<div className="PendingTransactionsList">
 		<SectionHeader>Pending</SectionHeader>
 		{transactions.length > 0 &&
 			transactions.map(transaction => (
-				<Transaction
-					key={transaction.hash}
-					{...transaction}
-				/>
-			))
-		}
-		{transactions.length <= 0 &&
-			<div className='no-results'>
-				<p>
-					There are no transactions to show...yet
-				</p>
+				<Transaction key={transaction.hash} {...transaction} />
+			))}
+		{transactions.length <= 0 && (
+			<div className="no-results">
+				<p>There are no transactions to show...yet</p>
 			</div>
-		}
-		<div className='wave'></div>
+		)}
+		<div className="wave" />
 	</div>
 );
 

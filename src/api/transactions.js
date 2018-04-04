@@ -24,9 +24,10 @@ class Transactions extends Api {
 		const url = '/api';
 		const params = { module, action, fromBlock, toBlock, topic0, topic2 };
 
-		return this.fetch(url, params)
-			.then(response => response.result);
+		return this.fetch(url, params).then(response => response.result);
 	}
 }
 
-export default new Transactions('https://api.etherscan.io', { apikey: env.REACT_APP_ETHERSCAN_API_KEY });
+export default new Transactions('https://api.etherscan.io', {
+	apikey: env.REACT_APP_ETHERSCAN_API_KEY,
+});

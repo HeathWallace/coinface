@@ -7,9 +7,9 @@ const defaultStyles = {
 };
 
 export default customStyles => {
-	const styles = {...defaultStyles, ...customStyles};
+	const styles = { ...defaultStyles, ...customStyles };
 
-	const fixedPositionContainer = story => <div style={styles}>{ story() }</div>;
+	const fixedPositionContainer = story => <div style={styles}>{story()}</div>;
 
 	return fixedPositionContainer;
 };

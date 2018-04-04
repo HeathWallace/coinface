@@ -7,7 +7,7 @@ import './Header.css';
 
 const Header = ({ theme, children, onOpenSettings }) => (
 	<div className={`Header ${theme}`}>
-		<div className='content'>{children}</div>
+		<div className="content">{children}</div>
 		<SettingsWheel onClick={onOpenSettings} />
 	</div>
 );
@@ -29,7 +29,6 @@ Header.propTypes = {
 
 	/** function to parse through to SettingsWheel for onClick event */
 	onOpenSettings: PropTypes.func.isRequired,
-
 };
 
 export default Header;

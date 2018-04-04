@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 
 import './SettingsWheel.css';
 
-const SettingsWheel = ({accessibleText, onClick}) => (
-	<button className='SettingsWheel'
-		onClick={onClick}>
-		<span className='accessible'>{accessibleText}</span>
+const SettingsWheel = ({ accessibleText, onClick }) => (
+	<button className="SettingsWheel" onClick={onClick}>
+		<span className="accessible">{accessibleText}</span>
 	</button>
 );
 
@@ -16,7 +15,6 @@ The settings wheel component that will trigger or route to the vendor's settings
 
 SettingsWheel.defaultProps = {
 	accessibleText: 'Settings',
-
 };
 SettingsWheel.propTypes = {
 	/** The text provided for screen readers */

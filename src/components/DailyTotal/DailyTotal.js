@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import './DailyTotal.css';
 
 const DailyTotal = ({ total, symbol, date }) => (
-	<div className='DailyTotal'>
-		<span className='date'>{date}</span>
-		<span className='total'>Total: {total} {symbol}</span>
+	<div className="DailyTotal">
+		<span className="date">{date}</span>
+		<span className="total">
+			Total: {total} {symbol}
+		</span>
 	</div>
 );
 

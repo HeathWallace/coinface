@@ -13,7 +13,10 @@ const mapStateToProps = state => ({
 			// is 100%. Otherwise calculate how far to target
 			// confirmation amount it is.
 			const { confirmations } = transaction;
-			const trust = confirmations >= targetConfirmations ? 100 : (confirmations / targetConfirmations) * 100;
+			const trust =
+				confirmations >= targetConfirmations
+					? 100
+					: confirmations / targetConfirmations * 100;
 
 			return {
 				hash,

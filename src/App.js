@@ -10,7 +10,6 @@ import TransactionList from './containers/TransactionList/TransactionList';
 import ConnectedSettingsDrawer from './containers/SettingsDrawer/SettingsDrawer';
 
 class App extends React.Component {
-
 	constructor(props) {
 		super(props);
 		bindMethods(this);
@@ -34,22 +33,21 @@ class App extends React.Component {
 		const { settingsDrawerIsOpen } = this.state;
 
 		return (
-			<div className='App'>
-				<h1 className='accessible'>Gromits POS</h1>
+			<div className="App">
+				<h1 className="accessible">Gromits POS</h1>
 				<Header onOpenSettings={this.toggleSettingsDrawer}>
-					<div className='logo'>
-						<img src={logo} alt='Shed' />
+					<div className="logo">
+						<img src={logo} alt="Shed" />
 					</div>
 				</Header>
 
-				<TransactionList/>
+				<TransactionList />
 
 				<ConnectedSettingsDrawer
 					isOpen={settingsDrawerIsOpen}
 					onClose={this.toggleSettingsDrawer}
-					heading='Settings'
-
-					trustSettingValue='1'
+					heading="Settings"
+					trustSettingValue="1"
 					onSave={this.toggleSettingsDrawer}
 				/>
 			</div>

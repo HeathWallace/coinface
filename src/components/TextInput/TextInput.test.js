@@ -3,15 +3,14 @@ import { shallow } from 'enzyme';
 import TextInput from './TextInput';
 
 describe('TextInput does the thing', () => {
-
 	it('renders an input component', () => {
-		const wrapper = shallow(<TextInput labelText='Foo' />);
+		const wrapper = shallow(<TextInput labelText="Foo" />);
 
 		expect(wrapper.find('input').exists()).toEqual(true);
 	});
 
 	it('generates matching IDs on the label and input', () => {
-		const wrapper = shallow(<TextInput labelText='Foo' />);
+		const wrapper = shallow(<TextInput labelText="Foo" />);
 
 		let inputId = wrapper.find('input').prop('id');
 		let labelId = wrapper.find('label').prop('htmlFor');
@@ -20,7 +19,7 @@ describe('TextInput does the thing', () => {
 	});
 
 	it('starts with the value of the input equal to the value prop', () => {
-		const wrapper = shallow(<TextInput labelText='Foo' value='Bar' />);
+		const wrapper = shallow(<TextInput labelText="Foo" value="Bar" />);
 
 		expect(wrapper.find('input').prop('value')).toEqual('Bar');
 	});
@@ -30,7 +29,9 @@ describe('TextInput does the thing', () => {
 		let mockEvent = {
 			target: { value: 'Bar' },
 		};
-		const wrapper = shallow(<TextInput labelText='Foo' onChange={mockChange} />);
+		const wrapper = shallow(
+			<TextInput labelText="Foo" onChange={mockChange} />
+		);
 
 		let input = wrapper.find('input');
 

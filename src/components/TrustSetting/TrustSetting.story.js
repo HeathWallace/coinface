@@ -5,9 +5,8 @@ import { storiesOf, action, withInfo } from '../../stories';
 import TrustSetting from './TrustSetting';
 
 storiesOf('TrustSetting', module)
+	.addDecorator((story, context) =>
+		withInfo(TrustSetting.description)(story)(context)
+	)
 
-	.addDecorator((story, context) => withInfo(TrustSetting.description)(story)(context))
-
-	.add('base', () => (
-		<TrustSetting onChange={action('onChange')} />
-	));
+	.add('base', () => <TrustSetting onChange={action('onChange')} />);

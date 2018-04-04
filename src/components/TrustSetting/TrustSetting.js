@@ -3,8 +3,13 @@ import PropTypes from 'prop-types';
 import inputIdGenerator from '../../utils/inputIdGenerator';
 import NumberInput from '../NumberInput/NumberInput';
 
-const TrustSetting = ({ id = inputIdGenerator.nextIndex, labelText, value, onChange }) => (
-	<div className='TrustSetting'>
+const TrustSetting = ({
+	id = inputIdGenerator.nextIndex,
+	labelText,
+	value,
+	onChange,
+}) => (
+	<div className="TrustSetting">
 		<NumberInput
 			id={id}
 			labelText={labelText}
@@ -27,7 +32,7 @@ TrustSetting.defaultProps = {
 
 TrustSetting.propTypes = {
 	/** HTML id attribute for the input
-	If not present one is generated automagically */
+	 If not present one is generated automagically */
 	id: PropTypes.string,
 
 	/** Text used for the label */

@@ -23,7 +23,7 @@ class Identity extends React.Component {
 
 		fetch(`${url}/search/?address=${address}`)
 			.then(response => response.json())
-			.then(([ user ]) => {
+			.then(([user]) => {
 				if (user) {
 					const { username, name } = user;
 
@@ -34,11 +34,9 @@ class Identity extends React.Component {
 
 	render() {
 		return (
-			<div className='Identity'>
-				<SkypeProfile
-					username={this.state.username}
-				/>
-				<FirstName name={this.state.name}></FirstName>
+			<div className="Identity">
+				<SkypeProfile username={this.state.username} />
+				<FirstName name={this.state.name} />
 			</div>
 		);
 	}
