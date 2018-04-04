@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import human from 'human-time';
 
+import bindMethods from 'yaab';
+
 import './Transaction.css';
 
 import env from '../../utils/environment';
@@ -15,14 +17,13 @@ const identityCache = {};
 class Transaction extends React.Component {
 	constructor(props) {
 		super(props);
+		bindMethods(this);
 
 		this.state = {
 			secondsElapsed: 0,
 			username: 'unknown',
 			name: 'Unknown',
 		};
-
-		this.tick = this.tick.bind(this);
 	}
 
 	componentDidMount() {
