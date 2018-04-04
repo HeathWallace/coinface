@@ -26,9 +26,12 @@ export const addTransaction = data => {
 export const receiveTransactions = transactions => (dispatch, getState) => {
 	const { settings, transactions: knownTxs } = getState();
 
-	const { trustLevel } = settings;
+	const { trustLevel, tokenAddress } = settings;
 
 	transactions.forEach(async transaction => {
+		// Ignore if it's not our token.
+		if (transaction.address !== tokenAddress) return;
+
 		// If we already know about it, skip if it's already exceeded the confirmation target.
 		const transactionIsKnown = !!knownTxs[transaction.transactionHash];
 		if (
@@ -46,7 +49,6 @@ export const receiveTransactions = transactions => (dispatch, getState) => {
 
 export const getAllTransactions = () => (dispatch, getState) => {
 	const { walletAddress } = getState().settings;
-
 	transactionApi
 		.getTransactions({ walletAddress })
 		.then(transactions => {
