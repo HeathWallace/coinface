@@ -1,6 +1,7 @@
 import * as types from '../constants/actionTypes';
 import transactionApi from '../api/transactions';
 import tokenMetadataApi from '../api/tokenMetadata';
+import gasPriceApi from '../api/gasPrice';
 import pendingApi from '../api/pending';
 import txHashApi from '../api/txHash';
 
@@ -162,3 +163,25 @@ export const setTrust = trustLevel => ({
 	type: types.SET_TRUST,
 	payload: { trustLevel },
 });
+
+/*
+|--------------------------------------------------------------------------
+| Gas Price
+|--------------------------------------------------------------------------
+*/
+
+export const startLoadingGasPrice = () => ({
+	type: types.START_LOADING_GAS_PRICE,
+});
+
+export const finishLoadingGasPrice = gasPrice => ({
+	type: types.FINISH_LOADING_GAS_PRICE,
+	payload: { gasPrice },
+});
+
+export const getGasPrice = () => dispatch => {
+	dispatch(startLoadingGasPrice());
+	gasPriceApi.getGasPrice().then(gasPrice => {
+		dispatch(finishLoadingGasPrice(gasPrice));
+	});
+};
