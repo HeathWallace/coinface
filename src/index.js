@@ -17,7 +17,7 @@ import {
 	addToken,
 	addWallet,
 	getGasPrice,
-    enableGasPricePolling,
+	enableGasPricePolling,
 } from './actions';
 
 // Default settings
