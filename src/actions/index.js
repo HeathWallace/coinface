@@ -185,3 +185,9 @@ export const getGasPrice = () => dispatch => {
 		dispatch(finishLoadingGasPrice(gasPrice));
 	});
 };
+
+export const enableGasPricePolling = () => dispatch => {
+	setInterval(() => {
+		dispatch(getGasPrice());
+	}, POLL_RATE);
+};

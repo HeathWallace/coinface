@@ -1,9 +1,9 @@
 import { createReducer } from '../util';
 import * as types from '../../constants/actionTypes';
 
-const initialSettings = {};
+const initialSettings = 0;
 
-const loadingGasPrice = () => null;
+const loadingGasPrice = () => initialSettings;
 
 const loadedGasPrice = (gas, { payload }) => payload.gasPrice;
 
