@@ -8,6 +8,7 @@ import Header from './components/Header/Header';
 import logo from './assets/images/logo.svg';
 import TransactionList from './containers/TransactionList/TransactionList';
 import ConnectedSettingsDrawer from './containers/SettingsDrawer/SettingsDrawer';
+import GasPrice from './containers/GasPrice/GasPrice';
 
 class App extends React.Component {
 	constructor(props) {
@@ -46,6 +47,8 @@ class App extends React.Component {
 					trustSettingValue="1"
 					onSave={this.toggleSettingsDrawer}
 				/>
+
+				<GasPrice />
 			</div>
 		);
 	}

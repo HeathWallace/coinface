@@ -16,6 +16,8 @@ import {
 	setTrust,
 	addToken,
 	addWallet,
+	getGasPrice,
+	enableGasPricePolling,
 } from './actions';
 
 // Default settings
@@ -32,6 +34,12 @@ store.dispatch(getAllTransactions());
 
 // Set up polling for transactions
 store.dispatch(enableTransactionPolling());
+
+// Fetch gas price
+store.dispatch(getGasPrice());
+
+// Set up polling for gas price
+store.dispatch(enableGasPricePolling());
 
 if (env.REACT_APP_SIMULATED_TRANSACTIONS) {
 	store.dispatch(createSimulatedTransactions());
