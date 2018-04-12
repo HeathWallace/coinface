@@ -13,17 +13,20 @@ import {
 	setTrust,
 	clearTransactions,
 	getAllTransactions,
+	addToken,
 } from '../../actions';
 import SettingsDrawer from '../../components/SettingsDrawer/SettingsDrawer';
 
 const mapStateToProps = state => ({
 	trustLevel: state.settings.trustLevel,
 	walletAddress: state.settings.walletAddress,
+	tokenAddress: state.settings.tokenAddress,
 });
 
 const mapDispatchToProps = dispatch => ({
-	onSave: ({ walletAddress, trustLevel }) => {
+	onSave: ({ walletAddress, trustLevel, tokenAddress }) => {
 		dispatch(addWallet(walletAddress));
+		dispatch(addToken(tokenAddress));
 		dispatch(setTrust(trustLevel));
 		dispatch(clearTransactions());
 		dispatch(getAllTransactions());
@@ -38,14 +41,16 @@ class ConnectedSettingsDrawer extends React.Component {
 			onSave: PropTypes.func,
 			trustLevel: PropTypes.number,
 			walletAddress: PropTypes.string.isRequired,
+			tokenAddress: PropTypes.string.isRequired,
 		};
 	}
 
 	constructor(props) {
 		super(props);
-		const { trustLevel, walletAddress } = props;
-		this.state = { trustLevel, walletAddress };
+		const { trustLevel, walletAddress, tokenAddress } = props;
+		this.state = { trustLevel, walletAddress, tokenAddress };
 		this.addressInputIsValid(walletAddress);
+		this.addressInputIsValid(tokenAddress);
 		bindMethods(this);
 	}
 
@@ -78,8 +83,9 @@ class ConnectedSettingsDrawer extends React.Component {
 
 	render() {
 		const { isOpen, onClose } = this.props;
-		const { trustLevel, walletAddress } = this.state;
+		const { trustLevel, walletAddress, tokenAddress } = this.state;
 		const walletAddressErrors = this.addressInputIsValid(walletAddress);
+		const tokenAddressErrors = this.addressInputIsValid(walletAddress);
 
 		return (
 			<SettingsDrawer isOpen={isOpen} onClose={onClose}>
@@ -90,11 +96,18 @@ class ConnectedSettingsDrawer extends React.Component {
 					onChange={this.createOnChangeHandler('trustLevel')}
 				/>
 				<AddressInput
-					labelText="Address"
+					labelText="Wallet Address"
 					value={walletAddress}
 					onChange={this.createOnChangeHandler('walletAddress')}
 					isValid={walletAddressErrors.length > 0 ? false : true}
 					errors={walletAddressErrors}
+				/>
+				<AddressInput
+					labelText="Contract Address"
+					value={tokenAddress}
+					onChange={this.createOnChangeHandler('tokenAddress')}
+					isValid={tokenAddressErrors.length > 0 ? false : true}
+					errors={tokenAddressErrors}
 				/>
 				<Button variant="secondary" onClick={this.saveClickHandler}>
 					Save
