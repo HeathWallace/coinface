@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import DevTools from './containers/DevTools/DevTools';
 import env from './utils/environment';
+import localStore from './utils/localStore';
 
 import {
 	getAllTransactions,
@@ -19,9 +20,13 @@ import {
 } from './actions';
 
 // Default settings
-store.dispatch(addWallet(env.REACT_APP_WALLET_ADDRESS));
-store.dispatch(addToken(env.REACT_APP_CONTRACT_ADDRESS));
-store.dispatch(setTrust(6));
+store.dispatch(
+	addWallet(localStore.getItem('walletAddress') || env.REACT_APP_WALLET_ADDRESS)
+);
+store.dispatch(
+	addToken(localStore.getItem('tokenAddress') || env.REACT_APP_CONTRACT_ADDRESS)
+);
+store.dispatch(setTrust(localStore.getItem('trustLevel') || 6));
 
 // Preload token data for contract
 store.dispatch(addTokenMetadata(env.REACT_APP_CONTRACT_ADDRESS));

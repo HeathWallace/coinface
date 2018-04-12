@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import localStore from '../../utils/localStore';
 
 import bindMethods from 'yaab';
 
@@ -27,6 +28,7 @@ const mapDispatchToProps = dispatch => ({
 		dispatch(setTrust(trustLevel));
 		dispatch(clearTransactions());
 		dispatch(getAllTransactions());
+		localStore.setItems({ walletAddress, trustLevel });
 	},
 });
 
