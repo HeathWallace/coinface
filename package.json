@@ -50,6 +50,19 @@
     "stylelint": "^9.1.1",
     "stylelint-config-recommended": "^2.1.0"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/lib/**",
+      "!**/utils/**",
+	  "!**/coverage/**",
+	  "!**/src/components/**",
+	  "!**/src/containers/**",
+	  "!**/src/*",
+	  "!**/src/reducers/index.js"
+    ]
+  },
   "eslintIgnore": [
     "src/lib/superstruct/index.js"
   ]
