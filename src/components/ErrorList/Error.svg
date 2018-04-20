@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/Error</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols-for-export" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-31.000000, -33.000000)" id="Icon/Error">
+            <g transform="translate(31.000000, 33.000000)">
+                <g id="Page-1">
+                    <path d="M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0" id="Fill-1" fill="#E24444"></path>
+                    <path d="M8.707,8 L11.353,5.354 C11.549,5.158 11.549,4.842 11.353,4.646 C11.158,4.451 10.842,4.451 10.646,4.646 L8,7.293 L5.353,4.646 C5.158,4.451 4.842,4.451 4.646,4.646 C4.451,4.842 4.451,5.158 4.646,5.354 L7.293,8 L4.646,10.646 C4.451,10.842 4.451,11.158 4.646,11.354 C4.744,11.451 4.872,11.5 5,11.5 C5.128,11.5 5.256,11.451 5.353,11.354 L8,8.707 L10.646,11.354 C10.744,11.451 10.872,11.5 11,11.5 C11.128,11.5 11.256,11.451 11.353,11.354 C11.549,11.158 11.549,10.842 11.353,10.646 L8.707,8 Z" id="Fill-3" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
