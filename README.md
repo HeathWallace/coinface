@@ -19,7 +19,7 @@ npm install
 npm start
 ```
 
-Create a file `.env` in the root of the app and add the variables shown in the console.
+Create a file `.env` in the root of the app and add the variables shown in the console. An example .env file is provided in the site root.
 
 Please follow [this guide to the fork+PR workflow](https://gist.github.com/Chaser324/ce0505fbed06b947d962). Pull requests are pre-populated with the project's PR template.
 
